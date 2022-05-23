@@ -1,13 +1,13 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import servicesImg from "../../../assets/images/services_480x480.png";
+// import servicesImg from "./assets/services_480x480.png";
 // import { motion } from "framer-motion";
 
 const Services = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 8rem)", xs: "calc(100% - 2rem)" },
+        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
@@ -32,47 +32,47 @@ const Services = () => {
               hidden: { opacity: 0, scale: 0 },
             }}
           > */}
-            <Box
+          <Box
+            sx={{
+              border: "1px solid #e6e6e6",
+              borderRadius: "4px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1rem",
+              "&:hover": {
+                boxShadow: "0 5px 10px 0 #e6e6e6",
+              },
+            }}
+          >
+            <img
+              style={{ width: "80%", borderRadius: "50%" }}
+              src="./assets/services_480x480.png"
+              alt="services-img"
+            />
+            <Typography
+              variant="h5"
               sx={{
-                border: "1px solid #e6e6e6",
-                borderRadius: "4px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "1rem",
-                "&:hover": {
-                  boxShadow: "0 5px 10px 0 #e6e6e6",
-                },
+                fontSize: "1.5rem",
+                margin: "1rem 0 0.5rem 0",
+                color: "#101",
               }}
             >
-              <img
-                style={{ width: "80%", borderRadius: "50%" }}
-                src={servicesImg}
-                alt="services-img"
-              />
-              <Typography
-                variant="h5"
-                sx={{
-                  fontSize: "1.5rem",
-                  margin: "1rem 0 0.5rem 0",
-                  color: "#101",
-                }}
-              >
-                Breast Aesthetic
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: "thin",
-                  letterSpacing: "1px",
-                  color: "#454",
-                }}
-              >
-                Breast augmentation utilizes FDA approved silicone or saline
-                breast implants to enhance the shape and size of the breasts.
-              </Typography>
-            </Box>
+              Breast Aesthetic
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: "thin",
+                letterSpacing: "1px",
+                color: "#454",
+              }}
+            >
+              Breast augmentation utilizes FDA approved silicone or saline
+              breast implants to enhance the shape and size of the breasts.
+            </Typography>
+          </Box>
           {/* </motion.div> */}
         </Grid>
         <Grid
@@ -94,47 +94,47 @@ const Services = () => {
               hidden: { opacity: 0, scale: 0 },
             }}
           > */}
-            <Box
+          <Box
+            sx={{
+              border: "1px solid #e6e6e6",
+              borderRadius: "4px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1rem",
+              "&:hover": {
+                boxShadow: "0 5px 10px 0 #e6e6e6",
+              },
+            }}
+          >
+            <img
+              style={{ width: "80%", borderRadius: "50%" }}
+              src="./assets/services_480x480.png"
+              alt="services-img"
+            />
+            <Typography
+              variant="h5"
               sx={{
-                border: "1px solid #e6e6e6",
-                borderRadius: "4px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "1rem",
-                "&:hover": {
-                  boxShadow: "0 5px 10px 0 #e6e6e6",
-                },
+                fontSize: "1.5rem",
+                margin: "1rem 0 0.5rem 0",
+                color: "#101",
               }}
             >
-              <img
-                style={{ width: "80%", borderRadius: "50%" }}
-                src={servicesImg}
-                alt="services-img"
-              />
-              <Typography
-                variant="h5"
-                sx={{
-                  fontSize: "1.5rem",
-                  margin: "1rem 0 0.5rem 0",
-                  color: "#101",
-                }}
-              >
-                Body Aesthetic
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: "thin",
-                  letterSpacing: "1px",
-                  color: "#454",
-                }}
-              >
-                We specialize in body contouring procedures including
-                liposuction, cutting-edge tummy tuck techniques etc.
-              </Typography>
-            </Box>
+              Body Aesthetic
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: "thin",
+                letterSpacing: "1px",
+                color: "#454",
+              }}
+            >
+              We specialize in body contouring procedures including liposuction,
+              cutting-edge tummy tuck techniques etc.
+            </Typography>
+          </Box>
           {/* </motion.div> */}
         </Grid>
         <Grid
@@ -157,48 +157,48 @@ const Services = () => {
               hidden: { opacity: 0, scale: 0 },
             }}
           > */}
-            <Box
+          <Box
+            sx={{
+              border: "1px solid #e6e6e6",
+              borderRadius: "4px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1rem",
+              "&:hover": {
+                boxShadow: "0 5px 10px 0 #e6e6e6",
+              },
+            }}
+          >
+            <img
+              style={{ width: "80%", borderRadius: "50%" }}
+              src="./assets/services_480x480.png"
+              alt="services-img"
+            />
+            <Typography
+              variant="h5"
               sx={{
-                border: "1px solid #e6e6e6",
-                borderRadius: "4px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "1rem",
-                "&:hover": {
-                  boxShadow: "0 5px 10px 0 #e6e6e6",
-                },
+                fontSize: "1.5rem",
+                margin: "1rem 0 0.5rem 0",
+                color: "#101",
               }}
             >
-              <img
-                style={{ width: "80%", borderRadius: "50%" }}
-                src={servicesImg}
-                alt="services-img"
-              />
-              <Typography
-                variant="h5"
-                sx={{
-                  fontSize: "1.5rem",
-                  margin: "1rem 0 0.5rem 0",
-                  color: "#101",
-                }}
-              >
-                Rhinoplasty
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: "thin",
-                  letterSpacing: "1px",
-                  color: "#454",
-                }}
-              >
-                Facial plastic surgery is a popular form of cosmetic plastic
-                surgery used to correct birth defects, enhance one’s natural
-                features.
-              </Typography>
-            </Box>
+              Rhinoplasty
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: "thin",
+                letterSpacing: "1px",
+                color: "#454",
+              }}
+            >
+              Facial plastic surgery is a popular form of cosmetic plastic
+              surgery used to correct birth defects, enhance one’s natural
+              features.
+            </Typography>
+          </Box>
           {/* </motion.div> */}
         </Grid>
         <Grid
@@ -220,47 +220,47 @@ const Services = () => {
               hidden: { opacity: 0, scale: 0 },
             }}
           > */}
-            <Box
+          <Box
+            sx={{
+              border: "1px solid #e6e6e6",
+              borderRadius: "4px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1rem",
+              "&:hover": {
+                boxShadow: "0 5px 10px 0 #e6e6e6",
+              },
+            }}
+          >
+            <img
+              style={{ width: "80%", borderRadius: "50%" }}
+              src="./assets/services_480x480.png"
+              alt="services-img"
+            />
+            <Typography
+              variant="h5"
               sx={{
-                border: "1px solid #e6e6e6",
-                borderRadius: "4px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "1rem",
-                "&:hover": {
-                  boxShadow: "0 5px 10px 0 #e6e6e6",
-                },
+                fontSize: "1.5rem",
+                margin: "1rem 0 0.5rem 0",
+                color: "#101",
               }}
             >
-              <img
-                style={{ width: "80%", borderRadius: "50%" }}
-                src={servicesImg}
-                alt="services-img"
-              />
-              <Typography
-                variant="h5"
-                sx={{
-                  fontSize: "1.5rem",
-                  margin: "1rem 0 0.5rem 0",
-                  color: "#101",
-                }}
-              >
-                Nonsurgical
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: "thin",
-                  letterSpacing: "1px",
-                  color: "#454",
-                }}
-              >
-                Skin tightening procedures can be performed on nearly any part
-                of the body to improve the elasticity and texture.
-              </Typography>
-            </Box>
+              Nonsurgical
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: "thin",
+                letterSpacing: "1px",
+                color: "#454",
+              }}
+            >
+              Skin tightening procedures can be performed on nearly any part of
+              the body to improve the elasticity and texture.
+            </Typography>
+          </Box>
           {/* </motion.div> */}
         </Grid>
       </Grid>

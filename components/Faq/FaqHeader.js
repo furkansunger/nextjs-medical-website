@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material";
-import image from "../../assets/images/AboutHeader.jpg";
-import { useNavigate } from "react-router-dom";
+// import image from "../../assets/images/AboutHeader.jpg";
+// import { useNavigate } from "react-router-dom";
 import { RiQuestionnaireLine } from "react-icons/ri";
 
 const Background = styled("div")({
@@ -15,13 +15,13 @@ const Background = styled("div")({
   backgroundImage:
     "linear-gradient(rgba(0, 0, 0, 0.5)," +
     "rgba(0, 0, 0, 0.5))," +
-    `url(${image})`,
+    `url("./assets/AboutHeader.jpg")`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
 });
 const FaqHeader = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <Box sx={{ width: "100%" }}>
       <Background>
@@ -52,7 +52,7 @@ const FaqHeader = () => {
           praesentium
         </Typography>
         <Typography
-          onClick={() => navigate("/")}
+          // onClick={() => navigate("/")}
           variant={"h1"}
           components={"h1"}
           color={"#dedede"}

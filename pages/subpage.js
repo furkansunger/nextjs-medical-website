@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import { Detail, Form, Header } from "../components/Subpage";
-import AppWrapper from "../wrapper/AppWrapper";
+import MainLayout from "../components/Layout"
 
 const Subpage = () => {
   return (
@@ -19,4 +19,6 @@ const Subpage = () => {
   );
 };
 
-export default AppWrapper(Subpage);
+Subpage.Layout = MainLayout;
+
+export default Subpage;

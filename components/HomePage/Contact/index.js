@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 8rem)", xs: "calc(100% - 2rem)" },
+        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
@@ -177,10 +177,10 @@ const Contact = () => {
         >
           <iframe
             style={{ width: "100%", height: "60vh" }}
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            marginHeight="0"
+            marginWidth="0"
             src="https://maps.google.com/maps?q=Op.%20Dr.%20Aykut%20Gok&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near"
             title="Op. Dr. Aykut Gok"
             aria-label="Op. Dr. Aykut Gok"

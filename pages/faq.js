@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import FaqBody from "../components/Faq/FaqBody";
 import FaqHeader from "../components/Faq/FaqHeader";
-import AppWrapper from "../wrapper/AppWrapper";
+import MainLayout from "../components/Layout"
 
 const Faq = () => {
   return (
@@ -13,4 +13,6 @@ const Faq = () => {
   );
 };
 
-export default AppWrapper(Faq);
+Faq.Layout = MainLayout;
+
+export default Faq;

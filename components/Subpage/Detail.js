@@ -5,7 +5,7 @@ const Detail = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 6rem)", xs: "calc(100% - 2rem)" },
+        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
         backgroundColor: "#ddd",
         padding: { sm: "3rem", xs: "1rem" },
         display: "flex",

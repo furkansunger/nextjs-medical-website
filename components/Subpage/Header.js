@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <Box sx={{
-        width: {sm: "calc(100% - 8rem)", xs: "calc(100% - 2rem)"},
+        width: {sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)"},
         padding: {sm: "4rem", xs: "3rem 1rem"},
         borderBottom: "8px solid cadetblue",
         background: "rgba(0, 0, 0, 0.7)",

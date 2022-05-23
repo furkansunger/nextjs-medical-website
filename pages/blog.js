@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { BlogFeaturedPosts } from "../components/BlogPage";
-import AppWrapper from "../wrapper/AppWrapper";
+import MainLayout from "../components/Layout"
 
 const Blog = () => {
   return (
@@ -11,4 +11,6 @@ const Blog = () => {
   );
 };
 
-export default AppWrapper(Blog);
+Blog.Layout = MainLayout;
+
+export default Blog;

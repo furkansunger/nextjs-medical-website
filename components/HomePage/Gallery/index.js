@@ -1,16 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { Masonry } from "@mui/lab";
-import img1 from "../../../assets/images/gray_360x600.png";
-import img2 from "../../../assets/images/gray_360x480.png";
-import img3 from "../../../assets/images/services_480x480.png";
+// import img1 from "./assets/gray_360x600.png";
+// import img2 from "./assets/gray_360x480.png";
+// import img3 from "./assets/services_480x480.png";
 // import { motion } from "framer-motion";
 
 const Gallery = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 8rem)", xs: "calc(100% - 2rem)" },
+        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
@@ -34,7 +34,7 @@ const Gallery = () => {
         > */}
         <Box>
           <img
-            src={img1}
+            src="./assets/gray_360x600.png"
             alt="gallery-img"
             style={{
               borderRadius: "4px",
@@ -56,7 +56,7 @@ const Gallery = () => {
         > */}
         <Box>
           <img
-            src={img3}
+            src="./assets/services_480x480.png"
             alt="gallery-img"
             style={{
               borderRadius: "4px",
@@ -78,7 +78,7 @@ const Gallery = () => {
         > */}
         <Box>
           <img
-            src={img2}
+            src="./assets/gray_360x480.png"
             alt="gallery-img"
             style={{
               borderRadius: "4px",
@@ -100,7 +100,7 @@ const Gallery = () => {
         > */}
         <Box>
           <img
-            src={img2}
+            src="./assets/gray_360x480.png"
             alt="gallery-img"
             style={{
               borderRadius: "4px",
@@ -122,7 +122,7 @@ const Gallery = () => {
         > */}
         <Box>
           <img
-            src={img3}
+            src="./assets/services_480x480.png"
             alt="gallery-img"
             style={{
               borderRadius: "4px",
@@ -144,7 +144,7 @@ const Gallery = () => {
         > */}
         <Box>
           <img
-            src={img1}
+            src="./assets/gray_360x600.png"
             alt="gallery-img"
             style={{
               borderRadius: "4px",

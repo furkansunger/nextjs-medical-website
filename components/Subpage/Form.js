@@ -16,8 +16,8 @@ const Form = () => {
   return (
     <Box
       sx={{
-        width: "calc(100% - 2rem)",
-        height: { sm: "calc(100% - 6rem)", xs: "calc(100% - 2rem)" },
+        width: "calc(100% - 0rem)",
+        height: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
         padding: { sm: "3rem 1rem", xs: "1rem" },
         position: "relative",
         backgroundColor: "#ddd",
@@ -25,7 +25,7 @@ const Form = () => {
     >
       <Box
         sx={{
-          width: "calc(100% - 2rem)",
+          width: "calc(100% - 0rem)",
           backgroundColor: "#fff",
           borderRadius: "0.75rem",
           padding: "1rem",

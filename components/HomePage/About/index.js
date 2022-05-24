@@ -10,27 +10,20 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaPlus,
+  FaHandHoldingMedical,
+  FaPenFancy,
 } from "react-icons/fa";
+import { FiMoreHorizontal } from "react-icons/fi";
 // import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
+        width: "100%",
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
-      {/* <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.3 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      > */}
       <Grid
         container
         // spacing={3}
@@ -50,11 +43,12 @@ const About = () => {
         >
           <Typography
             sx={{
-              color: "#385399",
+              color: "#005c71",
               fontSize: { xl: "2rem", xs: "1rem" },
-              backgroundColor: "#ccc",
+              backgroundColor: "#ddd",
               padding: "0.25rem",
               borderRadius: "0.25rem",
+              fontWeight: "bold",
             }}
           >
             ABOUT ME
@@ -88,53 +82,68 @@ const About = () => {
           >
             <Button
               sx={{
-                color: "#fff",
-                backgroundColor: "#385399",
+                color: "#005c71",
+                backgroundColor: "transparent",
                 marginTop: "1rem",
-                "&:hover": { backgroundColor: "#385399", color: "#fff" },
-                borderRadius: "50%",
-                width: "6rem",
-                height: "6rem",
+                borderRadius: "95% 4% 97% 5% / 4% 94% 3% 95%",
+                border: "2px solid #005c71",
+                width: "8rem",
+                height: "8rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
                 textAlign: "center",
                 marginRight: "1rem",
               }}
               variant="filled"
               href="/"
             >
+              <FiMoreHorizontal style={{ fontSize: "1.5rem" }} />
               Read More
             </Button>
             <Button
               sx={{
-                color: "#fff",
-                backgroundColor: "#385399",
+                color: "#005c71",
+                backgroundColor: "transparent",
                 marginTop: "1rem",
-                "&:hover": { backgroundColor: "#385399", color: "#fff" },
-                borderRadius: "50%",
-                width: "6rem",
-                height: "6rem",
+                borderRadius: "95% 4% 97% 5% / 4% 94% 3% 95%",
+                border: "2px solid #005c71",
+                width: "8rem",
+                height: "8rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
                 textAlign: "center",
                 marginRight: "1rem",
               }}
               variant="filled"
               href="/"
             >
+              <FaHandHoldingMedical style={{ fontSize: "1.5rem" }} />
               My Services
             </Button>
             <Button
               sx={{
-                color: "#fff",
-                backgroundColor: "#385399",
+                color: "#005c71",
+                backgroundColor: "transparent",
                 marginTop: "1rem",
-                "&:hover": { backgroundColor: "#385399", color: "#fff" },
-                borderRadius: "50%",
-                width: "6rem",
-                height: "6rem",
+                borderRadius: "95% 4% 97% 5% / 4% 94% 3% 95%",
+                border: "2px solid #005c71",
+                width: "8rem",
+                height: "8rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
                 textAlign: "center",
                 marginRight: "1rem",
               }}
               variant="filled"
               href="/"
             >
+              <FaPenFancy style={{ fontSize: "1.5rem" }} />
               My Blog
             </Button>
           </Box>
@@ -150,13 +159,14 @@ const About = () => {
             justifyContent: "center",
           }}
         >
-          <img
+          <Box
+            component="img"
             style={{
               width: "60%",
               borderRadius: "50%",
               boxShadow: "0px 3px 12px 0px rgba(0,0,0,0.6)",
             }}
-            src="./assets/header-bg.jpg"
+            src="./assets/about2.png"
             alt="about-img"
           />
         </Grid>
@@ -164,14 +174,15 @@ const About = () => {
       <Box
         sx={{
           marginTop: "2rem",
-          backgroundColor: "#ed1b24",
-          width: "calc(100% - 0rem)",
+          backgroundColor: "#00adb5",
+          width: "100%",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
           padding: "2rem",
-          borderRadius: "1rem",
+          borderRadius: "1.5rem",
+          boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
         }}
       >
         <Box
@@ -185,8 +196,8 @@ const About = () => {
           <IconButton
             sx={{
               color: "#fff",
-              backgroundColor: "#23408e",
-              "&:hover": { backgroundColor: "#23408e" },
+              backgroundColor: "#005c71",
+              "&:hover": { backgroundColor: "#005c71" },
             }}
           >
             <FaPhoneAlt />
@@ -195,10 +206,7 @@ const About = () => {
             <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold" }}>
               Call
             </Typography>
-            <Typography
-              variant="body1"
-              sx={{ color: "rgba(256, 256, 256, 0.8)" }}
-            >
+            <Typography variant="body2" sx={{ color: "#fff" }}>
               +90 532 419 8868
             </Typography>
           </Box>
@@ -215,8 +223,8 @@ const About = () => {
           <IconButton
             sx={{
               color: "#fff",
-              backgroundColor: "#23408e",
-              "&:hover": { backgroundColor: "#23408e" },
+              backgroundColor: "#005c71",
+              "&:hover": { backgroundColor: "#005c71" },
             }}
           >
             <FaEnvelope />
@@ -225,10 +233,7 @@ const About = () => {
             <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold" }}>
               Contact
             </Typography>
-            <Typography
-              variant="body1"
-              sx={{ color: "rgba(256, 256, 256, 0.8)" }}
-            >
+            <Typography variant="body2" sx={{ color: "#fff" }}>
               info@aykutgok.com
             </Typography>
           </Box>
@@ -245,8 +250,8 @@ const About = () => {
           <IconButton
             sx={{
               color: "#fff",
-              backgroundColor: "#23408e",
-              "&:hover": { backgroundColor: "#23408e" },
+              backgroundColor: "#005c71",
+              "&:hover": { backgroundColor: "#005c71" },
             }}
           >
             <FaPlus />
@@ -265,8 +270,9 @@ const About = () => {
               <Link href="https://www.facebook.com/draykutgok" target="_blank">
                 <IconButton
                   sx={{
-                    color: "#ddd",
-                    "&:hover": { color: "rgba(256, 256, 256, 0.8)" },
+                    fontSize: "1.25rem",
+                    color: "#fff",
+                    "&:hover": { color: "#fff" },
                   }}
                 >
                   <FaFacebookF />
@@ -276,8 +282,9 @@ const About = () => {
               <Link href="https://twitter.com/mdaykutgok" target="_blank">
                 <IconButton
                   sx={{
-                    color: "#ddd",
-                    "&:hover": { color: "rgba(256, 256, 256, 0.8)" },
+                    fontSize: "1.25rem",
+                    color: "#fff",
+                    "&:hover": { color: "#fff" },
                   }}
                 >
                   <FaTwitter />
@@ -286,8 +293,9 @@ const About = () => {
               <Link href="https://instagram.com/draykutgok" target="_blank">
                 <IconButton
                   sx={{
-                    color: "#ddd",
-                    "&:hover": { color: "rgba(256, 256, 256, 0.8)" },
+                    fontSize: "1.25rem",
+                    color: "#fff",
+                    "&:hover": { color: "#fff" },
                   }}
                 >
                   <FaInstagram />
@@ -299,8 +307,9 @@ const About = () => {
               >
                 <IconButton
                   sx={{
-                    color: "#ddd",
-                    "&:hover": { color: "rgba(256, 256, 256, 0.8)" },
+                    fontSize: "1.25rem",
+                    color: "#fff",
+                    "&:hover": { color: "#fff" },
                   }}
                 >
                   <FaLinkedinIn />
@@ -309,8 +318,9 @@ const About = () => {
               <Link href="https://youtube.com/c/wellesclinic" target="_blank">
                 <IconButton
                   sx={{
-                    color: "#ddd",
-                    "&:hover": { color: "rgba(256, 256, 256, 0.8)" },
+                    fontSize: "1.25rem",
+                    color: "#fff",
+                    "&:hover": { color: "#fff" },
                   }}
                 >
                   <FaYoutube />

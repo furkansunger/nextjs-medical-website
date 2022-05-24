@@ -59,7 +59,8 @@ const ContactForm = () => {
               display: { xs: "none", md: "block" },
             }}
           >
-            <img
+            <Box
+              component="img"
               alt="contact"
               src="https://zone-assets-api.vercel.app/assets/illustrations/illustration_courses_contact.svg"
               style={{ maxWidth: 260 }}
@@ -75,12 +76,12 @@ const ContactForm = () => {
               }}
             >
               <Typography variant="h3">Drop Us A Line</Typography>
-              <Typography sx={{ color: "text.secondary" }}>
+              <Typography sx={{ color: "#666" }}>
                 We normally respond within 2 business days
               </Typography>
             </Stack>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <Box component="form" onSubmit={handleSubmit(onSubmit)}>
               <Stack spacing={2.5} alignItems="flex-start">
                 <Controller
                   name="fullName"
@@ -147,13 +148,18 @@ const ContactForm = () => {
                   variant="contained"
                   loading={isSubmitting}
                   sx={{
-                    mx: { xs: "auto !important", md: "unset !important" },
+                    mx: {
+                      xs: "auto !important",
+                      md: "unset !important",
+                      backgroundColor: "#00adb5",
+                      color: "#fff",
+                    },
                   }}
                 >
                   Send Request
                 </LoadingButton>
               </Stack>
-            </form>
+            </Box>
           </Grid>
         </Grid>
       </Container>

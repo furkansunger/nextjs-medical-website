@@ -44,8 +44,9 @@ const FaqHeader = () => {
         <Typography
           color="#fff"
           sx={{
-            fontSize: { xs: "17px", sm: "20px", md: "24px" },
+            fontSize: { xs: "15px", sm: "18px", md: "20px" },
             textAlign: "center",
+            marginBottom: "1rem"
           }}
         >
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi,
@@ -53,14 +54,13 @@ const FaqHeader = () => {
         </Typography>
         <Typography
           // onClick={() => navigate("/")}
-          variant={"h1"}
-          components={"h1"}
+          variant={"h5"}
           color={"#dedede"}
           sx={{
             fontWeight: 300,
             fontSize: "1.5rem",
             fontFamily: "'Poppins', sans-serif",
-            // borderBottom: "1px solid #FFF",
+            borderBottom: "1px solid #FFF",
             ":hover": {
               cursor: "pointer",
             },

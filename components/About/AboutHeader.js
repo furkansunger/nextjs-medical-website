@@ -47,7 +47,7 @@ const AboutHeader = () => {
             fontWeight: 300,
             fontSize: "1.5rem",
             fontFamily: "'Poppins', sans-serif",
-            // borderBottom: "1px solid #FFF",
+            borderBottom: "1px solid #FFF",
             ":hover": {
               cursor: "pointer",
             },

@@ -33,15 +33,15 @@ const ContactInfo = () => {
             <Stack spacing={3}>
               <Stack spacing={1}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaEnvelope style={{ fontSize: "1.5rem" }} />
-                  <Typography variant="body1" sx={{ marginLeft: "0.5rem" }}>
+                  <FaEnvelope style={{ fontSize: "1.5rem", color: "#005c71" }} />
+                  <Typography variant="body1" sx={{ marginLeft: "0.5rem", color: "#333" }}>
                     Email
                   </Typography>
                 </Box>
                 <Link
                   variant="body2"
                   href="mailto:info@aykutgok.com"
-                  sx={{ color: "rgba(0, 0, 0, 0.6)" }}
+                  sx={{ color: "rgba(0, 0, 0, 0.7)", textDecorationColor: "rgba(0, 0, 0, 0.7)" }}
                 >
                   info@aykutgok.com
                 </Link>
@@ -49,15 +49,15 @@ const ContactInfo = () => {
 
               <Stack spacing={1}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaPhoneAlt style={{ fontSize: "1.5rem" }} />
-                  <Typography variant="body1" sx={{ marginLeft: "0.5rem" }}>
+                  <FaPhoneAlt style={{ fontSize: "1.5rem", color: "#005c71" }} />
+                  <Typography variant="body1" sx={{ marginLeft: "0.5rem", color: "#333" }}>
                     Phone
                   </Typography>
                 </Box>
 
                 <Typography
                   variant="body2"
-                  sx={{ color: "rgba(0, 0, 0, 0.6)" }}
+                  sx={{ color: "rgba(0, 0, 0, 0.7)" }}
                 >
                   +90 532 419 8868
                 </Typography>
@@ -65,14 +65,14 @@ const ContactInfo = () => {
 
               <Stack spacing={1}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaMapMarkerAlt style={{ fontSize: "1.5rem" }} />
-                  <Typography variant="body1" sx={{ marginLeft: "0.5rem" }}>
+                  <FaMapMarkerAlt style={{ fontSize: "1.5rem", color: "#005c71" }} />
+                  <Typography variant="body1" sx={{ marginLeft: "0.5rem", color: "#333" }}>
                     Address
                   </Typography>
                 </Box>
                 <Typography
                   variant="body2"
-                  sx={{ color: "rgba(0, 0, 0, 0.6)" }}
+                  sx={{ color: "rgba(0, 0, 0, 0.7)" }}
                 >
                   Harbiye, Teşvikiye Cad, Bostan Sk. No:2 D:Kat 6, 34367
                   Şişli/İstanbul

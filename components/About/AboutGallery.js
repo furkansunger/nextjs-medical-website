@@ -1,35 +1,34 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { Masonry } from "@mui/lab";
-import { motion } from "framer-motion";
 
 const dummyData = [
   {
-    src: "./assets/about1.jpg",
+    src: "/assets/about1.jpg",
     alt: "gallery-img",
   },
   {
-    src: "./assets/about2.png",
+    src: "/assets/about2.png",
     alt: "gallery-img",
   },
   {
-    src: "./assets/about3.jpg",
+    src: "/assets/about3.jpg",
     alt: "gallery-img",
   },
   {
-    src: "./assets/about4.jpg",
+    src: "/assets/about4.jpg",
     alt: "gallery-img",
   },
   {
-    src: "./assets/header-bg.jpg",
+    src: "/assets/header-bg.jpg",
     alt: "gallery-img",
   },
   {
-    src: "./assets/about1.jpg",
+    src: "/assets/about1.jpg",
     alt: "gallery-img",
   },
   {
-    src: "./assets/about2.png",
+    src: "/assets/about2.png",
     alt: "gallery-img",
   },
 ];
@@ -38,11 +37,11 @@ const AboutGallery = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 8rem)", xs: "calc(100% - 2rem)" },
+        width: "100%",
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
-      <Typography variant="h4" sx={{ textAlign: "center" }}>
+      <Typography variant="h3" sx={{ textAlign: "center", marginBottom: "1rem" }}>
         Gallery
       </Typography>
       <Masonry
@@ -53,10 +52,11 @@ const AboutGallery = () => {
         {dummyData?.map((item, index) => {
           return (
             <Box key={index}>
-              <img
+              <Box
+                component="img"
                 src={item?.src}
                 alt="gallery-img"
-                style={{
+                sx={{
                   borderRadius: "4px",
                   display: "block",
                   width: "100%",

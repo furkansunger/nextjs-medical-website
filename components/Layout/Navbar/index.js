@@ -64,8 +64,8 @@ const Navbar = () => {
     >
       <Box
         sx={{
-          width: { sm: "calc(30% - 0rem)", xs: "calc(100% - 0rem)" },
-          height: { sm: "calc(100vh - 0rem)", xs: "calc(100vh - 0rem)" },
+          width: { sm: "30%", xs: "100%" },
+          height: { sm: "100vh", xs: "100vh" },
           padding: { sm: "2rem", xs: "1rem" },
           zIndex: "999",
           backgroundColor: "#fff",
@@ -225,7 +225,8 @@ const Navbar = () => {
           href="/"
           underline="none"
         >
-          <img
+          <Box
+            component="img"
             style={{ width: "100%" }}
             src="https://aykutgok.com/wp-content/uploads/2021/06/Add-a-heading.svg"
             alt="logo"
@@ -233,9 +234,9 @@ const Navbar = () => {
         </Link>
         <IconButton
           sx={{
-            background: "#385399",
+            background: "#005c71",
             color: "#fff",
-            "&:hover": { background: "#385399" },
+            "&:hover": { background: "#005c71" },
           }}
           onClick={() => handleMenu()}
         >

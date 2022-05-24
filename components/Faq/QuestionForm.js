@@ -63,7 +63,7 @@ export default function QuestionForm() {
       className="centerXY"
       sx={{
         minWidth: { md: "270px", xs: "85%" },
-        background: "rgb(205,174,20)",
+        background: "#005c71",
         // background:
         //     "#a08275",
         borderRadius: "40px",
@@ -126,13 +126,13 @@ export default function QuestionForm() {
           position: "relative",
           bottom: "-30px",
           fontSize: "1.3em",
-
+          color: "#fff",
           width: "80%",
           // maxWidth: "200px",
           borderRadius: "30px",
           boxShadow: "none",
           "&.Mui-disabled": {
-            color: "rgba(0, 0, 0, 0.55) ",
+            color: "#fff",
             backgroundColor: "rgba(196, 196, 196, 0.98) !important",
             paddingX: "30px",
           },

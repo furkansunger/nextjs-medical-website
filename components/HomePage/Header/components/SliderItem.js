@@ -11,7 +11,7 @@ const SliderItem = ({ typography, button, form }) => {
         width: { sm: "100%", xs: "100%" },
         height: { sm: "100vh", xs: "100vh" },
         padding: { sm: "4rem", xs: "1rem" },
-        background: `url("./assets/header-wave-bg.svg")`,
+        background: `url("./assets/bg.svg")`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -60,7 +60,7 @@ const SliderItem = ({ typography, button, form }) => {
               height: "20rem",
               borderRadius: "120px 0 120px 0",
               boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
-              backgroundColor: "#fff",
+              backgroundColor: "#fff9",
               position: "relative",
             }}
           >
@@ -95,7 +95,8 @@ const SliderItem = ({ typography, button, form }) => {
             >
               <BiPlusMedical />
             </Box>
-            <img
+            <Box
+              component="img"
               style={{
                 width: "18rem",
                 height: "20rem",

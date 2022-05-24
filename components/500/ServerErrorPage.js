@@ -1,5 +1,7 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
 // import server500 from "../../assets/images/server500.png";
+import Image from "next/image";
+import { BiArrowBack } from "react-icons/bi";
 
 const ServerErrorPage = () => {
   return (
@@ -26,17 +28,24 @@ const ServerErrorPage = () => {
         }}
       >
         <Grid item sm={6} xs={12} sx={{ padding: { sm: "4rem", xs: "1rem" } }}>
-          <img
+          {/* <img
             src="./assets/server500.png"
             alt="Server Error Img"
             style={{ width: "100%" }}
+          /> */}
+          <Image
+            src="/assets/server500.png"
+            alt="500-img"
+            width="284"
+            height="178"
+            layout="responsive"
           />
         </Grid>
         <Grid item sm={6} xs={12} sx={{ padding: { sm: "4rem", xs: "1rem" } }}>
           <Typography
             variant="h1"
             sx={{
-              color: "#00203F",
+              color: "#005c71",
               fontWeight: "700",
               fontSize: { lg: "5rem", sm: "4rem", xs: "2rem" },
             }}
@@ -51,7 +60,10 @@ const ServerErrorPage = () => {
           </Typography>
           <Typography
             variant="body1"
-            sx={{ fontSize: { lg: "1.25rem", sm: "1rem", xs: "0.75rem" } }}
+            sx={{
+              fontSize: { lg: "1.25rem", sm: "1rem", xs: "0.75rem" },
+              color: "#333",
+            }}
           >
             The server has been deserted for a while. Please be patient or try
             again later.
@@ -63,15 +75,17 @@ const ServerErrorPage = () => {
             sx={{
               fontSize: { lg: "1.2rem", sm: "1rem", xs: "0.7rem" },
               marginTop: "1rem",
-              backgroundColor: "#00203F",
-              color: "#F6F9FC",
+              backgroundColor: "#00adb5",
+              color: "#fff",
+              borderRadius: "0.75rem",
               "&:hover": {
-                color: "#F6F9FC",
-                backgroundColor: "#00203F",
-                borderColor: "#00203F",
+                color: "#fff",
+                backgroundColor: "#00adb5",
+                borderColor: "#00adb5",
               },
             }}
           >
+            <BiArrowBack style={{ marginRight: "0.5rem" }} />
             Go Home
           </Button>
         </Grid>

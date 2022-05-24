@@ -134,7 +134,7 @@ const ControlledAccordions = () => {
                 expandIcon={
                   <IoIosArrowDropdownCircle
                     size="1.5em"
-                    style={{ color: "blue" }}
+                    style={{ color: "#005c71" }}
                   />
                 }
               >
@@ -142,7 +142,7 @@ const ControlledAccordions = () => {
                   sx={{
                     width: "95%",
                     padding: "0 2vw 0 2vw",
-                    color: "black",
+                    color: "#222",
                     fontSize: {
                       md: "1.2em",
                       xs: "1em",

@@ -5,6 +5,7 @@ const HeaderForm = () => {
   return (
     <Box
       sx={{
+        backgroundColor: "#fff7",
         boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
         padding: "2.5rem",
         borderRadius: "1rem",
@@ -65,6 +66,9 @@ const HeaderForm = () => {
             background: "#00adb5",
             color: "#fff",
             marginTop: "0.5rem",
+            "&:hover": {
+              background: "#00adb5",
+            },
           }}
         >
           Send

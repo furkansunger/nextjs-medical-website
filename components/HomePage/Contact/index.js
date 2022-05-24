@@ -10,26 +10,15 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FaPhoneAlt, FaHome, FaEnvelope } from "react-icons/fa";
-// import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
+        width: "100%",
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
-      {/* <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.3 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      > */}
       <Grid container>
         <Grid item sm={6} xs={12}>
           <Typography variant="h4">Contact Us</Typography>
@@ -99,9 +88,12 @@ const Contact = () => {
             />
             <Button
               sx={{
-                background: "cadetblue",
+                background: "#005c71",
                 color: "#fff",
                 marginTop: "0.5rem",
+                "&:hover": {
+                  background: "#005c71",
+                }
               }}
             >
               Send
@@ -122,7 +114,7 @@ const Contact = () => {
               }}
             >
               <IconButton>
-                <FaPhoneAlt />
+                <FaPhoneAlt style={{color: "#005c71"}} />
               </IconButton>
               <Typography variant="body1">+90 532 419 8868</Typography>
             </Box>
@@ -136,7 +128,7 @@ const Contact = () => {
               }}
             >
               <IconButton>
-                <FaHome />
+                <FaHome style={{color: "#005c71"}} />
               </IconButton>
               <Typography variant="body1">
                 Harbiye, Teşvikiye Cad, Bostan Sk. No:2 D:Kat 6, 34367
@@ -153,25 +145,14 @@ const Contact = () => {
               }}
             >
               <IconButton>
-                <FaEnvelope />
+                <FaEnvelope style={{color: "#005c71"}} />
               </IconButton>
               <Typography variant="body1">info@aykutgok.com</Typography>
             </Box>
           </Box>
         </Grid>
       </Grid>
-      {/* </motion.div> */}
-
-      {/* <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 0.3 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      > */}
+      
       <Container
         sx={{ width: "100%", padding: "0!important", marginTop: "2rem" }}
       >
@@ -186,7 +167,6 @@ const Contact = () => {
           aria-label="Op. Dr. Aykut Gok"
         ></iframe>
       </Container>
-      {/* </motion.div> */}
     </Box>
   );
 };

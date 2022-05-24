@@ -11,7 +11,7 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -23,10 +23,9 @@ function TabPanel(props) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Box>
   );
 }
-
 
 function a11yProps(index) {
   return {
@@ -55,8 +54,9 @@ const AboutImage = () => {
       <Grid sx={{ padding: "25px" }} container>
         <Grid item xs={6}>
           <Box>
-            <img
-              src="./assets/header-bg.jpg"
+            <Box
+              component="img"
+              src="/assets/header-bg.jpg"
               width="100%"
               height="100%"
               style={{ objectFit: "contain" }}
@@ -76,17 +76,17 @@ const AboutImage = () => {
             >
               <Box>
                 <Typography variant="h4">Dr.Aykut Gok</Typography>
-                <Typography variant="body1">
-                  Plastic Reconstructive And Aesthetic Surgeon
+                <Typography variant="body2" sx={{ color: "#333" }}>
+                  Plastic Reconstructive and Aesthetic Surgeon
                 </Typography>
               </Box>
               <Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <HiOutlineMail style={{ color: "blue" }} />
+                  <HiOutlineMail style={{ color: "#00adb5" }} />
                   <Typography ml={1}>info@aykutgok.com</Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <AiOutlinePhone style={{ color: "blue" }} />
+                  <AiOutlinePhone style={{ color: "#00adb5" }} />
                   <Typography ml={1}>+90 532 419 88 68</Typography>
                 </Box>
               </Box>
@@ -101,6 +101,14 @@ const AboutImage = () => {
                   value={value}
                   onChange={handleChange}
                   aria-label="basic tabs example"
+                  textColor="#00adb5"
+                  indicatorColor="#00adb5"
+                  sx={{
+                    "& .MuiTabs-indicator": {
+                      backgroundColor: "#00adb5",
+                    },
+                    color: "#00adb5",
+                  }}
                 >
                   <Tab label="career" {...a11yProps(0)} />
                   <Tab label="general Information" {...a11yProps(1)} />

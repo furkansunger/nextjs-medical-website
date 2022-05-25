@@ -4,10 +4,10 @@ import React from "react";
 const Treatments = () => {
   return (
     <>
-      <Typography variant="h4" sx={{ textAlign: "center" }}>
+      <Typography variant="h3" fontWeight={700} sx={{ textAlign: "center", borderBottom: "1px solid black", padding: "25px", "&:hover": { boxShadow: "3" } }}>
         Popular Aesthetic Treatments
       </Typography>
-      <Grid container>
+      <Grid sx={{ marginTop: "30px" }} container>
         <Grid item xs={12} sm={3}>
           <Box className="hover-overlay-container">
             <img

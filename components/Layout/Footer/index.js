@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Divider,
   Grid,
@@ -12,188 +13,155 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,
+
 } from "react-icons/fa";
+import { AiOutlinePhone } from "react-icons/ai";
+import { MdOutlineMail } from "react-icons/md";
+import { FaCalendarAlt } from "react-icons/fa";
 
 // import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <Box
-      sx={{
-        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
-        padding: { sm: "4rem", xs: "1rem" },
-        borderTop: "8px solid cadetblue",
-        background: "rgba(0, 0, 0, 0.7)",
-        margin: "0!important"
-      }}
-    >
-      <Grid container>
-        <Grid item md={3} sm={6} xs={12}>
-          <img
-            style={{ width: "100%" }}
-            src="https://aykutgok.com/wp-content/uploads/2021/06/Add-a-heading.svg"
-            alt="logo"
-          />
-        </Grid>
-        <Grid
-          item
-          md={3}
-          sm={6}
-          xs={12}
-          sx={{ padding: { sm: "0 1rem", xs: "1rem" } }}
-        >
-          <Typography variant="h5" sx={{ color: "#ccc" }}>
-            Quick Links
-          </Typography>
-          <Divider />
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItem: "start",
-              justifyContent: "start",
-              marginTop: "0.5rem",
-            }}
-          >
-            <Link
-              sx={{
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "1.2rem",
-                "&:hover": { marginLeft: "0.5rem" },
-              }}
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              sx={{
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "1.2rem",
-                "&:hover": { marginLeft: "0.5rem" },
-              }}
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              sx={{
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "1.2rem",
-                "&:hover": { marginLeft: "0.5rem" },
-              }}
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              sx={{
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "1.2rem",
-                "&:hover": { marginLeft: "0.5rem" },
-              }}
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              sx={{
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "1.2rem",
-                "&:hover": { marginLeft: "0.5rem" },
-              }}
-              href="/"
-            >
-              Home
-            </Link>
-          </Box>
-        </Grid>
-        <Grid
-          item
-          md={3}
-          sm={6}
-          xs={12}
-          sx={{ padding: { sm: "0 1rem", xs: "1rem" } }}
-        >
-          <Typography variant="h5" sx={{ color: "#ccc" }}>
-            Infos
-          </Typography>
-          <Divider />
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "start",
-              marginTop: "0.5rem",
-            }}
-          >
-            <Link
-              sx={{ color: "#fff", textDecoration: "none" }}
-              href="tel:+90 532 419 88 68"
-            >
-              +90 532 419 88 68
-            </Link>
-            <Link
-              sx={{ color: "#fff", textDecoration: "none" }}
-              href="mailto:info@aykutgok.com"
-            >
-              info@aykutgok.com
-            </Link>
-            <Box>
-              <Typography sx={{ color: "#fff" }} variant="body1">
-                Mon-Sat 10:00 - 19:00
-              </Typography>
-              <Typography sx={{ color: "#fff" }} variant="body1">
-                Sunday: Closed
-              </Typography>
+    <>
+      <Link href="/contact">
+        <Box sx={{ display: "flex", justifyContent: "center", width: "100%", position: "relative", top: "30px" }}>
+          <Typography sx={{ textAlign: "center", borderRadius: "35px", padding: "10px 25px 10px 25px", backgroundColor: "#00ADB5", color: "#fff" }} variant="h4">Contact Us</Typography>
+        </Box>
+      </Link>
+
+      <Box
+        sx={{
+          width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
+
+          borderTop: "8px solid cadetblue",
+          background: "rgba(0, 0, 0, 0.7)",
+          margin: "0!important",
+          color: "white",
+          height: "auto",
+
+        }}
+      >
+        <Grid sx={{ padding: { sm: "4rem", xs: "1rem" }, marginTop: { xs: "30px", md: "0px" } }} container>
+          <Grid item xs={6} md={3}>
+            <Typography fontWeight={700} variant="h5">Contact</Typography>
+            <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
+              <Avatar sx={{ color: "#00ADB5" }}><AiOutlinePhone /></Avatar>
+              <Typography marginLeft="10px" >Phone: <span> +90532 419 8868</span></Typography>
             </Box>
-          </Box>
-        </Grid>
-        <Grid
-          item
-          md={3}
-          sm={6}
-          xs={12}
-          sx={{ padding: { sm: "0 1rem", xs: "1rem" } }}
-        >
-          <Typography variant="h5" sx={{ color: "#ccc" }}>
-            Social Media
-          </Typography>
-          <Divider />
-          <Box sx={{ marginTop: "0.5rem" }}>
-            <Link href="https://www.facebook.com/draykutgok" target="_blank">
-              <IconButton sx={{ color: "#fff" }}>
+            <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
+              <Avatar sx={{ color: "#00ADB5" }}><MdOutlineMail /></Avatar>
+              <Typography marginLeft="10px">Email: <span> info@aykutgok.com</span></Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
+              <Avatar sx={{ color: "#00ADB5" }}><AiOutlinePhone /></Avatar>
+              <Typography marginLeft="10px">Whatsapp: <span>+90532 419 8868</span> </Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
+              <Avatar sx={{ color: "#00ADB5" }}><FaCalendarAlt /></Avatar>
+              <Typography marginLeft="10px">Mon-Sat: <span> 10:00AM - 08:00PM</span></Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", md: "start" } }} fontWeight={700} variant="h5">General Information</Typography>
+            <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
+              <Link style={{ textDecoration: "none" }} href="/about">
+                <Typography sx={{ marginTop: "15px", color: "#fff" }}>About Me</Typography>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="/">
+                <Typography sx={{ marginTop: "15px", color: "#fff" }}>Home</Typography>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="/about">
+                <Typography sx={{ marginTop: "15px", color: "#fff" }}>FAQ</Typography>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="#">
+                <Typography sx={{ marginTop: "15px", color: "#fff" }}>Contact Us</Typography>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="#">
+                <Typography sx={{ marginTop: "15px", color: "#fff" }}>Blog</Typography>
+              </Link>
+              <Link style={{ textDecoration: "none" }} href="#">
+                <Typography sx={{ marginTop: "15px", color: "#fff" }}>Portfolio</Typography>
+              </Link>
+            </Box>
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", md: "start" } }} fontWeight={700} variant="h5">Procedures</Typography>
+            <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
+              <Typography sx={{ marginTop: "15px", color: "#fff" }}>Plastic Surgery</Typography>
+              <Typography sx={{ marginTop: "15px", color: "#fff" }}>Hair Transplant</Typography>
+              <Typography sx={{ marginTop: "15px", color: "#fff" }}>Facial Aesthetic</Typography>
+              <Typography sx={{ marginTop: "15px", color: "#fff" }}>Dental Care</Typography>
+              <Typography sx={{ marginTop: "15px", color: "#fff" }}>Botox</Typography>
+              <Typography sx={{ marginTop: "15px", color: "#fff" }}>Breast Augmentation
+              </Typography>
+
+            </Box>
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", md: "start" } }} fontWeight={700} variant="h5">Social Media</Typography>
+            <Link style={{ textDecoration: "none" }} href={"https://facebook.com"}>
+              <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px", textDecoration: "none" }}>
                 <FaFacebookF />
-              </IconButton>
+                <Typography marginLeft="15px" color="#fff">Facebook</Typography>
+              </Box>
             </Link>
-            <Link href="https://twitter.com/mdaykutgok" target="_blank">
-              <IconButton sx={{ color: "#fff" }}>
+
+            <Link style={{ textDecoration: "none" }} href={"https://twitter.com"}>
+              <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                 <FaTwitter />
-              </IconButton>
+                <Typography marginLeft="15px" color="#fff">Twitter</Typography>
+              </Box>
             </Link>
-            <Link href="https://instagram.com/draykutgok" target="_blank">
-              <IconButton sx={{ color: "#fff" }}>
+
+            <Link style={{ textDecoration: "none" }} href={"https://instagram.com"}>
+              <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                 <FaInstagram />
-              </IconButton>
+                <Typography marginLeft="15px" color="#fff">Instagram</Typography>
+              </Box>
             </Link>
-            <Link href="https://www.linkedin.com/in/aykutgok/" target="_blank">
-              <IconButton sx={{ color: "#fff" }}>
+
+            <Link style={{ textDecoration: "none" }} href={"https://linkedin.com"}>
+              <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                 <FaLinkedinIn />
-              </IconButton>
+                <Typography marginLeft="15px" color="#fff">Linkedin</Typography>
+              </Box>
             </Link>
-            <Link href="https://youtube.com/c/wellesclinic" target="_blank">
-              <IconButton sx={{ color: "#fff" }}>
+
+            <Link style={{ textDecoration: "none" }} href={"https://youtube.com"}>
+              <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                 <FaYoutube />
-              </IconButton>
+                <Typography marginLeft="15px" color="#fff">Youtube</Typography>
+              </Box>
             </Link>
-          </Box>
+
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+        <Divider sx={{ backgroundColor: "white", width: "100% ", marginTop: "25px" }} />
+        <Box
+          // my={3}
+          marginTop="10px"
+
+          rowGap={2}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        // sx={{ background: "rgba(0, 0, 0, 0.7)" }}
+        >
+          <Typography color="white">
+            2022 aykutgok inc. Terms-Privacy &reg;
+          </Typography>
+          <Typography paddingBottom="10px" color="white">Made with ❤️ by admarket team</Typography>
+        </Box>
+
+      </Box>
+    </>
+
+
+
+
+
+
   );
 };
 

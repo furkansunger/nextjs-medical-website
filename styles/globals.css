@@ -41,13 +41,14 @@ a {
 .hover-overlay-container .overlay-btn-container {
   position: absolute;
   top: 40%;
-  left: 15%;
+  left: 25%;
   opacity: 0;
   transition: .5s ease;
   text-align: center;
   overflow: hidden;
   transform: scaleY(0);
   transform-origin: bottom;
+  
 }
 .hover-overlay-container .sbt{
   position: absolute;

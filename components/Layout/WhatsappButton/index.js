@@ -11,6 +11,7 @@ const WhatsappButton = () => {
         position: "fixed",
         bottom: "30px",
         right: "30px",
+        zIndex: "999",
         "&:hover": {
             background: "transparent"
         }

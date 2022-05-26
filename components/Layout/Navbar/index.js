@@ -108,7 +108,7 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
@@ -123,10 +123,12 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>About Me</Typography>
+            <Typography sx={{ fontSize: "1.5rem!important" }}>
+              About Me
+            </Typography>
           </Link>
           <Link
             href="/blog"
@@ -138,7 +140,7 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Typography sx={{ fontSize: "1.5rem!important" }}>Blog</Typography>
@@ -153,10 +155,27 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Typography sx={{ fontSize: "1.5rem!important" }}>FAQ</Typography>
+          </Link>
+          <Link
+            href="/services"
+            sx={{
+              width: "100%",
+              textAlign: "center",
+              color: "#000",
+              borderRadius: "0.75rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
+            }}
+          >
+            <Typography sx={{ fontSize: "1.5rem!important" }}>
+              Services
+            </Typography>
           </Link>
           <Link
             href="/contact"
@@ -168,12 +187,13 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Contact</Typography>
+            <Typography sx={{ fontSize: "1.5rem!important" }}>
+              Contact
+            </Typography>
           </Link>
-          
         </Box>
         <Box
           sx={{

@@ -10,6 +10,7 @@ import {
 import Testimonals from "../components/HomePage/Testimonals";
 import AppWrapper from "../wrapper/AppWrapper";
 
+
 const Home = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const Home = () => {
       <Testimonals />
       <Gallery />
       <Contact />
+
     </>
   );
 };

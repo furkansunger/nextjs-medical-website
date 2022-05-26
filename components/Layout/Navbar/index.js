@@ -93,9 +93,21 @@ const Navbar = () => {
           <MdCancel />
         </IconButton>
         <Box
+          component="img"
+          src="https://aykutgok.com/wp-content/uploads/2021/06/Add-a-heading.svg"
+          alt="logo"
+          sx={{
+            position: "absolute",
+            top: "37px",
+            left: "65px",
+            width: "150px",
+            height: "34px",
+          }}
+        />
+        <Box
           sx={{
             width: "70%",
-            margin: "2rem auto 0 auto",
+            margin: "auto",
           }}
         >
           <Link
@@ -131,7 +143,7 @@ const Navbar = () => {
             </Typography>
           </Link>
           <Link
-            href="/blog"
+            href="/services"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -143,7 +155,26 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Blog</Typography>
+            <Typography sx={{ fontSize: "1.5rem!important" }}>
+              Services
+            </Typography>
+          </Link>
+          <Link
+            href="/form"
+            sx={{
+              width: "100%",
+              textAlign: "center",
+              color: "#000",
+              borderRadius: "0.75rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
+            }}
+          >
+            <Typography sx={{ fontSize: "1.5rem!important" }}>
+              Multi Form
+            </Typography>
           </Link>
           <Link
             href="/faq"
@@ -161,7 +192,7 @@ const Navbar = () => {
             <Typography sx={{ fontSize: "1.5rem!important" }}>FAQ</Typography>
           </Link>
           <Link
-            href="/services"
+            href="/blog"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -173,9 +204,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>
-              Services
-            </Typography>
+            <Typography sx={{ fontSize: "1.5rem!important" }}>Blog</Typography>
           </Link>
           <Link
             href="/contact"
@@ -263,8 +292,12 @@ const Navbar = () => {
             src="https://aykutgok.com/wp-content/uploads/2021/06/Add-a-heading.svg"
             alt="logo"
           /> */}
-            <Typography color="black" sx={{ fontSize: { xs: "21px", sm: "25px", md: "39px" } }}>Dr. Aykut Gök</Typography>
-
+            <Typography
+              color="black"
+              sx={{ fontSize: { xs: "21px", sm: "25px", md: "39px" } }}
+            >
+              Dr. Aykut Gök
+            </Typography>
           </Link>
         </Box>
 

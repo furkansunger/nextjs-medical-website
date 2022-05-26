@@ -7,3 +7,4 @@ export { default as NewHeader } from "./Header/NewHeader";
 export { default as Services } from "./Services";
 export { default as Treatments } from "./Treatments";
 export { default as Testimonals } from "./Testimonals";
+export { default as Steps } from "./Steps";

@@ -8,6 +8,7 @@ import {
   Treatments,
   Testimonals,
   NewHeader,
+  Steps
 } from "../components/HomePage";
 import HeaderForm from "../components/HomePage/Header/components/HeaderForm";
 import { Box, Container } from "@mui/material";
@@ -22,10 +23,11 @@ function Home() {
         </Box>
       </Container>
       <About />
-      <Services />
+      {/* <Services /> */}
       <Treatments />
       <Testimonals />
-      <Gallery />
+      <Steps />
+      {/* <Gallery /> */}
       <Contact />
     </>
   );

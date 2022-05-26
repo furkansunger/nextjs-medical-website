@@ -98,7 +98,8 @@ const Navbar = () => {
             margin: "2rem auto 0 auto",
           }}
         >
-          <MenuItem
+          <Link
+            href="/"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -107,11 +108,13 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              textDecoration: "none"
             }}
           >
             <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
-          </MenuItem>
-          <MenuItem
+          </Link>
+          <Link
+            href="/aboutus"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -120,11 +123,13 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              textDecoration: "none"
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
-          </MenuItem>
-          <MenuItem
+            <Typography sx={{ fontSize: "1.5rem!important" }}>About Me</Typography>
+          </Link>
+          <Link
+            href="/blog"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -133,11 +138,13 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              textDecoration: "none"
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
-          </MenuItem>
-          <MenuItem
+            <Typography sx={{ fontSize: "1.5rem!important" }}>Blog</Typography>
+          </Link>
+          <Link
+            href="/faq"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -146,11 +153,13 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              textDecoration: "none"
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
-          </MenuItem>
-          <MenuItem
+            <Typography sx={{ fontSize: "1.5rem!important" }}>FAQ</Typography>
+          </Link>
+          <Link
+            href="/contact"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -159,10 +168,12 @@ const Navbar = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              textDecoration: "none"
             }}
           >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
-          </MenuItem>
+            <Typography sx={{ fontSize: "1.5rem!important" }}>Contact</Typography>
+          </Link>
+          
         </Box>
         <Box
           sx={{

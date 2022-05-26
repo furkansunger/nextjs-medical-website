@@ -70,7 +70,8 @@ function PostItem({ post, largePost }) {
   return (
     <Box sx={{ borderRadius: 4, overflow: "hidden", position: "relative" }}>
       <Box>
-        <img
+        <Box
+          component="img"
           src="https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg"
           alt="post-img"
           style={{ objectFit: "cover", width: "100%", height: "100%" }}

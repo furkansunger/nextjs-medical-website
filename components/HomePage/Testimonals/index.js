@@ -102,7 +102,7 @@ const Testimonals = () => {
 
 
     return (
-        <div style={{ backgroundColor: "rgb(249, 250, 251)" }}>
+        <div >
             <Typography sx={{ opacity: "50%" }} paddingTop="50px" textAlign="center" variant="h6">TESTIMONIALS</Typography>
             <Typography fontWeight={700} textAlign="center" variant="h3">Who Love Our Work</Typography>
             <Swiper

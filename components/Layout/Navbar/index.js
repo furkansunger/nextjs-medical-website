@@ -220,18 +220,23 @@ const Navbar = () => {
           justifyContent: "space-between",
         }}
       >
-        <Link
-          sx={{ width: { sm: "16rem", xs: "12rem" } }}
-          href="/"
-          underline="none"
-        >
-          <Box
+        <Box>
+          <Link
+            sx={{ width: { sm: "16rem", xs: "12rem" } }}
+            href="/"
+            underline="none"
+          >
+            {/* <Box
             component="img"
             style={{ width: "100%" }}
             src="https://aykutgok.com/wp-content/uploads/2021/06/Add-a-heading.svg"
             alt="logo"
-          />
-        </Link>
+          /> */}
+            <Typography color="black" sx={{ fontSize: { xs: "21px", sm: "25px", md: "39px" } }}>Dr. Aykut Gök</Typography>
+
+          </Link>
+        </Box>
+
         <IconButton
           sx={{
             background: "#005c71",

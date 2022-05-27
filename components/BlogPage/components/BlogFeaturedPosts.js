@@ -185,7 +185,7 @@ function PostItem({ post, largePost }) {
           </Typography>
         </Stack>
 
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link href="/blog/blogdetail" style={{ textDecoration: "none" }}>
           <Typography
             asLink
             sx={{

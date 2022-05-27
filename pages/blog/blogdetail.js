@@ -15,7 +15,7 @@ import { GrFormNext } from "react-icons/gr";
 import {
   BlogAuthorInfo,
   BlogSidebar,
-  BlogTravelPostHero,
+  BlogPostHero,
 } from "../../components/BlogPage";
 
 import { useRouter } from "next/router";
@@ -44,7 +44,7 @@ export default function BlogDetail({ post, posts }) {
   return (
     <Box>
       <Box sx={{ padding: "6rem 0" }}>
-        <BlogTravelPostHero /> {/* post={post} */}
+        <BlogPostHero /> {/* post={post} */}
         <Container>
           <Breadcrumbs
             aria-label="breadcrumb"

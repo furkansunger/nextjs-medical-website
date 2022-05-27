@@ -107,7 +107,15 @@ const ServicesPage = () => {
               md={4}
               sx={{ padding: "1rem" }}
             >
-              <Typography variant="h5">{item.service}</Typography>
+              <Link
+                href={`/services/servicedetail`}
+                sx={{
+                  color: "#000",
+                  textDecoration: "none",
+                }}
+              >
+                <Typography variant="h5">{item.service}</Typography>
+              </Link>
               <Box
                 component="img"
                 sx={{

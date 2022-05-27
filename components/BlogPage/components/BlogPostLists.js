@@ -1,6 +1,6 @@
 import { Pagination, Box, Grid } from "@mui/material";
 
-import BlogTravelPostItem from "./BlogTravelPostItem";
+import BlogPostItem from "./BlogPostItem";
 
 const posts = [
   {
@@ -86,7 +86,7 @@ export default function BlogTravelPostList() {
       <Grid container spacing={2}>
         {posts?.map((post, index) => (
           <Grid key={index} item sm={6} xs={12}>
-            <BlogTravelPostItem post={post} />
+            <BlogPostItem post={post} />
           </Grid>
         ))}
       </Grid>

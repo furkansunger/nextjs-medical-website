@@ -13,7 +13,7 @@ const DotStyle = styled("span")(() => ({
   margin: "0 1rem",
 }));
 
-export default function BlogTravelPostItem({ post }) {
+export default function BlogPostItem({ post }) {
   const { id, title, duration, coverImg, author, createdAt } = post;
 
   const textStyle = {
@@ -54,8 +54,8 @@ export default function BlogTravelPostItem({ post }) {
           </Typography>
         </Stack>
 
-        <NextLink passHref as="/" href="/">
-          <Typography asLink style={{ ...textStyle }} variant="h5">
+        <NextLink passHref as="/blog/blogdetail" href="/blog/blogdetail">
+          <Typography asLink style={{ ...textStyle, cursor: "pointer" }} variant="h5">
             {title}
           </Typography>
         </NextLink>

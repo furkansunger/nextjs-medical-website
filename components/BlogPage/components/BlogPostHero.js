@@ -2,7 +2,7 @@ import { Grid, Stack, Container, Typography, Box, alpha } from "@mui/material";
 import { fDate } from "../../../utils/formatTime";
 import SocialButtons from "../../UI/SocialButtons";
 
-export default function BlogTravelPostHero({ post }) {
+export default function BlogPostHero({ post }) {
 //   const { frontmatter } = post;
 //   const { title, duration, createdAt, heroImg, shareLinks } = frontmatter;
 

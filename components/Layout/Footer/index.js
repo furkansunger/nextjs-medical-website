@@ -43,10 +43,10 @@ const Footer = () => {
         }}
       >
         <Grid sx={{ padding: { sm: "4rem", xs: "1rem" }, marginTop: { xs: "30px", md: "0px" } }} container>
-          <Grid item xs={6} md={3}>
-            <Typography fontWeight={700} variant="h5">Contact</Typography>
+          <Grid item xs={7} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", sm: "start" } }} fontWeight={700} variant="h5">Contact</Typography>
             <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
-              <Avatar sx={{ color: "#00ADB5" }}><AiOutlinePhone /></Avatar>
+              <Avatar sx={{ color: "#00ADB5" }} ><AiOutlinePhone /></Avatar>
               <Typography marginLeft="10px" >Phone: <span> +90532 419 8868</span></Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
@@ -62,9 +62,9 @@ const Footer = () => {
               <Typography marginLeft="10px">Mon-Sat: <span> 10:00AM - 08:00PM</span></Typography>
             </Box>
           </Grid>
-          <Grid item xs={6} md={3}>
-            <Typography sx={{ textAlign: { xs: "center", md: "start" } }} fontWeight={700} variant="h5">General Information</Typography>
-            <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
+          <Grid item xs={5} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", sm: "start" } }} fontWeight={700} variant="h5">General Information</Typography>
+            <Box sx={{ textAlign: { xs: "center", sm: "start" } }}>
               <Link style={{ textDecoration: "none" }} href="/about">
                 <Typography sx={{ marginTop: "15px", color: "#fff" }}>About Me</Typography>
               </Link>
@@ -85,9 +85,9 @@ const Footer = () => {
               </Link>
             </Box>
           </Grid>
-          <Grid item xs={6} md={3}>
-            <Typography sx={{ textAlign: { xs: "center", md: "start" } }} fontWeight={700} variant="h5">Procedures</Typography>
-            <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
+          <Grid item xs={7} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", sm: "start" } }} fontWeight={700} variant="h5">Procedures</Typography>
+            <Box sx={{ textAlign: { xs: "center", sm: "start" } }}>
               <Typography sx={{ marginTop: "15px", color: "#fff" }}>Plastic Surgery</Typography>
               <Typography sx={{ marginTop: "15px", color: "#fff" }}>Hair Transplant</Typography>
               <Typography sx={{ marginTop: "15px", color: "#fff" }}>Facial Aesthetic</Typography>
@@ -98,9 +98,9 @@ const Footer = () => {
 
             </Box>
           </Grid>
-          <Grid item xs={6} md={3}>
-            <Typography sx={{ textAlign: { xs: "center", md: "start" } }} fontWeight={700} variant="h5">Social Media</Typography>
-            <Box sx={{ marginLeft: "50px" }}>
+          <Grid item xs={5} md={3}>
+            <Typography sx={{ textAlign: { xs: "center", sm: "start" } }} fontWeight={700} variant="h5">Social Media</Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "start", marginLeft: { xs: "30px", sm: "0px" } }}>
               <Link style={{ textDecoration: "none" }} href={"https://facebook.com"}>
                 <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px", textDecoration: "none" }}>
                   <FaFacebookF />

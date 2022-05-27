@@ -14,6 +14,7 @@ import Masonry from "@mui/lab/Masonry";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 
+
 // import Categories from './Categories';
 
 const Categories = [
@@ -127,86 +128,36 @@ const Portfolio = () => {
     const result = Categories.filter((item) => item.category === catItem);
     setData(result);
   };
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event = React.SyntheticEvent, newValue = number) => {
+    setValue(newValue);
+  };
   return (
     <>
       <Typography
-        marginTop="50px"
+        marginTop="100px"
         textAlign="center"
         fontWeight={700}
         variant="h3"
       >
         Portfolio Gallery
       </Typography>
-      <Box
-        sx={{ marginTop: "30px", display: "flex", justifyContent: "center" }}
-      >
-        <ButtonGroup
-          variant="contained"
-          aria-label="outlined primary button group"
-        >
-          <Button
-            onClick={() => setData(Categories)}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            All
-          </Button>
-          <Button
-            onClick={() => filterResult("kırmızı")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            kırmızı
-          </Button>
-          <Button
-            onClick={() => filterResult("yesil")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            yeşil
-          </Button>
-          <Button
-            onClick={() => filterResult("siyah")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            siyah
-          </Button>
-          <Button
-            onClick={() => filterResult("beyaz")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            beyaz
-          </Button>
-        </ButtonGroup>
+
+      <Box sx={{ borderColor: 'divider', marginTop: "30px" }}>
+        <Tabs variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example" value={value} onChange={handleChange} >
+          <Tab onClick={() => setData(Categories)} label="All" />
+          <Tab onClick={() => filterResult("kırmızı")} label="Kırmızı" />
+          <Tab onClick={() => filterResult("yesil")} label="Yeşil" />
+          <Tab onClick={() => filterResult("beyaz")} label="Beyaz" />
+          <Tab onClick={() => filterResult("siyah")} label="Siyah" />
+        </Tabs>
       </Box>
 
       <Grid
         container
-        // sx={{
-        //     marginTop: "25px",
-        //     display: 'grid',
-        //     // rowGap: { xs: 4, md: 5 },
-        //     columnGap: 4,
-        //     gridTemplateColumns: {
-        //         xs: 'repeat(1, 1fr)',
-        //         sm: 'repeat(2, 1fr)',
-        //         md: 'repeat(3, 1fr)',
-        //     },
-
-        // }}
-        // sx={{ rowGap: "4px", }}
       >
         {data.map((item, index) => (
           <Grid key={index} padding={5} item xs={12} sm={6} md={4}>

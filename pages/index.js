@@ -16,12 +16,13 @@ function Home() {
   return (
     <>
       <Header />
-      <Container sx={{ position: "relative", margin: {sm: "6rem 0", xs: "0 0 6rem 0"} }}>
+      <Container sx={{ position: "relative", margin: {sm: "6rem 0", xs: "20rem 0"}, zIndex: "88" }}>
         <Box
           sx={{
-            position: { sm: "absolute", xs: "relative" },
-            top: { sm: "-12rem", xs: "auto" },
-            right: { sm: "10rem", xs: "auto" },
+            position: "absolute",
+            top: { sm: "-12rem", xs: "-27rem" },
+            right: { sm: "10rem", xs: "0" },
+            
           }}
         >
           <HeaderForm />

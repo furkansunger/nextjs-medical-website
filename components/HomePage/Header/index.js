@@ -146,6 +146,7 @@ function ContentItem({ content }) {
         position: "relative",
         color: "#fff",
         justifyContent: "center",
+        height: "100vh"
       }}
     >
       {/* Content */}
@@ -157,7 +158,7 @@ function ContentItem({ content }) {
           position: { md: "absolute" },
         }}
       >
-        <Typography variant="h2" sx={{ maxWidth: 480 }}>
+        <Typography variant="h2" sx={{ maxWidth: 480, fontSize: {sm: "3.75rem", xs: "2.5rem"} }}>
           {title}
         </Typography>
       </Stack>
@@ -192,8 +193,8 @@ function ContentItem({ content }) {
           alt={thumbTitle}
           src={img}
           sx={{
-            height: { xs: 1, md: "100vh" },
-            width: { xs: 1, md: "100vw" },
+            height: "100vh",
+            width: "100vw",
           }}
         />
       </Box>

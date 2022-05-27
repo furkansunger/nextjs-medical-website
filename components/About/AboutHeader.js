@@ -17,9 +17,10 @@ const Background = styled(Box)({
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
+
 });
 const AboutHeader = () => {
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -30,7 +31,7 @@ const AboutHeader = () => {
           color={"#FFF"}
           sx={{
             fontWeight: 900,
-            fontSize: "4.3rem",
+            fontSize: { xs: "3.2rem", md: "4.3rem" },
             lineHeight: "7rem",
             // fontFamily: "'Raleway', sans-serif",
           }}
@@ -38,7 +39,7 @@ const AboutHeader = () => {
           <i>About Me</i>
         </Typography>
         <Typography
-        //   onClick={() => navigate("/")}
+          //   onClick={() => navigate("/")}
           variant={"h1"}
           components={"h1"}
           color={"#dedede"}

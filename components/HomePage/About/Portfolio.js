@@ -192,48 +192,28 @@ const Portfolio = () => {
         </ButtonGroup>
       </Box>
 
-      {/* <Box sx={{ width: "100%", minHeight: 829 }}>
-                <Masonry columns={3} spacing={2}>
-                    {Categories.map((item, index) => (
-                        <div key={index}>
+      <Grid
+        container
+        // sx={{
+        //     marginTop: "25px",
+        //     display: 'grid',
+        //     // rowGap: { xs: 4, md: 5 },
+        //     columnGap: 4,
+        //     gridTemplateColumns: {
+        //         xs: 'repeat(1, 1fr)',
+        //         sm: 'repeat(2, 1fr)',
+        //         md: 'repeat(3, 1fr)',
+        //     },
 
-                            <Typography>{item.title}</Typography>
-                            <img
-                                src={`${item.img}?w=162&auto=format`}
-                                srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
-                                alt={item.title}
-                                loading="lazy"
-                                style={{
-                                    borderBottomLeftRadius: 4,
-                                    borderBottomRightRadius: 4,
-                                    display: 'block',
-                                    width: '100%',
-
-                                }}
-                            />
-                        </div>
-                    ))}
-                </Masonry>
-            </Box> */}
-      <Box
-        sx={{
-          marginTop: "25px",
-          display: "grid",
-          rowGap: { xs: 4, md: 5 },
-          columnGap: 4,
-          gridTemplateColumns: {
-            xs: "repeat(1, 1fr)",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(3, 1fr)",
-          },
-        }}
+        // }}
+        // sx={{ rowGap: "4px", }}
       >
-        {data?.map((item, index) => (
-          <Box key={index}>
+        {data.map((item, index) => (
+          <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
             <Box
               component="img"
-              width={350}
-              height={350}
+              width="100%"
+              height="100%"
               src={item.img}
               alt={item.title}
               ratio="1/1"
@@ -241,23 +221,13 @@ const Portfolio = () => {
             />
 
             <Stack spacing={1} sx={{ p: 2.5 }}>
-              <Typography variant="overline" sx={{ color: "text.disabled" }}>
+              <Typography variant="body1" sx={{ color: "text.disabled" }}>
                 {item.category}
               </Typography>
-              <Typography variant="h6">{item.title}</Typography>
-              {/* <NextLink
-                                passHref
-                                as={Routes.marketing.caseStudy(slug)}
-                                href={Routes.marketing.caseStudy('[slug]')}
-                            >
-                                <TextMaxLine variant="h5" line={1} asLink>
-                                    {item.title}
-                                </TextMaxLine>
-                            </NextLink> */}
             </Stack>
-          </Box>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </>
   );
 };

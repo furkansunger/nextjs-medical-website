@@ -41,123 +41,106 @@ const AboutImage = () => {
     setValue(newValue);
   };
   return (
-    <Container
-      sx={{
-        boxShadow: "3",
-        height: "100%",
-        background: "#fff",
-        position: "relative",
-        top: "-75px",
-        borderRadius: "15px",
-      }}
-    >
-      <Grid sx={{ padding: "25px" }} container>
-        <Grid item xs={6}>
-          <Box>
-            <Box
-              component="img"
-              src="/assets/header-bg.jpg"
-              width="100%"
-              height="100%"
-              style={{ objectFit: "contain" }}
-            />
-          </Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Grid container>
-            <Grid
-              sx={{
-                display: "flex",
-                justifyContent: "space-around",
-                mt: "40px",
-              }}
-              item
-              xs={12}
-            >
-              <Box>
-                <Typography variant="h4">Dr.Aykut Gok</Typography>
-                <Typography variant="body2" sx={{ color: "#333" }}>
-                  Plastic Reconstructive and Aesthetic Surgeon
-                </Typography>
-              </Box>
-              <Box>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <HiOutlineMail style={{ color: "#00adb5" }} />
-                  <Typography ml={1}>info@aykutgok.com</Typography>
+    <Box>
+      <Container
+        sx={{
+          boxShadow: "3",
+          height: "100%",
+          background: "#fff",
+          position: "relative",
+          top: "-75px",
+          borderRadius: "15px",
+        }}
+      >
+        <Grid sx={{ padding: "25px" }} container>
+          <Grid item xs={6}>
+            <Box>
+              <Box
+                component="img"
+                src="/assets/header-bg.jpg"
+                width="100%"
+                height="100%"
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container>
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  mt: "40px",
+                }}
+                item
+                xs={12}
+              >
+                <Box>
+                  <Typography variant="h4">Dr.Aykut Gok</Typography>
+                  <Typography variant="body2" sx={{ color: "#333" }}>
+                    Plastic Reconstructive and Aesthetic Surgeon
+                  </Typography>
                 </Box>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <AiOutlinePhone style={{ color: "#00adb5" }} />
-                  <Typography ml={1}>+90 532 419 88 68</Typography>
+                <Box>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <HiOutlineMail style={{ color: "#00adb5" }} />
+                    <Typography ml={1}>info@aykutgok.com</Typography>
+                  </Box>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <AiOutlinePhone style={{ color: "#00adb5" }} />
+                    <Typography ml={1}>+90 532 419 88 68</Typography>
+                  </Box>
                 </Box>
-              </Box>
-            </Grid>
-            {/* <Grid xs={12}> */}
-            <Box sx={{ padding: "20px", mt: "40px" }}>
-              {/* <Typography color="#696969" variant='body'>
+              </Grid>
+              {/* <Grid xs={12}> */}
+              <Box sx={{ padding: "20px", mt: "40px" }}>
+                {/* <Typography color="#696969" variant='body'>
                                 Specialist is general and plastic surgery, all minimally invasive methods. Senior general surgeon and head of plastic surgery division. <br /><br />
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum necessitatibus tempora laborum illum voluptatum doloribus itaque architecto sunt, earum autem placeat, fugiat assumenda voluptatem perferendis amet sit ea quisquam. Illo debitis voluptates, ipsa, dolore quia aliquid pariatur necessitatibus blanditiis eum quos unde nesciunt voluptatum dolorem est, non reprehenderit! Deleniti, amet? <br /><br /> Mollitia ut itaque nobis incidunt praesentium tempore numquam, voluptatibus vitae voluptas exercitationem dolores odit aliquam debitis est, fugit fuga eligendi nostrum inventore! Tenetur dolorem laboriosam libero quam odit exercitationem totam quia fugiat dignissimos reprehenderit, facilis quidem incidunt cupiditate in reiciendis mollitia magnam assumenda rerum et laborum iure. Expedita, minus blanditiis.</Typography> */}
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  aria-label="basic tabs example"
-                  textColor="#00adb5"
-                  indicatorColor="#00adb5"
-                  sx={{
-                    "& .MuiTabs-indicator": {
-                      backgroundColor: "#00adb5",
-                    },
-                    color: "#00adb5",
-                  }}
-                >
-                  <Tab label="career" {...a11yProps(0)} />
-                  <Tab label="general Information" {...a11yProps(1)} />
-                </Tabs>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="basic tabs example"
+                    sx={{
+                      "& .MuiTabs-indicator": {
+                        backgroundColor: "#00adb5",
+                      },
+                      color: "#00adb5",
+                    }}
+                  >
+                    <Tab label="career" {...a11yProps(0)} />
+                    <Tab label="general Information" {...a11yProps(1)} />
+                  </Tabs>
+                </Box>
+                <TabPanel value={value} index={0}>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum. <br />
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum. <br />
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum.
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum. <br />
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum. <br />
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum. <br />
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum. <br />
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Doloremque, harum.
+                </TabPanel>
               </Box>
-              <TabPanel value={value} index={0}>
-                <Typography variant="h6" fontWeight="bold">
-                  Lorem
-                </Typography>
-                <Typography>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Doloremque, harum.
-                </Typography>
-                <Typography variant="h6" fontWeight="bold">
-                  Lorem
-                </Typography>
-                <Typography>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Doloremque, harum. Lorem ipsum dolor sit amet consectetur
-                  adipisicing.
-                </Typography>
-                <Typography variant="h6" fontWeight="bold">
-                  Lorem
-                </Typography>
-                <Typography>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Doloremque, harum.
-                </Typography>
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                Specialist is general and plastic surgery, all minimally
-                invasive methods. Senior general surgeon and head of plastic
-                surgery division. <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                necessitatibus tempora laborum illum voluptatum doloribus itaque
-                architecto sunt, earum autem placeat, fugiat assumenda
-                voluptatem perferendis amet sit ea quisquam. <br />
-                <br /> Mollitia ut itaque nobis incidunt praesentium tempore
-                numquam, voluptatibus vitae voluptas exercitationem dolores odit
-                aliquam debitis est,
-              </TabPanel>
-            </Box>
 
-            {/* </Grid> */}
+              {/* </Grid> */}
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

@@ -15,7 +15,6 @@ import {
 } from "react-icons/fa";
 import { FiMoreHorizontal } from "react-icons/fi";
 import Portfolio from "./Portfolio";
-// import { motion } from "framer-motion";
 
 const About = () => {
   return (
@@ -28,7 +27,6 @@ const About = () => {
       >
         <Grid
           container
-          // spacing={3}
           sx={{ flexDirection: { sm: "row", xs: "column-reverse" } }}
         >
           <Grid
@@ -99,7 +97,7 @@ const About = () => {
                   marginRight: "1rem",
                 }}
                 variant="filled"
-                href="/"
+                href="/about"
               >
                 <FiMoreHorizontal style={{ fontSize: "1.5rem" }} />
                 Read More
@@ -121,7 +119,7 @@ const About = () => {
                   marginRight: "1rem",
                 }}
                 variant="filled"
-                href="/"
+                href="/services"
               >
                 <FaHandHoldingMedical style={{ fontSize: "1.5rem" }} />
                 My Services
@@ -143,7 +141,7 @@ const About = () => {
                   marginRight: "1rem",
                 }}
                 variant="filled"
-                href="/"
+                href="/blog"
               >
                 <FaPenFancy style={{ fontSize: "1.5rem" }} />
                 My Blog
@@ -159,6 +157,7 @@ const About = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              marginBottom: { sm: "0", xs: "3rem" },
             }}
           >
             <Box
@@ -205,7 +204,10 @@ const About = () => {
               <FaPhoneAlt />
             </IconButton>
             <Box sx={{ marginLeft: "0.5rem" }}>
-              <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold" }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "#fff", fontWeight: "bold" }}
+              >
                 Call
               </Typography>
               <Typography variant="body2" sx={{ color: "#fff" }}>
@@ -232,7 +234,10 @@ const About = () => {
               <FaEnvelope />
             </IconButton>
             <Box sx={{ marginLeft: "0.5rem" }}>
-              <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold" }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "#fff", fontWeight: "bold" }}
+              >
                 Contact
               </Typography>
               <Typography variant="body2" sx={{ color: "#fff" }}>
@@ -259,7 +264,10 @@ const About = () => {
               <FaPlus />
             </IconButton>
             <Box sx={{ marginLeft: "0.5rem" }}>
-              <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold" }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "#fff", fontWeight: "bold" }}
+              >
                 Follow Me
               </Typography>
               <Box
@@ -269,7 +277,10 @@ const About = () => {
                   alignItems: "center",
                 }}
               >
-                <Link href="https://www.facebook.com/draykutgok" target="_blank">
+                <Link
+                  href="https://www.facebook.com/draykutgok"
+                  target="_blank"
+                >
                   <IconButton
                     sx={{
                       fontSize: "1.25rem",
@@ -332,12 +343,9 @@ const About = () => {
             </Box>
           </Box>
         </Box>
-        {/* </motion.div> */}
         <Portfolio />
       </Box>
-
     </>
-
   );
 };
 

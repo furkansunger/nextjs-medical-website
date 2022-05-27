@@ -34,10 +34,10 @@ const ServerErrorPage = () => {
             style={{ width: "100%" }}
           /> */}
           <Image
-            src="/assets/server500.png"
+            src="/assets/server_down.svg"
             alt="500-img"
-            width="284"
-            height="178"
+            width="1119.60911"
+            height="699"
             layout="responsive"
           />
         </Grid>

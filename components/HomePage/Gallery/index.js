@@ -10,7 +10,7 @@ const Gallery = () => {
   return (
     <Box
       sx={{
-        width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
+        width: "100%",
         padding: { sm: "4rem", xs: "1rem" },
       }}
     >
@@ -22,18 +22,9 @@ const Gallery = () => {
         spacing={2}
         sx={{ margin: "0" }}
       >
-        {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            visible: { opacity: 1, scale: 1 },
-            hidden: { opacity: 0, scale: 0 },
-          }}
-        > */}
         <Box>
-          <img
+          <Box
+            component="img"
             src="./assets/gray_360x600.png"
             alt="gallery-img"
             style={{
@@ -43,19 +34,9 @@ const Gallery = () => {
             }}
           />
         </Box>
-        {/* </motion.div> */}
-        {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            visible: { opacity: 1, scale: 1 },
-            hidden: { opacity: 0, scale: 0 },
-          }}
-        > */}
         <Box>
-          <img
+          <Box
+            component="img"
             src="./assets/services_480x480.png"
             alt="gallery-img"
             style={{
@@ -65,19 +46,9 @@ const Gallery = () => {
             }}
           />
         </Box>
-        {/* </motion.div> */}
-        {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            visible: { opacity: 1, scale: 1 },
-            hidden: { opacity: 0, scale: 0 },
-          }}
-        > */}
         <Box>
-          <img
+          <Box
+            component="img"
             src="./assets/gray_360x480.png"
             alt="gallery-img"
             style={{
@@ -87,19 +58,9 @@ const Gallery = () => {
             }}
           />
         </Box>
-        {/* </motion.div> */}
-        {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            visible: { opacity: 1, scale: 1 },
-            hidden: { opacity: 0, scale: 0 },
-          }}
-        > */}
         <Box>
-          <img
+          <Box
+            component="img"
             src="./assets/gray_360x480.png"
             alt="gallery-img"
             style={{
@@ -109,19 +70,9 @@ const Gallery = () => {
             }}
           />
         </Box>
-        {/* </motion.div> */}
-        {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            visible: { opacity: 1, scale: 1 },
-            hidden: { opacity: 0, scale: 0 },
-          }}
-        > */}
         <Box>
-          <img
+          <Box
+            component="img"
             src="./assets/services_480x480.png"
             alt="gallery-img"
             style={{
@@ -131,19 +82,9 @@ const Gallery = () => {
             }}
           />
         </Box>
-        {/* </motion.div> */}
-        {/* <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          variants={{
-            visible: { opacity: 1, scale: 1 },
-            hidden: { opacity: 0, scale: 0 },
-          }}
-        > */}
         <Box>
-          <img
+          <Box
+            component="img"
             src="./assets/gray_360x600.png"
             alt="gallery-img"
             style={{
@@ -153,7 +94,6 @@ const Gallery = () => {
             }}
           />
         </Box>
-        {/* </motion.div> */}
       </Masonry>
     </Box>
   );

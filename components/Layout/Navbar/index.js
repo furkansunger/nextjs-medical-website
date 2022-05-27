@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { BsGlobe } from "react-icons/bs";
 import {
   FaFacebookF,
   FaTwitter,
@@ -17,6 +18,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+import LangPopup from "./components/LangPopup";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -126,7 +128,7 @@ const Navbar = () => {
             <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
           </Link>
           <Link
-            href="/aboutus"
+            href="/about"
             sx={{
               width: "100%",
               textAlign: "center",
@@ -293,24 +295,29 @@ const Navbar = () => {
             alt="logo"
           /> */}
             <Typography
-              color="black"
-              sx={{ fontSize: { xs: "21px", sm: "25px", md: "39px" } }}
+              sx={{
+                fontSize: { xs: "21px", sm: "25px", md: "39px" },
+                color: "#005c71",
+              }}
             >
               Dr. Aykut Gök
             </Typography>
           </Link>
         </Box>
 
-        <IconButton
-          sx={{
-            background: "#005c71",
-            color: "#fff",
-            "&:hover": { background: "#005c71" },
-          }}
-          onClick={() => handleMenu()}
-        >
-          <AiOutlineMenu />
-        </IconButton>
+        <Box>
+          <LangPopup />
+          <IconButton
+            sx={{
+              background: "#005c71",
+              color: "#fff",
+              "&:hover": { background: "#005c71" },
+            }}
+            onClick={() => handleMenu()}
+          >
+            <AiOutlineMenu />
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );

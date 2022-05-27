@@ -1,10 +1,9 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material";
 // import image from "../../assets/images/AboutHeader.jpg";
 // import { useNavigate } from "react-router-dom";
 
-const Background = styled("div")({
+const Background = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -33,7 +32,7 @@ const AboutHeader = () => {
             fontWeight: 900,
             fontSize: "4.3rem",
             lineHeight: "7rem",
-            fontFamily: "'Raleway', sans-serif",
+            // fontFamily: "'Raleway', sans-serif",
           }}
         >
           <i>About Me</i>
@@ -46,7 +45,7 @@ const AboutHeader = () => {
           sx={{
             fontWeight: 300,
             fontSize: "1.5rem",
-            fontFamily: "'Poppins', sans-serif",
+            // fontFamily: "'Poppins', sans-serif",
             borderBottom: "1px solid #FFF",
             ":hover": {
               cursor: "pointer",

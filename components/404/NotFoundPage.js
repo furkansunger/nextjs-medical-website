@@ -39,10 +39,10 @@ const NotFoundPage = () => {
           }}
         >
           <Image
-            src="/assets/404-not-found.jpg"
+            src="/assets/not_found.svg"
             alt="404-img"
-            width="800"
-            height="625"
+            width="860.13137"
+            height="571.14799"
             layout="responsive"
           />
         </Grid>

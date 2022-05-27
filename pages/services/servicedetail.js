@@ -1,9 +1,7 @@
 import {
   Grid,
   Box,
-  Stack,
   Divider,
-  Collapse,
   Container,
   Typography,
   Breadcrumbs,
@@ -14,7 +12,7 @@ import MainLayout from "../../components/Layout";
 import ServiceDetails from "../../components/ServicesPage/components/ServiceDetails";
 import ServiceForm from "../../components/ServicesPage/components/ServiceForm";
 import ServiceHeader from "../../components/ServicesPage/components/ServiceHeader";
-import TravelTourGallery from "../../components/ServicesPage/components/TravelTourGallery";
+import ServiceGallery from "../../components/ServicesPage/components/ServiceGallery";
 
 export default function ServiceDetail() {
   return (
@@ -32,7 +30,7 @@ export default function ServiceDetail() {
           </Link>
           <Typography color="text.primary">Service Title</Typography>
         </Breadcrumbs>
-        <TravelTourGallery /> {/* gallery={tour.gallery} */}
+        <ServiceGallery /> {/* gallery={tour.gallery} */}
         <Grid container spacing={4}>
           <Grid item lg={8} md={7} xs={12}>
             <ServiceHeader /> {/* tour={tour} */}

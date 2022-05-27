@@ -14,8 +14,7 @@ const DotStyle = styled("span")(() => ({
 }));
 
 export default function BlogTravelPostItem({ post }) {
-  // const { slug, frontmatter } = post;
-  // const { title, duration, coverImg, author, createdAt } = frontmatter;
+  const { id, title, duration, coverImg, author, createdAt } = post;
 
   const textStyle = {
     overflow: "hidden",
@@ -29,7 +28,7 @@ export default function BlogTravelPostItem({ post }) {
     <Stack spacing={2.5}>
       <Box
         component="img"
-        src="https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg"
+        src={coverImg}
         alt="post-img"
         sx={{ borderRadius: 2 }}
       />
@@ -44,30 +43,30 @@ export default function BlogTravelPostItem({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate("2020-03-16T05:35:07.322Z")}
+            {fDate(createdAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            8 minutes read
+            {duration}
           </Typography>
         </Stack>
 
         <NextLink passHref as="/" href="/">
           <Typography asLink style={{ ...textStyle }} variant="h5">
-            Believing These 7 Myths About Event Keeps You From Growing
+            {title}
           </Typography>
         </NextLink>
       </Stack>
 
       <Stack direction="row" alignItems="center" sx={{ typography: "body2" }}>
         <Avatar
-          src="https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg"
+          src={author.authorImg}
           sx={{ mr: 1 }}
         />
-        Jayvion Simon
+        {author.name}
       </Stack>
     </Stack>
   );

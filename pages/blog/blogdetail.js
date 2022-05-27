@@ -7,7 +7,11 @@ import {
   Typography,
   Box,
   Breadcrumbs,
+  Link,
 } from "@mui/material";
+
+import { GrFormNext } from "react-icons/gr";
+
 import {
   BlogAuthorInfo,
   BlogSidebar,
@@ -43,13 +47,18 @@ export default function BlogDetail({ post, posts }) {
         <BlogTravelPostHero /> {/* post={post} */}
         <Container>
           <Breadcrumbs
-            sx={{ my: 3 }}
-            links={[
-              { name: "Home", href: "/" },
-              { name: "Blog", href: "/blog" },
-              { name: "title" },
-            ]}
-          />
+            aria-label="breadcrumb"
+            separator={<GrFormNext fontSize="small" />}
+            sx={{ padding: "2rem 0" }}
+          >
+            <Link underline="hover" color="inherit" href="/">
+              Home
+            </Link>
+            <Link underline="hover" color="inherit" href="/blog/">
+              Blog
+            </Link>
+            <Typography color="text.primary">Blog Title</Typography>
+          </Breadcrumbs>
         </Container>
         <Divider
           sx={{

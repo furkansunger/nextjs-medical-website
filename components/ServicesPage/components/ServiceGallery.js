@@ -11,7 +11,7 @@ const gallery = [
   "https://zone-assets-api.vercel.app/assets/images/travel/travel_7.jpg",
 ];
 
-export default function TravelTourGallery() {
+export default function ServiceGallery() {
   const [openLightbox, setOpenLightbox] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
 

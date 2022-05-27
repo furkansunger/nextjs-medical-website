@@ -2,38 +2,94 @@ import { Pagination, Box, Grid } from "@mui/material";
 
 import BlogTravelPostItem from "./BlogTravelPostItem";
 
-export default function BlogTravelPostList({ posts }) {
+const posts = [
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+];
+
+export default function BlogTravelPostList() {
   return (
     <>
-        <Grid container spacing={2}>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
+      <Grid container spacing={2}>
+        {posts?.map((post, index) => (
+          <Grid key={index} item sm={6} xs={12}>
+            <BlogTravelPostItem post={post} />
           </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <BlogTravelPostItem />
-          </Grid>
-        </Grid>
-        {/* {posts.slice(0, 8).map((post) => ( */}
-        {/* key={post.slug} post={post} */}
-        {/* ))} */}
+        ))}
+      </Grid>
 
       <Pagination
         count={10}

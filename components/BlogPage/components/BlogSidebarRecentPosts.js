@@ -2,7 +2,7 @@ import { Box, Link, Stack, Typography } from "@mui/material";
 
 import NextLink from "next/link";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 import { fDate } from "../../../utils/formatTime";
 
 const DotStyle = styled("span")(({ theme }) => ({
@@ -13,34 +13,99 @@ const DotStyle = styled("span")(({ theme }) => ({
   margin: theme.spacing(0, 1),
 }));
 
-export default function BlogSidebarRecentPosts({ recentPosts }) {
-  // const { list, path } = recentPosts;
+const posts = [
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+];
 
+export default function BlogSidebarRecentPosts() {
   return (
     <Stack spacing={3}>
       <Typography variant="h4" gutterBottom>
         Recent Posts
       </Typography>
-        {/* key={post.slug}
-        post={post}
-        onSiderbar
-        path={path} */}
-      {/* {list.map((post) => ( */}
-        <BlogPostItemMobile />
-        <BlogPostItemMobile />
-        <BlogPostItemMobile />
-        <BlogPostItemMobile />
-      {/* ))} */}
+      {posts?.map((post, index) => (
+        <BlogPostItemMobile key={index} post={post} />
+      ))}
     </Stack>
   );
 }
 
-function BlogPostItemMobile({ post, path, onSiderbar }) {
-  //   const { slug, frontmatter } = post;
-  //   const { title, duration, coverImg, createdAt } = frontmatter;
-
-  //   const as = `${path}/${slug}`;
-  //   const href = `${path}/[slug]`;
+function BlogPostItemMobile({ post }) {
+  const { title, duration, coverImg, createdAt } = post;
 
   const textStyle = {
     overflow: "hidden",
@@ -59,7 +124,7 @@ function BlogPostItemMobile({ post, path, onSiderbar }) {
     >
       <Box
         component="img"
-        src="https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg"
+        src={coverImg}
         alt="post-img"
         sx={{
           width: 80,
@@ -71,8 +136,12 @@ function BlogPostItemMobile({ post, path, onSiderbar }) {
 
       <Stack spacing={0.5}>
         <NextLink passHref as="/" href="/">
-          <Link variant={"subtitle2"} asLink style={{ ...textStyle, color: "#333", textDecoration: "none" }}>
-            Believing These 7 Myths About Event Keeps You From Growing
+          <Link
+            variant={"subtitle2"}
+            asLink
+            style={{ ...textStyle, color: "#333", textDecoration: "none" }}
+          >
+            {title}
           </Link>
         </NextLink>
 
@@ -86,14 +155,14 @@ function BlogPostItemMobile({ post, path, onSiderbar }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate("2020-03-16T05:35:07.322Z")}
+            {fDate(createdAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            8 minutes read
+            {duration}
           </Typography>
         </Stack>
       </Stack>

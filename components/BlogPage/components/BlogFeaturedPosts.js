@@ -6,8 +6,6 @@ import { alpha } from "@mui/material/styles";
 
 import { fDate } from "../../../utils/formatTime";
 
-// import { Link } from "react-router-dom";
-
 const DotStyle = styled("span")(() => ({
   width: 4,
   height: 4,
@@ -15,6 +13,84 @@ const DotStyle = styled("span")(() => ({
   backgroundColor: "currentColor",
   margin: "0 1rem",
 }));
+
+const posts = [
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+  {
+    id: "1",
+    title: "Believing These 7 Myths About Event Keeps You From Growing",
+    description:
+      "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
+    duration: "8 minutes read",
+    createdAt: "2020-03-16T05:35:07.322Z",
+    author: {
+      name: "Jayvion Simon",
+      authorImg:
+        "https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg",
+    },
+    coverImg:
+      "https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg",
+  },
+];
 
 const BlogFeaturedPosts = () => {
   return (
@@ -30,7 +106,8 @@ const BlogFeaturedPosts = () => {
             },
           }}
         >
-          <PostItem largePost />
+          <PostItem largePost post={posts[0]} />
+
           <Box
             sx={{
               display: "grid",
@@ -41,12 +118,9 @@ const BlogFeaturedPosts = () => {
               },
             }}
           >
-            {/* {posts.slice(1, 5).map((post) => ( */}
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem /> {/* key={post.slug} post={post} */}
-            {/* ))} */}
+            {posts.slice(1, 5).map((post, index) => (
+              <PostItem key={index} post={post} />
+            ))}
           </Box>
         </Box>
       </Container>
@@ -55,9 +129,8 @@ const BlogFeaturedPosts = () => {
 };
 
 function PostItem({ post, largePost }) {
-  //   const { id, frontmatter } = post;
-  //   const { title, description, duration, createdAt, author, coverImg } =
-  //     frontmatter;
+  const { id, title, description, duration, createdAt, author, coverImg } =
+    post;
 
   const textStyle = {
     overflow: "hidden",
@@ -72,7 +145,7 @@ function PostItem({ post, largePost }) {
       <Box>
         <Box
           component="img"
-          src="https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg"
+          src={coverImg}
           alt="post-img"
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
@@ -100,7 +173,7 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate("2020-03-16T05:35:07.322Z")}
+            {fDate(createdAt)}
           </Typography>
           <DotStyle />
           {/* <Typography variant="caption"></Typography> */}
@@ -108,7 +181,7 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            8 minutes read
+            {duration}
           </Typography>
         </Stack>
 
@@ -124,15 +197,13 @@ function PostItem({ post, largePost }) {
               }),
             }}
           >
-            Believing These 7 Myths About Event Keeps You From Growing
+            {title}
           </Typography>
         </Link>
 
         {largePost && (
           <Typography sx={{ opacity: 0.6, ...textStyle }}>
-            Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue
-            ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque
-            velit pede quis nunc.
+            {description}
           </Typography>
         )}
 
@@ -142,7 +213,7 @@ function PostItem({ post, largePost }) {
           sx={{ typography: "body2", pt: 1.5 }}
         >
           <Avatar
-            src="https://zone-assets-api.vercel.app/assets/images/avatars/avatar_2.jpg"
+            src={author.authorImg}
             sx={{
               mr: 1,
               width: 32,
@@ -153,10 +224,10 @@ function PostItem({ post, largePost }) {
               }),
             }}
           />
-          Jayvion Simon
+          {author.name}
         </Stack>
       </Stack>
-      {/* <BgOverlay /> */}
+
       <Box
         sx={{
           top: 0,

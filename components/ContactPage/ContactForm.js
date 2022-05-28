@@ -136,81 +136,7 @@ const ContactForm = () => {
 
             <Box component="form" >
               <Stack spacing={2.5} alignItems="flex-start">
-                {/* <Controller
-                  name="fullName"
-                  control={control}
-                  render={({ field, fieldState: { error } }) => (
-                    <TextField
-                      {...field}
-                      fullWidth
-                      label="Full name"
-                      error={Boolean(error)}
-                      helperText={error?.message}
-                    />
-                  )}
-                />
 
-                <Controller
-                  name="email"
-                  control={control}
-                  render={({ field, fieldState: { error } }) => (
-                    <TextField
-                      {...field}
-                      fullWidth
-                      label="Email"
-                      error={Boolean(error)}
-                      helperText={error?.message}
-                    />
-                  )}
-                />
-
-                <Controller
-                  name="subject"
-                  control={control}
-                  render={({ field, fieldState: { error } }) => (
-                    <TextField
-                      {...field}
-                      fullWidth
-                      label="Subject"
-                      error={Boolean(error)}
-                      helperText={error?.message}
-                    />
-                  )}
-                />
-
-                <Controller
-                  name="message"
-                  control={control}
-                  render={({ field, fieldState: { error } }) => (
-                    <TextField
-                      {...field}
-                      fullWidth
-                      multiline
-                      rows={4}
-                      label="Message"
-                      error={Boolean(error)}
-                      helperText={error?.message}
-                      sx={{ pb: 2.5 }}
-                    />
-                  )}
-                />
-
-                <LoadingButton
-                  size="large"
-                  type="submit"
-                  variant="contained"
-                  loading={isSubmitting}
-                  sx={{
-                    mx: {
-                      xs: "auto !important",
-                      md: "unset !important",
-                      backgroundColor: "#00adb5",
-                      color: "#fff",
-                    },
-                  }}
-                >
-                  Send Request
-                </LoadingButton> */}
                 <TextField
                   color="primary"
                   // variant="standard"
@@ -272,6 +198,7 @@ const ContactForm = () => {
                           }}
                           anchorEl={anchorEl}
                           open={open}
+                          keepMounted
                           onClose={() => setAnchorEl(null)}
                         >
                           {countries.map((country) => {

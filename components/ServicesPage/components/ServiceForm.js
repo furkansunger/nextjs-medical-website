@@ -162,6 +162,7 @@ const ServiceForm = () => {
                     }}
                     anchorEl={anchorEl}
                     open={open}
+                    keepMounted
                     onClose={() => setAnchorEl(null)}
                   >
                     {countries.map((country) => {

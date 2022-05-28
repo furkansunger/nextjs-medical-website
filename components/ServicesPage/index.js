@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   Typography,
+  Divider
 } from "@mui/material";
 import React from "react";
 
@@ -97,6 +98,8 @@ const ServicesPage = () => {
       }}
     >
       <Container>
+        <Typography variant="h3">Services</Typography>
+        <Divider sx={{margin: "0.5rem 0 2rem 0"}} />
         <Grid container spacing={2}>
           {services?.map((item, index) => (
             <Grid

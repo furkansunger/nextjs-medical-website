@@ -139,7 +139,7 @@ const Portfolio = () => {
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 10);
   }
-  const x = document.querySelector(".btn");
+  // const x = document.querySelector(".btn");
   const showLessItems = () => {
     if (visible > 10) {
       setVisible((prevValue) => prevValue - 10);

@@ -3,7 +3,11 @@ import { IoMdSend } from "react-icons/io";
 import React, { useState } from "react";
 import { countries } from "../../countries";
 
+import useTranslation from "next-translate/useTranslation";
+
 const ServiceForm = () => {
+  const { t } = useTranslation();
+
   const [info, setInfo] = useState({
     phonenumber: {
       value: "",
@@ -85,7 +89,7 @@ const ServiceForm = () => {
           fontWeight="medium"
           sx={{ color: "#005c71" }}
         >
-          Get In Touch
+          {t("common:textGetInTouch")}
         </Typography>
 
         <Box
@@ -104,7 +108,7 @@ const ServiceForm = () => {
             color="primary"
             variant="standard"
             required
-            label="Full Name"
+            label={t("common:inputName")}
             name="fullname"
             type="text"
             autoComplete="name"
@@ -122,7 +126,7 @@ const ServiceForm = () => {
             color="primary"
             variant="standard"
             required
-            label="Email"
+            label={t("common:inputEmail")}
             name="email"
             type="email"
             autoComplete="email"
@@ -140,7 +144,7 @@ const ServiceForm = () => {
             required
             variant="standard"
             type="phone"
-            label="Phone Number"
+            label={t("common:inputPhone")}
             name="phonenumber"
             onChange={handleChange}
             error={info.phonenumber.error}
@@ -193,7 +197,7 @@ const ServiceForm = () => {
           />
           <TextField
             required
-            label="Your Message"
+            label={t("common:inputMessage")}
             name="message"
             multiline
             rows={4}
@@ -224,7 +228,7 @@ const ServiceForm = () => {
               }
             }}
           >
-            Send
+            {t("common:buttonSubmit")}
           </Button>
         </Box>
       </Stack>

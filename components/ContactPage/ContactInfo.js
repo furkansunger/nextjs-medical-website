@@ -14,7 +14,11 @@ import SocialButtons from "../UI/SocialButtons";
 
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
+import useTranslation from "next-translate/useTranslation";
+
 const ContactInfo = () => {
+  const { t } = useTranslation();
+
   return (
     <Box sx={{ marginBottom: "4rem" }}>
       <Container>
@@ -27,21 +31,29 @@ const ContactInfo = () => {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              Get In Touch
+              {t("common:textGetInTouch")}
             </Typography>
 
             <Stack spacing={3}>
               <Stack spacing={1}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaEnvelope style={{ fontSize: "1.5rem", color: "#005c71" }} />
-                  <Typography variant="body1" sx={{ marginLeft: "0.5rem", color: "#333" }}>
-                    Email
+                  <FaEnvelope
+                    style={{ fontSize: "1.5rem", color: "#005c71" }}
+                  />
+                  <Typography
+                    variant="body1"
+                    sx={{ marginLeft: "0.5rem", color: "#333" }}
+                  >
+                    {t("common:inputEmail")}
                   </Typography>
                 </Box>
                 <Link
                   variant="body2"
                   href="mailto:info@aykutgok.com"
-                  sx={{ color: "rgba(0, 0, 0, 0.7)", textDecorationColor: "rgba(0, 0, 0, 0.7)" }}
+                  sx={{
+                    color: "rgba(0, 0, 0, 0.7)",
+                    textDecorationColor: "rgba(0, 0, 0, 0.7)",
+                  }}
                 >
                   info@aykutgok.com
                 </Link>
@@ -49,9 +61,14 @@ const ContactInfo = () => {
 
               <Stack spacing={1}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaPhoneAlt style={{ fontSize: "1.5rem", color: "#005c71" }} />
-                  <Typography variant="body1" sx={{ marginLeft: "0.5rem", color: "#333" }}>
-                    Phone
+                  <FaPhoneAlt
+                    style={{ fontSize: "1.5rem", color: "#005c71" }}
+                  />
+                  <Typography
+                    variant="body1"
+                    sx={{ marginLeft: "0.5rem", color: "#333" }}
+                  >
+                    {t("common:inputPhone")}
                   </Typography>
                 </Box>
 
@@ -65,9 +82,14 @@ const ContactInfo = () => {
 
               <Stack spacing={1}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaMapMarkerAlt style={{ fontSize: "1.5rem", color: "#005c71" }} />
-                  <Typography variant="body1" sx={{ marginLeft: "0.5rem", color: "#333" }}>
-                    Address
+                  <FaMapMarkerAlt
+                    style={{ fontSize: "1.5rem", color: "#005c71" }}
+                  />
+                  <Typography
+                    variant="body1"
+                    sx={{ marginLeft: "0.5rem", color: "#333" }}
+                  >
+                    {t("common:textAddress")}
                   </Typography>
                 </Box>
                 <Typography
@@ -86,7 +108,7 @@ const ContactInfo = () => {
                 alignItems={{ xs: "center", md: "flex-start" }}
               >
                 <Typography variant="overline" fontWeight="bold">
-                  Follow Us
+                  {t("common:textFollow")}
                 </Typography>
                 <SocialButtons />
               </Stack>

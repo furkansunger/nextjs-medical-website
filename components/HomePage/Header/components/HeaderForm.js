@@ -1,8 +1,21 @@
-import { Box, Button, Card, Menu, MenuItem, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  Menu,
+  MenuItem,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { countries } from "../../../countries";
 
+import useTranslation from "next-translate/useTranslation";
+
 const HeaderForm = () => {
+  const { t } = useTranslation();
+
   const [info, setInfo] = useState({
     phonenumber: {
       value: "",
@@ -80,7 +93,7 @@ const HeaderForm = () => {
     >
       <Stack spacing={3} sx={{ p: 3 }}>
         <Typography variant="h4" sx={{ color: "#fff7" }}>
-          Online Free Consultation
+          {t("common:headerFormTitle")}
         </Typography>
         <Box
           component="form"
@@ -95,13 +108,11 @@ const HeaderForm = () => {
           noValidate
           autoComplete="off"
         >
-
-
           <TextField
             color="primary"
             variant="standard"
             required
-            label="Full Name"
+            label={t("common:inputName")}
             name="fullname"
             type="text"
             autoComplete="name"
@@ -116,7 +127,7 @@ const HeaderForm = () => {
             color="primary"
             variant="standard"
             required
-            label="Email"
+            label={t("common:inputEmail")}
             name="email"
             type="email"
             autoComplete="email"
@@ -132,16 +143,17 @@ const HeaderForm = () => {
             required
             variant="standard"
             type="phone"
-            label="Phone Number"
+            label={t("common:inputPhone")}
             name="phonenumber"
             onChange={handleChange}
             error={info.phonenumber.error}
-            helperText={info.phonenumber.error ? info.phonenumber.helperText : ""}
+            helperText={
+              info.phonenumber.error ? info.phonenumber.helperText : ""
+            }
             sx={{
               width: "100%",
               marginRight: "1rem",
             }}
-
             InputProps={{
               startAdornment: (
                 <>
@@ -157,7 +169,6 @@ const HeaderForm = () => {
                     keepMounted
                     open={Boolean(anchorEl)}
                     onClose={() => setAnchorEl(null)}
-
                   >
                     {countries.map((country) => {
                       return (
@@ -168,13 +179,14 @@ const HeaderForm = () => {
                             setAnchorEl(null);
                           }}
                         >
-                          <img
+                          <Box
+                            component="img"
                             loading="lazy"
                             style={{ marginRight: "10px" }}
                             width="20"
                             src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
                             srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
-                            alt=""
+                            alt="country-img"
                           />
                           {country.label} ({country.code}) +{country.phone}
                         </MenuItem>
@@ -186,7 +198,6 @@ const HeaderForm = () => {
             }}
           />
           <Button
-
             type="submit"
             variant="contained"
             disabled={disabledBtn || isEmpty}
@@ -199,9 +210,8 @@ const HeaderForm = () => {
               },
             }}
           >
-            Send
+            {t("common:buttonSubmit")}
           </Button>
-
         </Box>
       </Stack>
     </Card>

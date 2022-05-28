@@ -14,7 +14,12 @@ import React, { useState } from "react";
 import { FaPhoneAlt, FaHome, FaEnvelope } from "react-icons/fa";
 import { countries } from "../../countries"
 
+import useTranslation from "next-translate/useTranslation";
+
 const Contact = () => {
+
+  const { t } = useTranslation();
+
   const [info, setInfo] = useState({
     phonenumber: {
       value: "",
@@ -94,7 +99,7 @@ const Contact = () => {
     >
       <Grid container>
         <Grid item sm={6} xs={12}>
-          <Typography variant="h4">Contact Us</Typography>
+          <Typography variant="h4">{t("common:textContact")}</Typography>
           <Divider />
           <Box
             component="form"
@@ -114,7 +119,7 @@ const Contact = () => {
               color="primary"
               variant="standard"
               required
-              label="Full Name"
+              label={t("common:inputName")}
               name="fullname"
               type="text"
               autoComplete="name"
@@ -131,7 +136,7 @@ const Contact = () => {
               color="primary"
               variant="standard"
               required
-              label="Email"
+              label={t("common:inputEmail")}
               name="email"
               type="email"
               autoComplete="email"
@@ -149,7 +154,7 @@ const Contact = () => {
               required
               variant="standard"
               type="phone"
-              label="Phone Number"
+              label={t("common:inputPhone")}
               name="phonenumber"
               onChange={handleChange}
               error={info.phonenumber.error}
@@ -183,7 +188,8 @@ const Contact = () => {
                               setAnchorEl(null);
                             }}
                           >
-                            <img
+                            <Box
+                              component="img"
                               loading="lazy"
                               style={{ marginRight: "10px" }}
                               width="20"
@@ -202,7 +208,7 @@ const Contact = () => {
             />
             <TextField
               required
-              label="Subject"
+              label={t("common:inputSubject")}
               name="subject"
               multiline
               variant="standard"
@@ -219,7 +225,7 @@ const Contact = () => {
             />
             <TextField
               required
-              label="Your Message"
+              label={t("common:inputMessage")}
               name="message"
               multiline
               rows={4}
@@ -250,12 +256,12 @@ const Contact = () => {
                 }
               }}
             >
-              Send
+              {t("common:buttonSubmit")}
             </Button>
           </Box>
         </Grid>
         <Grid item sm={6} xs={12}>
-          <Typography variant="h4">Location</Typography>
+          <Typography variant="h4">{t("common:textLocation")}</Typography>
           <Divider />
           <Box sx={{ width: "90%", padding: "2rem 0" }}>
             <Box

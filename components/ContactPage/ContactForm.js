@@ -18,6 +18,8 @@ import {
 } from "@mui/material";
 import { countries } from "../countries";
 
+import useTranslation from "next-translate/useTranslation";
+
 // const FormSchema = Yup.object().shape({
 //   fullName: Yup.string().required("Full name is required"),
 //   email: Yup.string()
@@ -28,6 +30,9 @@ import { countries } from "../countries";
 // });
 
 const ContactForm = () => {
+
+  const { t } = useTranslation();
+
   const [info, setInfo] = useState({
     phonenumber: {
       value: "",
@@ -128,9 +133,9 @@ const ContactForm = () => {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              <Typography variant="h3">Drop Us A Line</Typography>
+              <Typography variant="h3">{t("common:textFormTitle")}</Typography>
               <Typography sx={{ color: "#666" }}>
-                We normally respond within 2 business days
+              {t("common:textFormParagraph")}
               </Typography>
             </Stack>
 
@@ -141,7 +146,7 @@ const ContactForm = () => {
                   color="primary"
                   // variant="standard"
                   required
-                  label="Full Name"
+                  label={t("common:inputName")}
                   name="fullname"
                   type="text"
                   autoComplete="name"
@@ -158,7 +163,7 @@ const ContactForm = () => {
                   color="primary"
                   // variant="standard"
                   required
-                  label="Email"
+                  label={t("common:inputEmail")}
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -176,7 +181,7 @@ const ContactForm = () => {
                   required
                   // variant="standard"
                   type="phone"
-                  label="Phone Number"
+                  label={t("common:inputPhone")}
                   name="phonenumber"
                   onChange={handleChange}
                   error={info.phonenumber.error}
@@ -210,7 +215,8 @@ const ContactForm = () => {
                                   setAnchorEl(null);
                                 }}
                               >
-                                <img
+                                <Box
+                                  component="img"
                                   loading="lazy"
                                   style={{ marginRight: "10px" }}
                                   width="20"
@@ -229,7 +235,7 @@ const ContactForm = () => {
                 />
                 <TextField
                   required
-                  label="Subject"
+                  label={t("common:inputSubject")}
                   name="subject"
                   multiline
                   // variant="standard"
@@ -246,7 +252,7 @@ const ContactForm = () => {
                 />
                 <TextField
                   required
-                  label="Your Message"
+                  label={t("common:inputMessage")}
                   name="message"
                   multiline
                   rows={4}
@@ -277,7 +283,7 @@ const ContactForm = () => {
                     },
                   }}
                 >
-                  SEND REQUEST
+                  {t("common:buttonSubmit")}
                 </Button>
               </Stack>
             </Box>

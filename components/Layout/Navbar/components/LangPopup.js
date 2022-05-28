@@ -12,7 +12,7 @@ const LANGS = [
   {
     label: "Turkish",
     value: "tr",
-    icon: "https://cdn-icons.flaticon.com/png/512/5111/premium/5111548.png?token=exp=1653650928~hmac=742268289a655eeb317ab3fbb020216e",
+    icon: "https://img.icons8.com/color/96/000000/turkey.png",
   },
 ];
 

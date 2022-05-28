@@ -71,16 +71,16 @@ const Footer = () => {
               <Link style={{ textDecoration: "none" }} href="/">
                 <Typography sx={{ marginTop: "15px", color: "#fff" }}>Home</Typography>
               </Link>
-              <Link style={{ textDecoration: "none" }} href="/about">
+              <Link style={{ textDecoration: "none" }} href="/faq">
                 <Typography sx={{ marginTop: "15px", color: "#fff" }}>FAQ</Typography>
               </Link>
-              <Link style={{ textDecoration: "none" }} href="#">
+              <Link style={{ textDecoration: "none" }} href="/contact">
                 <Typography sx={{ marginTop: "15px", color: "#fff" }}>Contact Us</Typography>
               </Link>
-              <Link style={{ textDecoration: "none" }} href="#">
+              <Link style={{ textDecoration: "none" }} href="/blog">
                 <Typography sx={{ marginTop: "15px", color: "#fff" }}>Blog</Typography>
               </Link>
-              <Link style={{ textDecoration: "none" }} href="#">
+              <Link style={{ textDecoration: "none" }} href="/">
                 <Typography sx={{ marginTop: "15px", color: "#fff" }}>Portfolio</Typography>
               </Link>
             </Box>
@@ -101,35 +101,35 @@ const Footer = () => {
           <Grid item xs={5} md={3}>
             <Typography sx={{ textAlign: { xs: "center", sm: "start" } }} fontWeight={700} variant="h5">Social Media</Typography>
             <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "start", marginLeft: { xs: "30px", sm: "0px" } }}>
-              <Link style={{ textDecoration: "none" }} href={"https://facebook.com"}>
+              <Link style={{ textDecoration: "none" }} href="https://www.facebook.com/draykutgok">
                 <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px", textDecoration: "none" }}>
                   <FaFacebookF />
                   <Typography marginLeft="15px" color="#fff">Facebook</Typography>
                 </Box>
               </Link>
 
-              <Link style={{ textDecoration: "none" }} href={"https://twitter.com"}>
+              <Link style={{ textDecoration: "none" }} href="https://twitter.com/mdaykutgok">
                 <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                   <FaTwitter />
                   <Typography marginLeft="15px" color="#fff">Twitter</Typography>
                 </Box>
               </Link>
 
-              <Link style={{ textDecoration: "none" }} href={"https://instagram.com"}>
+              <Link style={{ textDecoration: "none" }} href="https://instagram.com/draykutgok">
                 <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                   <FaInstagram />
                   <Typography marginLeft="15px" color="#fff">Instagram</Typography>
                 </Box>
               </Link>
 
-              <Link style={{ textDecoration: "none" }} href={"https://linkedin.com"}>
+              <Link style={{ textDecoration: "none" }} href="https://www.linkedin.com/in/aykutgok/">
                 <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                   <FaLinkedinIn />
                   <Typography marginLeft="15px" color="#fff">Linkedin</Typography>
                 </Box>
               </Link>
 
-              <Link style={{ textDecoration: "none" }} href={"https://youtube.com"}>
+              <Link style={{ textDecoration: "none" }} href="https://youtube.com/c/wellesclinic">
                 <Box sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
                   <FaYoutube />
                   <Typography marginLeft="15px" color="#fff">Youtube</Typography>

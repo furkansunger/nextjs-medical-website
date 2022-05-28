@@ -13,6 +13,9 @@ import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
+import { AiOutlineArrowUp } from 'react-icons/ai'
+import { AiOutlineArrowDown } from 'react-icons/ai'
+
 
 // import Categories from './Categories';
 
@@ -127,88 +130,50 @@ const Portfolio = () => {
     const result = Categories.filter((item) => item.category === catItem);
     setData(result);
   };
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event = React.SyntheticEvent, newValue = number) => {
+    setValue(newValue);
+  };
+  const [visible, setVisible] = useState(10);
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 10);
+  }
+  const x = document.querySelector(".btn");
+  const showLessItems = () => {
+    if (visible > 10) {
+      setVisible((prevValue) => prevValue - 10);
+    }
+
+
+  }
   return (
     <>
       <Typography
-        marginTop="50px"
+        marginTop="100px"
         textAlign="center"
         fontWeight={700}
         variant="h3"
       >
         Portfolio Gallery
       </Typography>
-      <Box
-        sx={{ marginTop: "30px", display: "flex", justifyContent: "center" }}
-      >
-        <ButtonGroup
-          variant="contained"
-          aria-label="outlined primary button group"
-        >
-          <Button
-            onClick={() => setData(Categories)}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            All
-          </Button>
-          <Button
-            onClick={() => filterResult("kırmızı")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            kırmızı
-          </Button>
-          <Button
-            onClick={() => filterResult("yesil")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            yeşil
-          </Button>
-          <Button
-            onClick={() => filterResult("siyah")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            siyah
-          </Button>
-          <Button
-            onClick={() => filterResult("beyaz")}
-            sx={{
-              color: "#fff",
-              padding: { xs: "5px", sm: "20px 35px 20px 35px" },
-            }}
-          >
-            beyaz
-          </Button>
-        </ButtonGroup>
+
+      <Box sx={{ borderColor: 'divider', marginTop: "30px" }}>
+        <Tabs variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example" value={value} onChange={handleChange} >
+          <Tab onClick={() => setData(Categories)} label="All" />
+          <Tab onClick={() => filterResult("kırmızı")} label="Kırmızı" />
+          <Tab onClick={() => filterResult("yesil")} label="Yeşil" />
+          <Tab onClick={() => filterResult("beyaz")} label="Beyaz" />
+          <Tab onClick={() => filterResult("siyah")} label="Siyah" />
+        </Tabs>
       </Box>
 
       <Grid
         container
-        // sx={{
-        //     marginTop: "25px",
-        //     display: 'grid',
-        //     // rowGap: { xs: 4, md: 5 },
-        //     columnGap: 4,
-        //     gridTemplateColumns: {
-        //         xs: 'repeat(1, 1fr)',
-        //         sm: 'repeat(2, 1fr)',
-        //         md: 'repeat(3, 1fr)',
-        //     },
-
-        // }}
-        // sx={{ rowGap: "4px", }}
       >
-        {data.map((item, index) => (
+        {data.slice(0, visible).map((item, index) => (
           <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
             <Box
               component="img"
@@ -227,7 +192,14 @@ const Portfolio = () => {
             </Stack>
           </Grid>
         ))}
+
       </Grid>
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "60px" }}
+      >
+        <Button sx={{ color: "#fff" }} onClick={showLessItems} variant="contained"> <AiOutlineArrowUp /> Load Less</Button>
+        <Button sx={{ marginLeft: "20px", color: "#fff" }} onClick={showMoreItems} variant="contained"> <AiOutlineArrowDown /> Load More</Button>
+      </Box>
+
     </>
   );
 };

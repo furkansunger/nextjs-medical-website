@@ -21,7 +21,7 @@ const HeaderForm = () => {
           sx={{
             width: "100%",
             display: "flex",
-            flexDirection: {sm: "row", xs: "column"},
+            flexDirection: { sm: "row", xs: "column" },
             alignItems: "start",
             justifyContent: "space-between",
             padding: "1rem 0",
@@ -38,9 +38,9 @@ const HeaderForm = () => {
               marginRight: "1rem",
               color: "#637381",
             }}
-            // error
-            // defaultValue="John Doe"
-            // helperText="Incorrect entry."
+          // error
+          // defaultValue="John Doe"
+          // helperText="Incorrect entry."
           />
           <TextField
             type="email"
@@ -50,9 +50,9 @@ const HeaderForm = () => {
               width: "100%",
               marginRight: "1rem",
             }}
-            // error
-            // defaultValue="John Doe"
-            // helperText="Incorrect entry."
+          // error
+          // defaultValue="John Doe"
+          // helperText="Incorrect entry."
           />
           <TextField
             type="text"
@@ -62,9 +62,9 @@ const HeaderForm = () => {
               width: "100%",
               marginRight: "1rem",
             }}
-            // error
-            // defaultValue="John Doe"
-            // helperText="Incorrect entry."
+          // error
+          // defaultValue="John Doe"
+          // helperText="Incorrect entry."
           />
           <Button
             sx={{

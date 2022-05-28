@@ -24,7 +24,7 @@ const Categories = [
     category: "siyah",
   },
   {
-    img: "https://www.wellesclinic.com/wp-content/uploads/2021/08/shutterstock_592789712-1024x683.jpg",
+    img: "https://media.istockphoto.com/photos/dentist-doctor-drills-teeth-with-a-drill-to-a-young-woman-girl-at-the-picture-id1212724617?k=20&m=1212724617&s=170667a&w=0&h=-rc5lvyCZSQzAolRXG5NxT3MZi7Dz4Fojh4l4fGx1Qo=",
     title: "yesil",
     category: "yesil",
   },
@@ -142,8 +142,8 @@ const Portfolio = () => {
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 10);
-  };
-  // const x = document.querySelector(".btn");
+  }
+
   const showLessItems = () => {
     if (visible > 10) {
       setVisible((prevValue) => prevValue - 10);

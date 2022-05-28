@@ -1,15 +1,74 @@
-import { Card, Stack, Box, Button, TextField, Typography } from "@mui/material";
+import { Card, Stack, Box, Button, TextField, Typography, Menu, MenuItem } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
 import React, { useState } from "react";
+import { countries } from "../../countries";
 
 const ServiceForm = () => {
-  const [error, setError] = useState(false);
-  // const [phone, setPhone] = useState("");
+  const [info, setInfo] = useState({
+    phonenumber: {
+      value: "",
+      error: false,
+      helperText: "Wrong Phone number format",
+    },
+    fullname: {
+      value: "",
+      error: false,
+      helperText: "Full name should include letters only",
+    },
+    massage: {
+      value: "",
+      error: false,
+      helperText: "Can't be empty",
+    },
+    email: {
+      value: "",
+      error: false,
+      helperText: "Invalid Email Address",
+    },
+  });
+  const [countryCode, setCountryCode] = useState(
+    `+(${countries[
+      countries.findIndex((item) => item.phone === "44")
+    ].phone.substring(0)}) `
+  );
 
-  const handleSubmit = () => {
-    setError(!error);
+  const [disabledBtn, setDisabledBtn] = useState(false);
+  const [isEmpty, setisEmpty] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleChange = (e) => {
+    let regex;
+    switch (e.target.name) {
+      case "phonenumber":
+        regex = /^[0-9]{6,13}$/g;
+        break;
+      case "fullname":
+        regex = /^[A-z]{2,15}$/g;
+        break;
+      case "email":
+        regex =
+          /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+        break;
+    }
+    const error = Boolean(!e.target.value.match(regex));
+    const isEmpty = Object.values(info).forEach((el) => {
+      if (!el.value) return true;
+      return false;
+    });
+    setisEmpty(isEmpty);
+    setDisabledBtn(error);
+    setInfo((prev) => {
+      const target = prev[e.target.name];
+      return {
+        ...prev,
+        [e.target.name]: {
+          ...target,
+          value: e.target.value,
+          error: error,
+        },
+      };
+    });
   };
-
   return (
     <Card
       sx={{
@@ -39,68 +98,130 @@ const ServiceForm = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
-          onSubmit={handleSubmit}
+
         >
           <TextField
-            error={error ? true : false}
-            // id="standard-error-helper-text"
-            label={`${error ? "Error" : "Full Name"}`}
-            helperText={error ? "Incorrect entry." : null}
+            color="primary"
             variant="standard"
+            required
+            label="Full Name"
+            name="fullname"
+            type="text"
+            autoComplete="name"
+            error={info.fullname.error}
+            helperText={info.fullname.error ? info.fullname.helperText : ""}
+            sx={{
+              width: "100%",
+              marginBottom: "0.75rem",
+            }}
+
+          />
+
+
+          <TextField
+            color="primary"
+            variant="standard"
+            required
+            label="Email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            onChange={handleChange}
+            error={info.email.error}
+            helperText={info.email.error ? info.email.helperText : ""}
             sx={{
               width: "100%",
               marginBottom: "0.75rem",
             }}
           />
+
+
           <TextField
-            error={error ? true : false}
-            // id="standard-error-helper-text"
-            label={`${error ? "Error" : "Email"}`}
-            helperText={error ? "Incorrect entry." : null}
+            required
             variant="standard"
+            type="phone"
+            label="Phone Number"
+            name="phonenumber"
+            onChange={handleChange}
+            error={info.phonenumber.error}
+            helperText={info.phonenumber.error ? info.phonenumber.helperText : ""}
             sx={{
               width: "100%",
               marginBottom: "0.75rem",
             }}
-          />
-          <TextField
-            error={error ? true : false}
-            // id="standard-error-helper-text"
-            label={`${error ? "Error" : "Phone Number"}`}
-            helperText={error ? "Incorrect entry." : null}
-            variant="standard"
-            sx={{
-              width: "100%",
-              marginBottom: "0.75rem",
+
+            InputProps={{
+              startAdornment: (
+                <>
+                  <Button onClick={(e) => setAnchorEl(e.currentTarget)}>
+                    {countryCode}
+                  </Button>
+                  <Menu
+                    PaperProps={{
+                      style: { maxHeight: 35 * 4.5, width: "300px" },
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    keepMounted
+                    onClose={() => setAnchorEl(null)}
+                  >
+                    {countries.map((country) => {
+                      return (
+                        <MenuItem
+                          key={country.code}
+                          onClick={() => {
+                            setCountryCode(`+(${country.phone.substring(0)}) `);
+                            setAnchorEl(null);
+                          }}
+                        >
+                          <img
+                            loading="lazy"
+                            style={{ marginRight: "10px" }}
+                            width="20"
+                            src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
+                            srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
+                            alt=""
+                          />
+                          {country.label} ({country.code}) +{country.phone}
+                        </MenuItem>
+                      );
+                    })}
+                  </Menu>
+                </>
+              ),
             }}
           />
-          {/* <PhoneInput
-            country={'tr'}
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            enableSearch
-          /> */}
           <TextField
-            // error={error ? true : false}
-            // id="standard-error-helper-text"
+            required
             label="Your Message"
-            // helperText={error ? "Incorrect entry." : null}
-            variant="standard"
-            sx={{
-              width: "100%",
-              marginBottom: "0.75rem",
-            }}
+            name="message"
             multiline
             rows={4}
-          />
-          <Button
-            variant="contained"
-            endIcon={<IoMdSend />}
+            variant="standard"
+            onChange={handleChange}
+            error={info.massage.error}
+            helperText={info.massage.error ? info.massage.helperText : ""}
             sx={{
-              backgroundColor: "#005c71",
-              color: "#fff",
               width: "100%",
-              marginTop: "2rem",
+              marginBottom: "1rem",
+            }}
+          // error
+          // defaultValue="John Doe"
+          // helperText="Incorrect entry."
+          />
+
+          <Button
+            fullWidth
+            type="submit"
+            variant="contained"
+            disabled={disabledBtn || isEmpty}
+            sx={{
+              background: "#00adb5",
+              color: "#fff",
+              marginTop: "0.5rem",
+              "&:hover": {
+                background: "#00adb5",
+              }
             }}
           >
             Send

@@ -13,6 +13,8 @@ import Paper from "@mui/material/Paper";
 import Masonry from "@mui/lab/Masonry";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
+import { AiOutlineArrowUp } from 'react-icons/ai'
+import { AiOutlineArrowDown } from 'react-icons/ai'
 
 
 // import Categories from './Categories';
@@ -133,6 +135,18 @@ const Portfolio = () => {
   const handleChange = (event = React.SyntheticEvent, newValue = number) => {
     setValue(newValue);
   };
+  const [visible, setVisible] = useState(10);
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 10);
+  }
+  const x = document.querySelector(".btn");
+  const showLessItems = () => {
+    if (visible > 10) {
+      setVisible((prevValue) => prevValue - 10);
+    }
+
+
+  }
   return (
     <>
       <Typography
@@ -159,7 +173,7 @@ const Portfolio = () => {
       <Grid
         container
       >
-        {data.map((item, index) => (
+        {data.slice(0, visible).map((item, index) => (
           <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
             <Box
               component="img"
@@ -178,7 +192,14 @@ const Portfolio = () => {
             </Stack>
           </Grid>
         ))}
+
       </Grid>
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "60px" }}
+      >
+        <Button sx={{ color: "#fff" }} onClick={showLessItems} variant="contained"> <AiOutlineArrowUp /> Load Less</Button>
+        <Button sx={{ marginLeft: "20px", color: "#fff" }} onClick={showMoreItems} variant="contained"> <AiOutlineArrowDown /> Load More</Button>
+      </Box>
+
     </>
   );
 };

@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material";
-// import image from "../../assets/images/AboutHeader.jpg";
-// import { useNavigate } from "react-router-dom";
+
 import { RiQuestionnaireLine } from "react-icons/ri";
+
+import NextLink from "next/link";
+
+import useTranslation from 'next-translate/useTranslation'
 
 const Background = styled("div")({
   display: "flex",
@@ -15,13 +18,14 @@ const Background = styled("div")({
   backgroundImage:
     "linear-gradient(rgba(0, 0, 0, 0.5)," +
     "rgba(0, 0, 0, 0.5))," +
-    `url("./assets/AboutHeader.jpg")`,
+    `url("/assets/AboutHeader.jpg")`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
 });
 const FaqHeader = () => {
-  // const navigate = useNavigate();
+  const { t } = useTranslation()
+
   return (
     <Box sx={{ width: "100%" }}>
       <Background>
@@ -39,7 +43,7 @@ const FaqHeader = () => {
             fontFamily: "'Raleway', sans-serif",
           }}
         >
-          <RiQuestionnaireLine /> <i style={{ marginLeft: "10px" }}>FAQ</i>
+          <RiQuestionnaireLine /> <i style={{ marginLeft: "10px" }}>{t("common:textFAQ")}</i>
         </Typography>
         <Typography
           color="#fff"
@@ -52,22 +56,23 @@ const FaqHeader = () => {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi,
           praesentium
         </Typography>
-        <Typography
-          // onClick={() => navigate("/")}
-          variant={"h5"}
-          color={"#dedede"}
-          sx={{
-            fontWeight: 300,
-            fontSize: "1.5rem",
-            fontFamily: "'Poppins', sans-serif",
-            borderBottom: "1px solid #FFF",
-            ":hover": {
-              cursor: "pointer",
-            },
-          }}
-        >
-          <i>Home</i>
-        </Typography>
+        <NextLink href="/">
+          <Typography
+            variant={"h1"}
+            components={"h1"}
+            color={"#dedede"}
+            sx={{
+              fontWeight: 300,
+              fontSize: "1.5rem",
+              borderBottom: "1px solid #FFF",
+              ":hover": {
+                cursor: "pointer",
+              },
+            }}
+          >
+            <i>{t("common:textHome")}</i>
+          </Typography>
+        </NextLink>
       </Background>
     </Box>
   );

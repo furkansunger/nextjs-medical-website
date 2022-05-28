@@ -23,6 +23,10 @@ import { useRouter } from "next/router";
 import SocialButtons from "../../components/UI/SocialButtons";
 import MainLayout from "../../components/Layout";
 
+import NextLink from "next/link"
+
+import useTranslation from 'next-translate/useTranslation'
+
 const TAGS = [
   { label: "Marketing", path: "#" },
   { label: "Development", path: "#" },
@@ -34,6 +38,8 @@ const TAGS = [
 export default function BlogDetail({ post, posts }) {
   //   const { frontmatter, content } = post;
   //   const { title, description, author, shareLinks, tags } = frontmatter;
+
+  const { t } = useTranslation()
 
   const router = useRouter();
 
@@ -51,12 +57,12 @@ export default function BlogDetail({ post, posts }) {
             separator={<GrFormNext fontSize="small" />}
             sx={{ padding: "2rem 0" }}
           >
-            <Link underline="hover" color="inherit" href="/">
-              Home
-            </Link>
-            <Link underline="hover" color="inherit" href="/blog/">
-              Blog
-            </Link>
+            <NextLink underline="hover" color="inherit" href="/">
+              {t("common:textHome")}
+            </NextLink>
+            <NextLink underline="hover" color="inherit" href="/blog/">
+              {t("common:textBlog")}
+            </NextLink>
             <Typography color="text.primary">Blog Title</Typography>
           </Breadcrumbs>
         </Container>
@@ -138,7 +144,7 @@ export default function BlogDetail({ post, posts }) {
                 sx={{ my: 6 }}
               >
                 <Typography variant="subtitle2" sx={{ mr: 1 }}>
-                  Tags:
+                {t("common:textTags")}:
                 </Typography>
                 {TAGS.map((tag) => (
                   <Chip
@@ -154,7 +160,7 @@ export default function BlogDetail({ post, posts }) {
               </Stack>
               <Stack direction="row" alignItems="center" flexWrap="wrap">
                 <Typography variant="subtitle2" sx={{ mr: 1 }}>
-                  Share:
+                {t("common:textShare")}:
                 </Typography>
                 <SocialButtons />
               </Stack>

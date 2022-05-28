@@ -12,6 +12,8 @@ import React from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 
+import useTranslation from 'next-translate/useTranslation'
+
 const data = [
   {
     id: "1",
@@ -61,6 +63,8 @@ const Steps = () => {
     "https://images.unsplash.com/photo-1638202993928-7267aad84c31?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387"
   );
 
+  const { t } = useTranslation()
+
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
     const filterData = data.find(
@@ -75,8 +79,8 @@ const Steps = () => {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} sx={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center"}}>
             <Box sx={{ marginBottom: "4rem" }}>
-              <Typography variant="body1">Reveal the new you</Typography>
-              <Typography variant="h3">Lets Get Started</Typography>
+              <Typography variant="body1">{t("common:stepsTitle")}</Typography>
+              <Typography variant="h3">{t("common:textSteps")}</Typography>
             </Box>
             {data?.map((item, index) => (
               <Accordion

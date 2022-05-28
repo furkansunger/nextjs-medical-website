@@ -8,7 +8,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -23,7 +23,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -38,7 +38,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -53,7 +53,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -68,7 +68,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",

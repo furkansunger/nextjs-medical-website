@@ -1,0 +1,71 @@
+{
+    "headerFormTitle": "Çevrimiçi Ücretsiz Danışmanlık",
+    "inputName": "İsim ve Soyisim",
+    "inputEmail": "E-posta",
+    "inputPhone": "Telefon",
+    "inputSubject": "Konu",
+    "inputMessage": "Mesaj",
+    "buttonSubmit": "Gönder",
+    "textAbout": "Hakkımda",
+    "buttonReadMore": "Daha Fazla",
+    "buttonServices": "Hizmetlerim",
+    "buttonLess": "Daha Az",
+    "buttonMore": "Daha Fazla",
+    "buttonBlog": "Yazılarım",
+    "buttonGoHome": "Anasayfaya Dön",
+    "textCall": "Çağrı Bırak",
+    "textContact": "İletişim",
+    "textFollow": "Takip Edin",
+    "textPortfolio": "Portföy Galeri",
+    "textTreatments": "Popüler Estetik Tedavilerim",
+    "testimonailsTitle": "Görüşler",
+    "textTestimonials": "Yaptığımız İşi Sevenler",
+    "stepsTitle": "Yeni Seni Ortaya Çıkar",
+    "textSteps": "Hadi Başlayalım",
+    "textContactMe": "İletişime Geçin",
+    "textLocation": "İletişim Bilgileri",
+    "textFooterInfo": "Genel Bilgiler",
+    "textFooterProcedures": "Süreçler",
+    "textSocialMedia": "Sosyal Medya",
+    "textFooterWorkDays": "Pzt-Cts",
+    "textHome": "Anasayfa",
+    "textServices": "Hizmetler",
+    "textMultiForm": "Multi Form",
+    "textFAQ": "SSS",
+    "textBlog": "Blog",
+    
+    "AboutPage": "Abo-u",
+
+    "doctorTitle": "Plastik Rekonstrüktif ve Estetik Cerrah",
+    "tabTextCareer": "Kariyer",
+    "tabTextInfo": "Genel Bilgiler",
+    "textGallery": "Galeri",
+
+
+    "Services Page": "Seras",
+    
+    
+    "FAQ Page": "SSS",
+
+    "textSendQuestion": "Sorunuzu Gönderin",
+
+
+    "BlogPage": "blog",
+
+    "textTrendingTopics": "Trend Konular",
+    "textCategories": "Kategoriler",
+    "textRecentPosts": "Son Yazılar",
+    "textPopularTags": "Popüler Etiketler",
+    "textTags": "Etiketler",
+    "textShare": "Paylaş",
+    "textDuration": "{{ number }} dakika",
+    "textTopics": "{{ number }} gönderi",
+
+
+    "ContactPage": "contact",
+
+    "textGetInTouch": "İletişime Geçin",
+    "textAddress": "Adres",
+    "textFormTitle": "Bizimle İletişime Geçin",
+    "textFormParagraph": "2 iş günü içerisinde mesajınızı yanıtlıyoruz."
+}

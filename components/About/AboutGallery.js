@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { Masonry } from "@mui/lab";
 
+import useTranslation from "next-translate/useTranslation";
+
 const dummyData = [
   {
     src: "/assets/about1.jpg",
@@ -34,6 +36,9 @@ const dummyData = [
 ];
 
 const AboutGallery = () => {
+    
+  const { t } = useTranslation()
+
   return (
     <Box
       sx={{
@@ -42,7 +47,7 @@ const AboutGallery = () => {
       }}
     >
       <Typography variant="h3" sx={{ textAlign: "center", marginBottom: "1rem" }}>
-        Gallery
+      {t("common:textGallery")}
       </Typography>
       <Masonry
         columns={{ xl: 4, md: 3, sm: 2, xs: 1 }}

@@ -10,13 +10,17 @@ import {
 } from "@mui/material";
 import React from "react";
 
+import NextLink from "next/link"
+
 import { BsDot } from "react-icons/bs";
+
+import useTranslation from 'next-translate/useTranslation'
 
 const services = [
   {
     id: "1",
     service: "Body Contouring Surgery",
-    serviceImg: "./assets/blue_480x480.png",
+    serviceImg: "/assets/blue_480x480.png",
     subServices: [
       "Momy Makeover",
       "Liposuction",
@@ -31,7 +35,7 @@ const services = [
   {
     id: "2",
     service: "Facial Aesthetic",
-    serviceImg: "./assets/blue_480x480.png",
+    serviceImg: "/assets/blue_480x480.png",
     subServices: [
       "Rhinoplasty",
       "Lip Surgery",
@@ -45,7 +49,7 @@ const services = [
   {
     id: "3",
     service: "Breast Augmentation",
-    serviceImg: "./assets/blue_480x480.png",
+    serviceImg: "/assets/blue_480x480.png",
     subServices: [
       "Breasts Lift",
       "Breast Asymmetry Correction",
@@ -58,7 +62,7 @@ const services = [
   {
     id: "4",
     service: "Hair Restoration",
-    serviceImg: "./assets/blue_480x480.png",
+    serviceImg: "/assets/blue_480x480.png",
     subServices: [
       "Fue Hair Transplant",
       "Hair Transplant",
@@ -73,7 +77,7 @@ const services = [
   {
     id: "5",
     service: "Nonsurgical",
-    serviceImg: "./assets/blue_480x480.png",
+    serviceImg: "/assets/blue_480x480.png",
     subServices: [
       "Botox",
       "PRP And Mesotherapy",
@@ -85,12 +89,14 @@ const services = [
   {
     id: "6",
     service: "Dental",
-    serviceImg: "./assets/blue_480x480.png",
+    serviceImg: "/assets/blue_480x480.png",
     subServices: [],
   },
 ];
 
 const ServicesPage = () => {
+  const { t } = useTranslation()
+
   return (
     <Box
       sx={{
@@ -98,7 +104,7 @@ const ServicesPage = () => {
       }}
     >
       <Container>
-        <Typography variant="h3">Services</Typography>
+        <Typography variant="h3">{t("common:textServices")}</Typography>
         <Divider sx={{margin: "0.5rem 0 2rem 0"}} />
         <Grid container spacing={2}>
           {services?.map((item, index) => (
@@ -110,15 +116,15 @@ const ServicesPage = () => {
               md={4}
               sx={{ padding: "1rem" }}
             >
-              <Link
+              <NextLink
                 href={`/services/servicedetail`}
                 sx={{
                   color: "#000",
                   textDecoration: "none",
                 }}
               >
-                <Typography variant="h5">{item.service}</Typography>
-              </Link>
+                <Typography variant="h5" sx={{cursor: "pointer"}}>{item.service}</Typography>
+              </NextLink>
               <Box
                 component="img"
                 sx={{
@@ -135,7 +141,7 @@ const ServicesPage = () => {
                   item.subServices.map((service, sIndex) => (
                     <ListItem key={sIndex}>
                       <BsDot />
-                      <Link
+                      <NextLink
                         href={`/services/servicedetail`}
                         sx={{
                           color: "#0009",
@@ -144,7 +150,7 @@ const ServicesPage = () => {
                         }}
                       >
                         {service}
-                      </Link>
+                      </NextLink>
                     </ListItem>
                   ))}
               </List>

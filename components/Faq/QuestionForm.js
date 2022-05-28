@@ -13,7 +13,12 @@ import { styled } from "@mui/material/styles";
 // import SendIcon from "@mui/icons-material/Send";
 import LoadingButton from "@mui/lab/LoadingButton";
 
+import useTranslation from 'next-translate/useTranslation'
+
 export default function QuestionForm() {
+  
+  const { t } = useTranslation()
+
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [inputData, setInputData] = useState({
@@ -89,27 +94,27 @@ export default function QuestionForm() {
         color="#fff"
         textAlign="center"
       >
-        Send Your Question
+        {t("common:textSendQuestion")}
       </Typography>
       <InputBox
         name="fullname"
         onChange={handleChange}
         value={inputData.fullname}
-        lable="Full Name"
+        lable={t("common:inputName")}
         required
       />
       <InputBox
         name="email"
         onChange={handleChange}
         value={inputData.email}
-        lable="Email"
+        lable={t("common:inputEmail")}
         required
       />
       <InputBox
         name="message"
         onChange={handleChange}
         value={inputData.message}
-        lable="Your Message"
+        lable={t("common:inputMessage")}
         required
         multiline
         rows={7}
@@ -138,7 +143,7 @@ export default function QuestionForm() {
           },
         }}
       >
-        Send
+        {t("common:buttonSubmit")}
       </LoadingButton>
       <Snackbar
         open={openSnackbar}

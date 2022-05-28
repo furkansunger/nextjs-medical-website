@@ -2,9 +2,14 @@ import { Grid, Stack, Container, Typography, Box, alpha } from "@mui/material";
 import { fDate } from "../../../utils/formatTime";
 import SocialButtons from "../../UI/SocialButtons";
 
+import useTranslation from "next-translate/useTranslation";
+
 export default function BlogPostHero({ post }) {
-//   const { frontmatter } = post;
-//   const { title, duration, createdAt, heroImg, shareLinks } = frontmatter;
+  //   const { frontmatter } = post;
+  //   const { title, duration, createdAt, heroImg, shareLinks } = frontmatter;
+  const duration = 15
+
+  const { t } = useTranslation();
 
   return (
     <Box sx={{ padding: "6rem 0", position: "relative" }}>
@@ -26,7 +31,7 @@ export default function BlogPostHero({ post }) {
               }}
             >
               <Typography variant="body2" sx={{ opacity: 0.72 }}>
-                8 minutes read
+                {t("common:textDuration", { number: duration })}
               </Typography>
 
               <Typography variant="h2" component="h1">

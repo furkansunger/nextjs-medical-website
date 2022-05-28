@@ -3,6 +3,8 @@ import NextLink from "next/link";
 // @mui
 import { Stack, Link, Typography, Box } from "@mui/material";
 
+import useTranslation from 'next-translate/useTranslation'
+
 const CATEGORIES = [
   { name: "Marketing", path: "#" },
   { name: "Community", path: "#" },
@@ -12,10 +14,12 @@ const CATEGORIES = [
 ];
 
 export default function BlogSidebarCategories() {
+  const { t } = useTranslation()
+
   return (
     <Stack spacing={1}>
       <Typography variant="h4" gutterBottom>
-        Categories
+      {t("common:textCategories")}
       </Typography>
       {CATEGORIES.map((category) => (
         <CategoryItem key={category.name} category={category} />

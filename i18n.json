@@ -1,0 +1,19 @@
+{
+    "locales": [
+        "en",
+        "tr"
+    ],
+    "defaultLocale": "en",
+    "pages": {
+        "/404": [
+            "404"
+        ],
+        "/500": [
+            "500"
+        ],
+        "*": [
+            "common"
+        ]
+    },
+    "localeDetection": false
+}

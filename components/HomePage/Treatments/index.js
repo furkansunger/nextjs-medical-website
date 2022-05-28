@@ -3,6 +3,8 @@ import React from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import { styled } from "@mui/material/styles";
 
+import useTranslation from 'next-translate/useTranslation'
+
 const dummyData = [
   {
     id: 1,
@@ -43,6 +45,8 @@ const RootStyle = styled("div")(({ theme }) => ({
 }));
 
 const Treatments = () => {
+  const { t } = useTranslation()
+
   return (
     <RootStyle>
       <Container>
@@ -58,7 +62,7 @@ const Treatments = () => {
               fontWeight={700}
               variant="h3"
             >
-              Our Populer Aesthetic Treatments{" "}
+              {t("common:textTreatments")}
             </Typography>
             <Typography sx={{ my: 3, color: "text.secondary" }}>
               Since wire-frame renderings are relatively simple and fast to

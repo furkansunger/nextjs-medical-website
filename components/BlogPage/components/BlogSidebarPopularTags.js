@@ -2,6 +2,8 @@ import { Typography, Chip, Box } from "@mui/material";
 
 import { useRouter } from "next/router";
 
+import useTranslation from 'next-translate/useTranslation'
+
 const TAGS = [
   { label: "Marketing", path: "#" },
   { label: "Development", path: "#" },
@@ -15,6 +17,8 @@ const TAGS = [
 ];
 
 export default function BlogSidebarPopularTags() {
+  const { t } = useTranslation()
+
   const router = useRouter();
 
   const onClick = (href) => {
@@ -24,7 +28,7 @@ export default function BlogSidebarPopularTags() {
   return (
     <Box>
       <Typography variant="h4" sx={{ mb: 3 }}>
-        Popular Tags
+      {t("common:textPopularTags")}
       </Typography>
 
       {TAGS.map((tag) => (

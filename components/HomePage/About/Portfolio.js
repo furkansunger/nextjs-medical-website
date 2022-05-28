@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  ButtonGroup,
   Grid,
   Stack,
   Tab,
@@ -10,12 +9,11 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
-import Masonry from "@mui/lab/Masonry";
 import { styled } from "@mui/material/styles";
-import Image from "next/image";
-import { AiOutlineArrowUp } from 'react-icons/ai'
-import { AiOutlineArrowDown } from 'react-icons/ai'
+import { AiOutlineArrowUp } from "react-icons/ai";
+import { AiOutlineArrowDown } from "react-icons/ai";
 
+import useTranslation from "next-translate/useTranslation";
 
 // import Categories from './Categories';
 
@@ -125,28 +123,32 @@ const Label = styled(Paper)(({ theme }) => ({
 }));
 
 const Portfolio = () => {
+  const { t } = useTranslation();
+
   const [data, setData] = useState(Categories);
+
   const filterResult = (catItem) => {
     const result = Categories.filter((item) => item.category === catItem);
     setData(result);
   };
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event = React.SyntheticEvent, newValue = number) => {
     setValue(newValue);
   };
+
   const [visible, setVisible] = useState(10);
+
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 10);
-  }
+  };
   // const x = document.querySelector(".btn");
   const showLessItems = () => {
     if (visible > 10) {
       setVisible((prevValue) => prevValue - 10);
     }
-
-
-  }
+  };
   return (
     <>
       <Typography
@@ -155,13 +157,17 @@ const Portfolio = () => {
         fontWeight={700}
         variant="h3"
       >
-        Portfolio Gallery
+        {t("common:textPortfolio")}
       </Typography>
 
-      <Box sx={{ borderColor: 'divider', marginTop: "30px" }}>
-        <Tabs variant="scrollable"
+      <Box sx={{ borderColor: "divider", marginTop: "30px" }}>
+        <Tabs
+          variant="scrollable"
           scrollButtons="auto"
-          aria-label="scrollable auto tabs example" value={value} onChange={handleChange} >
+          aria-label="scrollable auto tabs example"
+          value={value}
+          onChange={handleChange}
+        >
           <Tab onClick={() => setData(Categories)} label="All" />
           <Tab onClick={() => filterResult("kırmızı")} label="Kırmızı" />
           <Tab onClick={() => filterResult("yesil")} label="Yeşil" />
@@ -170,9 +176,7 @@ const Portfolio = () => {
         </Tabs>
       </Box>
 
-      <Grid
-        container
-      >
+      <Grid container>
         {data.slice(0, visible).map((item, index) => (
           <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
             <Box
@@ -192,14 +196,34 @@ const Portfolio = () => {
             </Stack>
           </Grid>
         ))}
-
       </Grid>
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "60px" }}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "60px",
+        }}
       >
-        <Button sx={{ color: "#fff" }} onClick={showLessItems} variant="contained"> <AiOutlineArrowUp /> Load Less</Button>
-        <Button sx={{ marginLeft: "20px", color: "#fff" }} onClick={showMoreItems} variant="contained"> <AiOutlineArrowDown /> Load More</Button>
+        <Button
+          sx={{ color: "#fff" }}
+          onClick={showLessItems}
+          variant="contained"
+        >
+          {" "}
+          <AiOutlineArrowUp />
+          {t("common:buttonLess")}
+        </Button>
+        <Button
+          sx={{ marginLeft: "20px", color: "#fff" }}
+          onClick={showMoreItems}
+          variant="contained"
+        >
+          {" "}
+          <AiOutlineArrowDown />
+          {t("common:buttonMore")}
+        </Button>
       </Box>
-
     </>
   );
 };

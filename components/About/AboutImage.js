@@ -7,6 +7,8 @@ import { AiOutlinePhone } from "react-icons/ai";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
+import useTranslation from 'next-translate/useTranslation'
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -40,6 +42,9 @@ const AboutImage = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const { t } = useTranslation()
+
   return (
     <Box>
       <Container
@@ -81,13 +86,13 @@ const AboutImage = () => {
                 >
                   Dr.Aykut Gok
                 </Typography>
-                <Typography
+                <Typography variant="caption"
                   sx={{
-                    fontSize: { xs: "11px", sm: "17px", md: "21px" },
+                    fontSize: { xs: "11px", sm: "14px", md: "18px" },
                     color: "#333",
                   }}
                 >
-                  Plastic Reconstructive and Aesthetic Surgeon
+                  {t("common:doctorTitle")}
                 </Typography>
               </Box>
               <Box>
@@ -130,8 +135,8 @@ const AboutImage = () => {
                     color: "#00adb5",
                   }}
                 >
-                  <Tab label="career" {...a11yProps(0)} />
-                  <Tab label="general Information" {...a11yProps(1)} />
+                  <Tab label={t("common:tabTextCareer")} {...a11yProps(0)} />
+                  <Tab label={t("common:tabTextInfo")} {...a11yProps(1)} />
                 </Tabs>
               </Box>
               <TabPanel value={value} index={0}>
@@ -143,12 +148,6 @@ const AboutImage = () => {
                 necessitatibus tempora laborum illum voluptatum doloribus itaque
                 architecto sunt, earum autem placeat, fugiat assumenda
                 voluptatem perferendis amet sit ea quisquam. <br />
-                <br /> Mollitia ut itaque nobis incidunt praesentium tempore
-                numquam, voluptatibus vitae voluptas exercitationem dolores odit
-                aliquam debitis est,
-                <br /> Mollitia ut itaque nobis incidunt praesentium tempore
-                numquam, voluptatibus vitae voluptas exercitationem dolores odit
-                aliquam debitis est,
               </TabPanel>
               <TabPanel value={value} index={1}>
                 Specialist is general and plastic surgery, all minimally

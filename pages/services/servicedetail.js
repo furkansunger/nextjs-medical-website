@@ -14,7 +14,11 @@ import ServiceForm from "../../components/ServicesPage/components/ServiceForm";
 import ServiceHeader from "../../components/ServicesPage/components/ServiceHeader";
 import ServiceGallery from "../../components/ServicesPage/components/ServiceGallery";
 
+import useTranslation from 'next-translate/useTranslation'
+
 export default function ServiceDetail() {
+  const { t } = useTranslation()
+
   return (
     <Box sx={{ padding: "10rem 0 6rem 0" }}>
       <Container>
@@ -23,10 +27,10 @@ export default function ServiceDetail() {
           separator={<GrFormNext fontSize="small" />}
         >
           <Link underline="hover" color="inherit" href="/">
-            Home
+          {t("common:textHome")}
           </Link>
           <Link underline="hover" color="inherit" href="/services/">
-            Services
+          {t("common:textServices")}
           </Link>
           <Typography color="text.primary">Service Title</Typography>
         </Breadcrumbs>

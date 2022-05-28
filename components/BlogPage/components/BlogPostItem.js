@@ -5,6 +5,8 @@ import NextLink from "next/link";
 
 import { fDate } from "../../../utils/formatTime";
 
+import useTranslation from "next-translate/useTranslation";
+
 const DotStyle = styled("span")(() => ({
   width: 4,
   height: 4,
@@ -15,6 +17,8 @@ const DotStyle = styled("span")(() => ({
 
 export default function BlogPostItem({ post }) {
   const { id, title, duration, coverImg, author, createdAt } = post;
+
+  const { t } = useTranslation();
 
   const textStyle = {
     overflow: "hidden",
@@ -37,7 +41,7 @@ export default function BlogPostItem({ post }) {
         <Stack
           direction="row"
           alignItems="center"
-          sx={{ typography: "caption", color: "#fff8" }}
+          sx={{ typography: "caption", color: "#0008" }}
         >
           <Typography
             variant="caption"
@@ -50,7 +54,7 @@ export default function BlogPostItem({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {duration}
+            {t("common:textDuration", { number: duration })}
           </Typography>
         </Stack>
 

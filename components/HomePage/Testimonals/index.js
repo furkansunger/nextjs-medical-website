@@ -10,6 +10,8 @@ import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 // import "./styles.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
+import useTranslation from "next-translate/useTranslation";
+
 const dummyData = [
   {
     id: 1,
@@ -94,6 +96,8 @@ const dummyData = [
 ];
 
 const Testimonals = () => {
+  const { t } = useTranslation();
+
   return (
     <Box>
       <Typography
@@ -102,10 +106,10 @@ const Testimonals = () => {
         textAlign="center"
         variant="h6"
       >
-        TESTIMONIALS
+        {t("common:testimonailsTitle")}
       </Typography>
       <Typography fontWeight={700} textAlign="center" variant="h3">
-        Who Love Our Work
+        {t("common:textTestimonials")}
       </Typography>
       <Swiper
         style={{ width: "90%", height: "100%" }}

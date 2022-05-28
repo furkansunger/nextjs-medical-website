@@ -5,6 +5,9 @@ import NextLink from "next/link";
 import { styled } from "@mui/material/styles";
 import { fDate } from "../../../utils/formatTime";
 
+import useTranslation from 'next-translate/useTranslation'
+
+
 const DotStyle = styled("span")(({ theme }) => ({
   width: 4,
   height: 4,
@@ -19,7 +22,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -34,7 +37,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -49,7 +52,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -64,7 +67,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -79,7 +82,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -92,10 +95,12 @@ const posts = [
 ];
 
 export default function BlogSidebarRecentPosts() {
+  const { t } = useTranslation()
+
   return (
     <Stack spacing={3}>
       <Typography variant="h4" gutterBottom>
-        Recent Posts
+      {t("common:textRecentPosts")}
       </Typography>
       {posts?.map((post, index) => (
         <BlogPostItemMobile key={index} post={post} />
@@ -106,6 +111,8 @@ export default function BlogSidebarRecentPosts() {
 
 function BlogPostItemMobile({ post }) {
   const { title, duration, coverImg, createdAt } = post;
+  
+  const { t } = useTranslation()
 
   const textStyle = {
     overflow: "hidden",
@@ -162,7 +169,7 @@ function BlogPostItemMobile({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {duration}
+            {t("common:textDuration", { number: duration })}
           </Typography>
         </Stack>
       </Stack>

@@ -3,7 +3,6 @@ import {
   Box,
   IconButton,
   Link,
-  MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -20,9 +19,15 @@ import {
 import { MdCancel } from "react-icons/md";
 import LangPopup from "./components/LangPopup";
 
+import NextLink from "next/link";
+
+import useTranslation from "next-translate/useTranslation";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,119 +117,151 @@ const Navbar = () => {
             margin: "auto",
           }}
         >
-          <Link
-            href="/"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Home</Typography>
-          </Link>
-          <Link
-            href="/about"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>
-              About Me
-            </Typography>
-          </Link>
-          <Link
-            href="/services"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>
-              Services
-            </Typography>
-          </Link>
-          <Link
-            href="/form"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>
-              Multi Form
-            </Typography>
-          </Link>
-          <Link
-            href="/faq"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>FAQ</Typography>
-          </Link>
-          <Link
-            href="/blog"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>Blog</Typography>
-          </Link>
-          <Link
-            href="/contact"
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              color: "#000",
-              borderRadius: "0.75rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-            }}
-          >
-            <Typography sx={{ fontSize: "1.5rem!important" }}>
-              Contact
-            </Typography>
-          </Link>
+          <NextLink href="/">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              {t("common:textHome")}
+            </Link>
+          </NextLink>
+          <NextLink href="/about">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textAbout")}
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/services">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textServices")}
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/form">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textMultiForm")}
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/faq">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textFAQ")}
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/blog">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textBlog")}
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/contact">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textContact")}
+              </Typography>
+            </Link>
+          </NextLink>
         </Box>
         <Box
           sx={{

@@ -1,0 +1,71 @@
+{
+    "headerFormTitle": "Online Free Consultation",
+    "inputName": "Full Name",
+    "inputEmail": "Email",
+    "inputPhone": "Phone",
+    "inputSubject": "Subject",
+    "inputMessage": "Message",
+    "buttonSubmit": "Send",
+    "buttonReadMore": "Read More",
+    "buttonServices": "My Services",
+    "buttonLess": "Load Less",
+    "buttonMore": "Load More",
+    "buttonBlog": "My Blog",
+    "buttonGoHome": "Go Home",
+    "textCall": "Call",
+    "textFollow": "Follow Me",
+    "textPortfolio": "Portfolio Gallery",
+    "textTreatments": "Our Populer Aesthetic Treatments",
+    "testimonailsTitle": "Testimonials",
+    "textTestimonials": "Who Love Our Work",
+    "stepsTitle": "Reveal the new you",
+    "textSteps": "Let's Get Started",
+    "textContactMe": "Contact Me",
+    "textLocation": "Location",
+    "textFooterInfo": "General Information",
+    "textFooterProcedures": "Procedures",
+    "textSocialMedia": "Social Media",
+    "textFooterWorkDays": "Mon-Sat",
+    "textHome": "Home",
+    "textAbout": "About Me",
+    "textServices": "Services",
+    "textMultiForm": "Multi Form",
+    "textFAQ": "FAQ",
+    "textBlog": "Blog",
+    "textContact": "Contact",
+    
+    "AboutPage": "Abo-u",
+
+    "doctorTitle": "Plastic Reconstructive and Aesthetic Surgeon",
+    "tabTextCareer": "Career",
+    "tabTextInfo": "General Information",
+    "textGallery": "Gallery",
+
+
+    "Services Page": "Seras",
+    
+    
+    "FAQ Page": "FAQ",
+
+    "textSendQuestion": "Send Your Question",
+
+
+    "BlogPage": "blog",
+
+    "textTrendingTopics": "Trending Topics",
+    "textCategories": "Categories",
+    "textRecentPosts": "Recent Posts",
+    "textPopularTags": "Popular Tags",
+    "textTags": "Tags",
+    "textShare": "Share",
+    "textDuration": "{{ number }} minutes read",
+    "textTopics": "{{ number }} posts",
+
+
+    "ContactPage": "contact",
+
+    "textGetInTouch": "Get In Touch",
+    "textAddress": "Address",
+    "textFormTitle": "Drop Us A Line",
+    "textFormParagraph": "We normally respond within 2 business days"
+}

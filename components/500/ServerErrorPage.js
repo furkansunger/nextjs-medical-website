@@ -3,7 +3,13 @@ import { Box, Grid, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import { BiArrowBack } from "react-icons/bi";
 
+import NextLink from "next/link";
+
+import useTranslation from 'next-translate/useTranslation'
+
 const ServerErrorPage = () => {
+  const { t } = useTranslation()
+
   return (
     <Box
       sx={{
@@ -56,7 +62,8 @@ const ServerErrorPage = () => {
             variant="h4"
             sx={{ fontSize: { lg: "2rem", sm: "1.125rem", xs: "0.5rem" } }}
           >
-            Internal Server Error!
+            
+            {t("500:titleServerError")}
           </Typography>
           <Typography
             variant="body1"
@@ -65,29 +72,29 @@ const ServerErrorPage = () => {
               color: "#333",
             }}
           >
-            The server has been deserted for a while. Please be patient or try
-            again later.
+            
+            {t("500:textServerError")}
           </Typography>
-          <Button
-            component="a"
-            href="/"
-            variant="outlined"
-            sx={{
-              fontSize: { lg: "1.2rem", sm: "1rem", xs: "0.7rem" },
-              marginTop: "1rem",
-              backgroundColor: "#00adb5",
-              color: "#fff",
-              borderRadius: "0.75rem",
-              "&:hover": {
-                color: "#fff",
+          <NextLink href="/">
+            <Button
+              variant="outlined"
+              sx={{
+                fontSize: { lg: "1.2rem", sm: "1rem", xs: "0.7rem" },
+                marginTop: "1rem",
                 backgroundColor: "#00adb5",
-                borderColor: "#00adb5",
-              },
-            }}
-          >
-            <BiArrowBack style={{ marginRight: "0.5rem" }} />
-            Go Home
-          </Button>
+                color: "#fff",
+                borderRadius: "0.75rem",
+                "&:hover": {
+                  color: "#fff",
+                  backgroundColor: "#00adb5",
+                  borderColor: "#00adb5",
+                },
+              }}
+            >
+              <BiArrowBack style={{ marginRight: "0.5rem" }} />
+              {t("common:buttonGoHome")}
+            </Button>
+          </NextLink>
         </Grid>
       </Grid>
     </Box>

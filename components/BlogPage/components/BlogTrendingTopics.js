@@ -8,6 +8,8 @@ import NextLink from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import useTranslation from "next-translate/useTranslation";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -85,6 +87,8 @@ export const TOPICS = [
 ];
 
 export default function BlogTravelTrendingTopics() {
+  const { t } = useTranslation();
+
   const carouselRef = useRef(null);
 
   return (
@@ -95,7 +99,7 @@ export default function BlogTravelTrendingTopics() {
           justifyContent={{ md: "space-between" }}
           sx={{ mb: 6 }}
         >
-          <Typography variant="h3">Trending Topics</Typography>
+          <Typography variant="h3">{t("common:textTrendingTopics")}</Typography>
         </Stack>
 
         <Swiper
@@ -140,6 +144,8 @@ export default function BlogTravelTrendingTopics() {
 function TopicItem({ topic }) {
   const { totalPost, cover, category } = topic;
 
+  const { t } = useTranslation();
+
   return (
     <NextLink href="#" passHref>
       <Box sx={{ px: 1.5, cursor: "pointer" }}>
@@ -161,7 +167,7 @@ function TopicItem({ topic }) {
             </Box>
 
             <Typography variant="body2" sx={{ opacity: 0.72 }}>
-              {totalPost} posts
+              {t("common:textTopics", { number: totalPost })}
             </Typography>
           </Stack>
 

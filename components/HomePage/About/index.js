@@ -16,7 +16,11 @@ import {
 import { FiMoreHorizontal } from "react-icons/fi";
 import Portfolio from "./Portfolio";
 
+import useTranslation from "next-translate/useTranslation";
+
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box
@@ -49,9 +53,10 @@ const About = () => {
                 padding: "0.25rem",
                 borderRadius: "0.25rem",
                 fontWeight: "bold",
+                textTransform: "uppercase",
               }}
             >
-              ABOUT ME
+              {t("common:textAbout")}
             </Typography>
             <Typography
               sx={{
@@ -100,7 +105,7 @@ const About = () => {
                 href="/about"
               >
                 <FiMoreHorizontal style={{ fontSize: "1.5rem" }} />
-                Read More
+                {t("common:buttonReadMore")}
               </Button>
               <Button
                 sx={{
@@ -122,7 +127,7 @@ const About = () => {
                 href="/services"
               >
                 <FaHandHoldingMedical style={{ fontSize: "1.5rem" }} />
-                My Services
+                {t("common:buttonServices")}
               </Button>
               <Button
                 sx={{
@@ -144,7 +149,7 @@ const About = () => {
                 href="/blog"
               >
                 <FaPenFancy style={{ fontSize: "1.5rem" }} />
-                My Blog
+                {t("common:buttonBlog")}
               </Button>
             </Box>
           </Grid>
@@ -208,7 +213,7 @@ const About = () => {
                 variant="h6"
                 sx={{ color: "#fff", fontWeight: "bold" }}
               >
-                Call
+                {t("common:textCall")}
               </Typography>
               <Typography variant="body2" sx={{ color: "#fff" }}>
                 +90 532 419 8868
@@ -238,7 +243,7 @@ const About = () => {
                 variant="h6"
                 sx={{ color: "#fff", fontWeight: "bold" }}
               >
-                Contact
+                {t("common:textContact")}
               </Typography>
               <Typography variant="body2" sx={{ color: "#fff" }}>
                 info@aykutgok.com
@@ -268,7 +273,7 @@ const About = () => {
                 variant="h6"
                 sx={{ color: "#fff", fontWeight: "bold" }}
               >
-                Follow Me
+                {t("common:textFollow")}
               </Typography>
               <Box
                 sx={{

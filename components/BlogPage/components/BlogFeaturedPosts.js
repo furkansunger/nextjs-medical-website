@@ -6,6 +6,10 @@ import { alpha } from "@mui/material/styles";
 
 import { fDate } from "../../../utils/formatTime";
 
+import NextLink from "next/link";
+
+import useTranslation from "next-translate/useTranslation";
+
 const DotStyle = styled("span")(() => ({
   width: 4,
   height: 4,
@@ -20,7 +24,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -35,7 +39,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -50,7 +54,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -65,7 +69,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -80,7 +84,7 @@ const posts = [
     title: "Believing These 7 Myths About Event Keeps You From Growing",
     description:
       "Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.",
-    duration: "8 minutes read",
+    duration: "8",
     createdAt: "2020-03-16T05:35:07.322Z",
     author: {
       name: "Jayvion Simon",
@@ -132,6 +136,8 @@ function PostItem({ post, largePost }) {
   const { id, title, description, duration, createdAt, author, coverImg } =
     post;
 
+  const { t } = useTranslation();
+
   const textStyle = {
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -181,15 +187,16 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {duration}
+            {t("common:textDuration", { number: duration })}
           </Typography>
         </Stack>
 
-        <Link href="/blog/blogdetail" style={{ textDecoration: "none" }}>
+        <NextLink href="/blog/blogdetail" style={{ textDecoration: "none" }}>
           <Typography
             asLink
             sx={{
               color: "rgba(256, 256, 256, 0.9)",
+              cursor: "pointer",
               ...textStyle,
               typography: "h6",
               ...(largePost && {
@@ -199,7 +206,7 @@ function PostItem({ post, largePost }) {
           >
             {title}
           </Typography>
-        </Link>
+        </NextLink>
 
         {largePost && (
           <Typography sx={{ opacity: 0.6, ...textStyle }}>

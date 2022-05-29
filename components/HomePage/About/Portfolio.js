@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Stack,
-  Tab,
-  Tabs,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Grid, Stack, Tab, Tabs, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
@@ -19,94 +11,94 @@ import useTranslation from "next-translate/useTranslation";
 
 const Categories = [
   {
-    img: "https://i2.milimaj.com/i/milliyet/75/0x410/6058ad9086b2471c8cdccaf3.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Body Contouring Surgery",
+    category: "Body Contouring Surgery",
   },
   {
-    img: "https://media.istockphoto.com/photos/dentist-doctor-drills-teeth-with-a-drill-to-a-young-woman-girl-at-the-picture-id1212724617?k=20&m=1212724617&s=170667a&w=0&h=-rc5lvyCZSQzAolRXG5NxT3MZi7Dz4Fojh4l4fGx1Qo=",
-    title: "yesil",
-    category: "yesil",
+    img: "/assets/blue_480x480.png",
+    title: "Facial Aesthetic",
+    category: "Facial Aesthetic",
   },
   {
-    img: "https://i2.milimaj.com/i/milliyet/75/0x410/6058ad9086b2471c8cdccaf3.jpg",
-    title: "yesil",
-    category: "yesil",
+    img: "/assets/blue_480x480.png",
+    title: "Facial Aesthetic",
+    category: "Facial Aesthetic",
   },
   {
-    img: "https://www.tekcan.av.tr/wp-content/uploads/2019/08/Yeni-Proje-74.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Body Contouring Surgery",
+    category: "Body Contouring Surgery",
   },
   {
-    img: "https://www.tekcan.av.tr/wp-content/uploads/2019/08/Yeni-Proje-74.jpg",
-    title: "yesil",
-    category: "yesil",
+    img: "/assets/blue_480x480.png",
+    title: "Facial Aesthetic",
+    category: "Facial Aesthetic",
   },
   {
-    img: "https://maltepehastanesi.com.tr/Content/Media/Article/Temp/10042018034932399-dolgu@335x335.jpg",
-    title: "kırmızı",
-    category: "kırmızı",
+    img: "/assets/blue_480x480.png",
+    title: "Breast Augmentation",
+    category: "Breast Augmentation",
   },
   {
-    img: "https://www.tekcan.av.tr/wp-content/uploads/2019/08/Yeni-Proje-74.jpg",
-    title: "beyaz",
-    category: "beyaz",
+    img: "/assets/blue_480x480.png",
+    title: "Hair Restoration",
+    category: "Hair Restoration",
   },
   {
-    img: "https://maltepehastanesi.com.tr/Content/Media/Article/Temp/10042018034932399-dolgu@335x335.jpg",
-    title: "kırmızı",
-    category: "kırmızı",
+    img: "/assets/blue_480x480.png",
+    title: "Breast Augmentation",
+    category: "Breast Augmentation",
   },
   {
-    img: "https://www.simyahukuk.com/wp-content/uploads/2018/10/estetik-ameliyat-tazminat-davas%C4%B1-500x350.jpg",
-    title: "kırmızı",
-    category: "kırmızı",
+    img: "/assets/blue_480x480.png",
+    title: "Breast Augmentation",
+    category: "Breast Augmentation",
   },
   {
-    img: "https://www.simyahukuk.com/wp-content/uploads/2018/10/estetik-ameliyat-tazminat-davas%C4%B1-500x350.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Body Contouring Surgery",
+    category: "Body Contouring Surgery",
   },
   {
-    img: "https://www.koruhastanesi.com/images/bolumler/main/275202119955713.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Dental",
+    category: "Dental",
   },
   {
-    img: "https://www.koruhastanesi.com/images/bolumler/main/275202119955713.jpg",
-    title: "beyaz",
-    category: "beyaz",
+    img: "/assets/blue_480x480.png",
+    title: "Hair Restoration",
+    category: "Hair Restoration",
   },
   {
-    img: "https://www.apexcerrahi.com.tr/wp-content/uploads/2021/06/burun-estetigi-rinoplasti-nedir-kimlere-yapilabilir-apex-cerrahi-1140x445.jpg",
-    title: "kırmızı",
-    category: "kırmızı",
+    img: "/assets/blue_480x480.png",
+    title: "Nonsurgical",
+    category: "Nonsurgical",
   },
   {
-    img: "https://www.apexcerrahi.com.tr/wp-content/uploads/2021/06/burun-estetigi-rinoplasti-nedir-kimlere-yapilabilir-apex-cerrahi-1140x445.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Dental",
+    category: "Dental",
   },
   {
-    img: "https://irmethospital.com/wp-content/uploads/2018/11/plastikcerrahi2019-1200x438.jpg",
-    title: "kırmızı",
-    category: "kırmızı",
+    img: "/assets/blue_480x480.png",
+    title: "Nonsurgical",
+    category: "Nonsurgical",
   },
   {
-    img: "https://irmethospital.com/wp-content/uploads/2018/11/plastikcerrahi2019-1200x438.jpg",
-    title: "beyaz",
-    category: "beyaz",
+    img: "/assets/blue_480x480.png",
+    title: "Hair Restoration",
+    category: "Hair Restoration",
   },
   {
-    img: "https://irmethospital.com/wp-content/uploads/2018/11/plastikcerrahi2019-1200x438.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Dental",
+    category: "Dental",
   },
   {
-    img: "https://www.apexcerrahi.com.tr/wp-content/uploads/2021/06/burun-estetigi-rinoplasti-nedir-kimlere-yapilabilir-apex-cerrahi-1140x445.jpg",
-    title: "siyah",
-    category: "siyah",
+    img: "/assets/blue_480x480.png",
+    title: "Nonsurgical",
+    category: "Nonsurgical",
   },
 ];
 
@@ -142,7 +134,7 @@ const Portfolio = () => {
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 10);
-  }
+  };
 
   const showLessItems = () => {
     if (visible > 10) {
@@ -169,10 +161,27 @@ const Portfolio = () => {
           onChange={handleChange}
         >
           <Tab onClick={() => setData(Categories)} label="All" />
-          <Tab onClick={() => filterResult("kırmızı")} label="Kırmızı" />
-          <Tab onClick={() => filterResult("yesil")} label="Yeşil" />
-          <Tab onClick={() => filterResult("beyaz")} label="Beyaz" />
-          <Tab onClick={() => filterResult("siyah")} label="Siyah" />
+          <Tab
+            onClick={() => filterResult("Breast Augmentation")}
+            label="Breast Augmentation"
+          />
+          <Tab
+            onClick={() => filterResult("Facial Aesthetic")}
+            label="Facial Aesthetic"
+          />
+          <Tab
+            onClick={() => filterResult("Hair Restoration")}
+            label="Hair Restoration"
+          />
+          <Tab
+            onClick={() => filterResult("Body Contouring Surgery")}
+            label="Body Contouring Surgery"
+          />
+          <Tab
+            onClick={() => filterResult("Nonsurgical")}
+            label="Nonsurgical"
+          />
+          <Tab onClick={() => filterResult("Dental")} label="Dental" />
         </Tabs>
       </Box>
 
@@ -190,7 +199,7 @@ const Portfolio = () => {
             />
 
             <Stack spacing={1} sx={{ p: 2.5 }}>
-              <Typography variant="body1" sx={{ color: "text.disabled" }}>
+              <Typography variant="body1" sx={{ color: "#0009" }}>
                 {item.category}
               </Typography>
             </Stack>

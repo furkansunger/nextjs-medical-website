@@ -8,22 +8,22 @@ import useTranslation from 'next-translate/useTranslation'
 const dummyData = [
   {
     id: 1,
-    img: "assets/treatments.jpg",
+    img: "assets/blue_480x480.png",
     title: "title1",
   },
   {
     id: 2,
-    img: "assets/treatments1.jpg",
+    img: "assets/gray_360x480.png",
     title: "title2",
   },
   {
     id: 3,
-    img: "assets/treatments2.jpg",
+    img: "assets/gray_360x480.png",
     title: "title3",
   },
   {
     id: 4,
-    img: "assets/treatments3.jpg",
+    img: "assets/blue_480x480.png",
     title: "title4",
   },
 ];

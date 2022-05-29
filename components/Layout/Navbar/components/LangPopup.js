@@ -3,6 +3,15 @@ import { MenuItem, Box, Popover, IconButton } from "@mui/material";
 
 import { BsGlobe } from "react-icons/bs";
 
+import i18nConfig from "../../../../i18n.json";
+
+import {useRouter} from "next/router"
+
+const {locales, defaultLocale } = i18nConfig;
+
+import useTranslation from 'next-translate/useTranslation'
+
+
 const LANGS = [
   {
     label: "English",
@@ -17,7 +26,13 @@ const LANGS = [
 ];
 
 export default function LangPopup() {
-  const [currentLang, setCurrentLang] = useState("en");
+  const { t, lang } = useTranslation()
+
+  const [currentLang, setCurrentLang] = useState(t(`common:language-name-${lang}`));
+
+  console.log(locales);
+
+  const router = useRouter();
 
   const [open, setOpen] = useState(null);
 
@@ -30,8 +45,13 @@ export default function LangPopup() {
   };
 
   const handleChangeLang = (newLang) => {
+    const lang = newLang === defaultLocale ? "" : newLang;
+
     handleClose();
     setCurrentLang(newLang);
+    router.push(`/${lang}`, null, {
+      locale: newLang
+    });
   };
 
   return (
@@ -57,17 +77,18 @@ export default function LangPopup() {
           sx: { px: 1, width: 220 },
         }}
       >
-        {LANGS.map((option) => (
+
+        {locales.map((lng, index) => (
           <MenuItem
-            key={option.value}
-            selected={option.value === currentLang}
-            onClick={() => handleChangeLang(option.value)}
+            key={index}
+            selected={lng === currentLang}
+            onClick={() => handleChangeLang(lng)}
             sx={{ my: 1 }}
           >
             <Box
               component="img"
-              alt={option.label}
-              src={option.icon}
+              alt={lng}
+              src={lng === "en" ? "https://cdn-icons-png.flaticon.com/512/197/197374.png" : "https://img.icons8.com/color/96/000000/turkey.png"}
               sx={{
                 borderRadius: "50%",
                 width: 28,
@@ -77,7 +98,7 @@ export default function LangPopup() {
               }}
             />
 
-            {option.label}
+            {t(`common:language-name-${lng}`)}
           </MenuItem>
         ))}
       </Popover>

@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 
-import BlogSidebarCategories from "./BlogSidebarCategories";
+// import BlogSidebarCategories from "./BlogSidebarCategories";
 import BlogSidebarPopularTags from "./BlogSidebarPopularTags";
 import BlogSidebarRecentPosts from "./BlogSidebarRecentPosts";
 
@@ -13,9 +13,9 @@ export default function BlogSidebar() {
           pb: { xs: 8, md: 0 },
         }}
       >
-        <BlogSidebarCategories />
-        <BlogSidebarRecentPosts /> {/* recentPosts={recentPosts} */}
+        {/* <BlogSidebarCategories /> */}
         <BlogSidebarPopularTags />
+        <BlogSidebarRecentPosts /> {/* recentPosts={recentPosts} */}
       </Stack>
     </>
   );

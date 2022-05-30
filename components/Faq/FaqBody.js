@@ -63,7 +63,7 @@ export default function FaqBody({ data }) {
         md={8}
         justifyContent="center"
         sx={{
-          paddingX: { md: "2vw", xs: "2vw" },
+          // paddingX: { md: "2vw", xs: "2vw" },
         }}
       >
         <ControlledAccordions data={data} />
@@ -79,7 +79,7 @@ export default function FaqBody({ data }) {
         mt={{ md: "-25vh" }}
         justifyContent="center"
         sx={{
-          paddingX: "2vw",
+          // paddingX: "2vw",
           mb: { xs: "100px", md: "0" },
         }}
       >

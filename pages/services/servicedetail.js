@@ -16,37 +16,45 @@ import ServiceGallery from "../../components/ServicesPage/components/ServiceGall
 
 import useTranslation from 'next-translate/useTranslation'
 
+import Head from "next/head";
+import NextLink from "next/link"
+
 export default function ServiceDetail() {
   const { t } = useTranslation()
 
   return (
-    <Box sx={{ padding: "10rem 0 6rem 0" }}>
-      <Container>
-        <Breadcrumbs
-          aria-label="breadcrumb"
-          separator={<GrFormNext fontSize="small" />}
-        >
-          <Link underline="hover" color="inherit" href="/">
-          {t("common:textHome")}
-          </Link>
-          <Link underline="hover" color="inherit" href="/services/">
-          {t("common:textServices")}
-          </Link>
-          <Typography color="text.primary">Service Title</Typography>
-        </Breadcrumbs>
-        <ServiceGallery /> {/* gallery={tour.gallery} */}
-        <Grid container spacing={4}>
-          <Grid item lg={8} md={7} xs={12}>
-            <ServiceHeader /> {/* tour={tour} */}
-            <Divider sx={{ borderStyle: "dashed", my: 5 }} />
-            <ServiceDetails /> {/* tour={tour} */}
+    <>
+      <Head>
+        <title>Service Detail | Dr. Aykut Gok</title>
+      </Head>
+      <Box sx={{ padding: "10rem 0 6rem 0" }}>
+        <Container>
+          <Breadcrumbs
+            aria-label="breadcrumb"
+            separator={<GrFormNext fontSize="small" />}
+          >
+            <NextLink underline="hover" color="inherit" href="/">
+            {t("common:textHome")}
+            </NextLink>
+            <NextLink underline="hover" color="inherit" href="/services/">
+            {t("common:textServices")}
+            </NextLink>
+            <Typography color="text.primary">Service Title</Typography>
+          </Breadcrumbs>
+          <ServiceGallery /> {/* gallery={tour.gallery} */}
+          <Grid container spacing={4}>
+            <Grid item lg={8} md={7} xs={12}>
+              <ServiceHeader /> {/* tour={tour} */}
+              <Divider sx={{ borderStyle: "dashed", my: 5 }} />
+              <ServiceDetails /> {/* tour={tour} */}
+            </Grid>
+            <Grid item xs={12} md={5} lg={4} sx={{ position: "relative" }}>
+              <ServiceForm /> {/* tour={tour} */}
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={5} lg={4} sx={{ position: "relative" }}>
-            <ServiceForm /> {/* tour={tour} */}
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </>
   );
 }
 

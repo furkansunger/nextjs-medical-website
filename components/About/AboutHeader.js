@@ -5,7 +5,7 @@ import NextLink from "next/link";
 
 import useTranslation from 'next-translate/useTranslation'
 
-const Background = styled(Box)({
+const Background = styled(Box)((props) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -15,18 +15,18 @@ const Background = styled(Box)({
   backgroundImage:
     "linear-gradient(rgba(0, 0, 0, 0.5)," +
     "rgba(0, 0, 0, 0.5))," +
-    `url(/assets/AboutHeader.jpg)`,
+    `url(${props.backgroundImage})`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
 
-});
-const AboutHeader = () => {
+}));
+const AboutHeader = ({cover}) => {
   const { t } = useTranslation()
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Background>
+      <Background backgroundImage={cover.url}>
         <Typography
           variant={"h1"}
           components={"h1"}

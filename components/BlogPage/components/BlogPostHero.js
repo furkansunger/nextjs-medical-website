@@ -42,7 +42,7 @@ export default function BlogPostHero({ post }) {
                 {fDate("2020-03-16T05:35:07.322Z", "dd/MM/yyyy p")}
               </Typography>
 
-              <SocialButtons color="#005c71" />
+              {/* <SocialButtons color="#005c71" /> */}
             </Stack>
           </Grid>
         </Grid>

@@ -16,8 +16,10 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 import useTranslation from "next-translate/useTranslation";
 
-const ContactInfo = () => {
+const ContactInfo = ({ contactInfo }) => {
   const { t } = useTranslation();
+
+  const { address, email, phone, social_media } = contactInfo;
 
   return (
     <Box sx={{ marginBottom: "4rem" }}>
@@ -49,13 +51,13 @@ const ContactInfo = () => {
                 </Box>
                 <Link
                   variant="body2"
-                  href="mailto:info@aykutgok.com"
+                  href={`mailto:${email}`}
                   sx={{
                     color: "rgba(0, 0, 0, 0.7)",
                     textDecorationColor: "rgba(0, 0, 0, 0.7)",
                   }}
                 >
-                  info@aykutgok.com
+                  {email}
                 </Link>
               </Stack>
 
@@ -76,7 +78,7 @@ const ContactInfo = () => {
                   variant="body2"
                   sx={{ color: "rgba(0, 0, 0, 0.7)" }}
                 >
-                  +90 532 419 8868
+                  {phone}
                 </Typography>
               </Stack>
 
@@ -96,8 +98,7 @@ const ContactInfo = () => {
                   variant="body2"
                   sx={{ color: "rgba(0, 0, 0, 0.7)" }}
                 >
-                  Harbiye, Teşvikiye Cad, Bostan Sk. No:2 D:Kat 6, 34367
-                  Şişli/İstanbul
+                  {address}
                 </Typography>
               </Stack>
 
@@ -110,7 +111,7 @@ const ContactInfo = () => {
                 <Typography variant="overline" fontWeight="bold">
                   {t("common:textFollow")}
                 </Typography>
-                <SocialButtons />
+                <SocialButtons socialMedia={social_media} />
               </Stack>
             </Stack>
           </Grid>

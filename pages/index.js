@@ -12,9 +12,21 @@ import {
 import HeaderForm from "../components/HomePage/Header/components/HeaderForm";
 import { Box, Container } from "@mui/material";
 
-function Home() {
+import Head from "next/head";
+
+import { getMultipleData } from "../services/fetchers/publicData";
+
+
+function Home({home}) {
+console.log(home)
+
+  const { about_me_section, get_started, main_page_hero, populer_aesthetic_description, populer_aesthetic_item, portfolio_gallery, portfolio_gallery_1, portfolio_gallery_2, portfolio_gallery_3, portfolio_gallery_4 } = home;
+
   return (
     <>
+      <Head>
+        <title>Dr. Aykut Gok</title>
+      </Head>
       <Header />
       <Container
         sx={{
@@ -49,3 +61,15 @@ function Home() {
 Home.Layout = MainLayout;
 
 export default Home;
+
+
+export const getStaticProps = async (ctx) => {
+  const home = await getMultipleData("main-page", "", "populate=main_page_hero,portfolio_gallery_1,portfolio_gallery_2,portfolio_gallery_3,portfolio_gallery_4,populer_aesthetic_item,get_started");
+
+  return {
+    props: {
+      home,
+    },
+    revalidate: 1,
+  };
+};

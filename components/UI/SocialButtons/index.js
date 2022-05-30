@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { Box, IconButton, Link } from "@mui/material";
 import {
-  FaFacebookF,
+  FaFacebook,
   FaTwitter,
   FaInstagram,
-  FaLinkedinIn,
+  FaLinkedin,
   FaYoutube,
+  FaTiktok,
+  FaWhatsapp,
+  FaTelegram,
+  FaSnapchat,
 } from "react-icons/fa";
 
-const SocialButtons = ({color}) => {
+const SocialButtons = ({ color, socialMedia }) => {
   return (
     <Box
       sx={{
@@ -17,32 +21,28 @@ const SocialButtons = ({color}) => {
         alignItems: "center",
       }}
     >
-      <Link href="https://www.facebook.com/draykutgok" target="_blank">
-        <IconButton sx={{ color: color ? color : "#212B36", "&:hover": { color: color ? color : "#212B36" } }}>
-          <FaFacebookF />
-        </IconButton>
-      </Link>
-
-      <Link href="https://twitter.com/mdaykutgok" target="_blank">
-        <IconButton sx={{ color: color ? color : "#212B36", "&:hover": { color: color ? color : "#212B36" } }}>
-          <FaTwitter />
-        </IconButton>
-      </Link>
-      <Link href="https://instagram.com/draykutgok" target="_blank">
-        <IconButton sx={{ color: color ? color : "#212B36", "&:hover": { color: color ? color : "#212B36" } }}>
-          <FaInstagram />
-        </IconButton>
-      </Link>
-      <Link href="https://www.linkedin.com/in/aykutgok/" target="_blank">
-        <IconButton sx={{ color: color ? color : "#212B36", "&:hover": { color: color ? color : "#212B36" } }}>
-          <FaLinkedinIn />
-        </IconButton>
-      </Link>
-      <Link href="https://youtube.com/c/wellesclinic" target="_blank">
-        <IconButton sx={{ color: color ? color : "#212B36", "&:hover": { color: color ? color : "#212B36" } }}>
-          <FaYoutube />
-        </IconButton>
-      </Link>
+      {socialMedia?.length > 0
+        ? socialMedia.map((item, index) => (
+            <Link href={item.link} target="_blank" key={index}>
+              <IconButton
+                sx={{
+                  color: color ? color : "#212B36",
+                  "&:hover": { color: color ? color : "#212B36" },
+                }}
+              >
+                {item.name === "Facebook" && <FaFacebook />}
+                {item.name === "Twitter" && <FaTwitter />}
+                {item.name === "Instagram" && <FaInstagram />}
+                {item.name === "Linkedin" && <FaLinkedin />}
+                {item.name === "Youtube" && <FaYoutube />}
+                {item.name === "Tiktok" && <FaTiktok />}
+                {item.name === "Whatsapp" && <FaWhatsapp />}
+                {item.name === "Telegram" && <FaTelegram />}
+                {item.name === "Snapchat" && <FaSnapchat />}
+              </IconButton>
+            </Link>
+          ))
+        : null}
     </Box>
   );
 };

@@ -7,7 +7,7 @@ import { AiOutlinePhone } from "react-icons/ai";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
-import useTranslation from 'next-translate/useTranslation'
+import useTranslation from "next-translate/useTranslation";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,14 +36,16 @@ function a11yProps(index) {
   };
 }
 
-const AboutImage = () => {
+const AboutImage = ({ hero, career, generalInfo, contact }) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+
+  const { phone, email } = contact;
 
   return (
     <Box>
@@ -62,7 +64,7 @@ const AboutImage = () => {
             <Box>
               <Box
                 component="img"
-                src="/assets/header-bg.jpg"
+                src={hero.url}
                 width="100%"
                 height="100%"
                 // style={{ objectFit: "contain" }}
@@ -86,7 +88,8 @@ const AboutImage = () => {
                 >
                   Dr.Aykut Gok
                 </Typography>
-                <Typography variant="caption"
+                <Typography
+                  variant="caption"
                   sx={{
                     fontSize: { xs: "11px", sm: "14px", md: "18px" },
                     color: "#333",
@@ -102,7 +105,7 @@ const AboutImage = () => {
                     sx={{ fontSize: { xs: "14px", sm: "17px", md: "21px" } }}
                     ml={1}
                   >
-                    info@aykutgok.com
+                    {email}
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -111,7 +114,7 @@ const AboutImage = () => {
                     sx={{ fontSize: { xs: "14px", sm: "17px", md: "21px" } }}
                     ml={1}
                   >
-                    +90 532 419 88 68
+                    {phone}
                   </Typography>
                 </Box>
               </Box>
@@ -140,27 +143,10 @@ const AboutImage = () => {
                 </Tabs>
               </Box>
               <TabPanel value={value} index={0}>
-              Specialist is general and plastic surgery, all minimally
-                invasive methods. Senior general surgeon and head of plastic
-                surgery division. <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                necessitatibus tempora laborum illum voluptatum doloribus itaque
-                architecto sunt, earum autem placeat, fugiat assumenda
-                voluptatem perferendis amet sit ea quisquam. <br />
+                {career}
               </TabPanel>
               <TabPanel value={value} index={1}>
-                Specialist is general and plastic surgery, all minimally
-                invasive methods. Senior general surgeon and head of plastic
-                surgery division. <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                necessitatibus tempora laborum illum voluptatum doloribus itaque
-                architecto sunt, earum autem placeat, fugiat assumenda
-                voluptatem perferendis amet sit ea quisquam. <br />
-                <br /> Mollitia ut itaque nobis incidunt praesentium tempore
-                numquam, voluptatibus vitae voluptas exercitationem dolores odit
-                aliquam debitis est,
+                {generalInfo}
               </TabPanel>
             </Box>
           </Grid>

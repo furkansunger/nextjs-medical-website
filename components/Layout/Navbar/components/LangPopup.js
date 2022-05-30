@@ -30,8 +30,6 @@ export default function LangPopup() {
 
   const [currentLang, setCurrentLang] = useState(t(`common:language-name-${lang}`));
 
-  console.log(locales);
-
   const router = useRouter();
 
   const [open, setOpen] = useState(null);

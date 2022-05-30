@@ -14,9 +14,8 @@ import {
   FaPenFancy,
 } from "react-icons/fa";
 import { FiMoreHorizontal } from "react-icons/fi";
-import Portfolio from "./Portfolio";
-
 import useTranslation from "next-translate/useTranslation";
+import PortfolioGallery from "./PortfolioGallery";
 
 const About = () => {
   const { t } = useTranslation();
@@ -348,7 +347,7 @@ const About = () => {
             </Box>
           </Box>
         </Box>
-        <Portfolio />
+        <PortfolioGallery />
       </Box>
     </>
   );

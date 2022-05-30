@@ -11,6 +11,7 @@ import {
 } from "../components/HomePage";
 import HeaderForm from "../components/HomePage/Header/components/HeaderForm";
 import { Box, Container } from "@mui/material";
+import ScrollTopButton from "../components/HomePage/ScrollTopButton";
 
 function Home() {
   return (
@@ -42,6 +43,7 @@ function Home() {
       <Steps />
       {/* <Gallery /> */}
       <Contact />
+      <ScrollTopButton />
     </>
   );
 }

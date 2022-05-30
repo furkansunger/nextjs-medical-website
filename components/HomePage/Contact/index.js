@@ -12,11 +12,12 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { FaPhoneAlt, FaHome, FaEnvelope } from "react-icons/fa";
-import { countries } from "../../countries"
+import { countries } from "../../countries";
 
 import useTranslation from "next-translate/useTranslation";
 
-const Contact = () => {
+const Contact = ({ contactInfo }) => {
+  const { email, phone, address } = contactInfo;
 
   const { t } = useTranslation();
 
@@ -114,7 +115,6 @@ const Contact = () => {
             noValidate
             autoComplete="off"
           >
-
             <TextField
               color="primary"
               variant="standard"
@@ -130,7 +130,6 @@ const Contact = () => {
                 marginBottom: "1rem",
               }}
             />
-
 
             <TextField
               color="primary"
@@ -149,7 +148,6 @@ const Contact = () => {
               }}
             />
 
-
             <TextField
               required
               variant="standard"
@@ -158,12 +156,13 @@ const Contact = () => {
               name="phonenumber"
               onChange={handleChange}
               error={info.phonenumber.error}
-              helperText={info.phonenumber.error ? info.phonenumber.helperText : ""}
+              helperText={
+                info.phonenumber.error ? info.phonenumber.helperText : ""
+              }
               sx={{
                 width: "100%",
                 marginBottom: "1rem",
               }}
-
               InputProps={{
                 startAdornment: (
                   <>
@@ -184,7 +183,9 @@ const Contact = () => {
                           <MenuItem
                             key={country.code}
                             onClick={() => {
-                              setCountryCode(`+(${country.phone.substring(0)}) `);
+                              setCountryCode(
+                                `+(${country.phone.substring(0)}) `
+                              );
                               setAnchorEl(null);
                             }}
                           >
@@ -219,9 +220,9 @@ const Contact = () => {
                 width: "100%",
                 marginBottom: "1rem",
               }}
-            // error
-            // defaultValue="John Doe"
-            // helperText="Incorrect entry."
+              // error
+              // defaultValue="John Doe"
+              // helperText="Incorrect entry."
             />
             <TextField
               required
@@ -237,13 +238,12 @@ const Contact = () => {
                 width: "100%",
                 marginBottom: "1rem",
               }}
-            // error
-            // defaultValue="John Doe"
-            // helperText="Incorrect entry."
+              // error
+              // defaultValue="John Doe"
+              // helperText="Incorrect entry."
             />
 
             <Button
-
               type="submit"
               variant="contained"
               disabled={disabledBtn || isEmpty}
@@ -253,7 +253,7 @@ const Contact = () => {
                 marginTop: "0.5rem",
                 "&:hover": {
                   background: "#005c71",
-                }
+                },
               }}
             >
               {t("common:buttonSubmit")}
@@ -276,7 +276,7 @@ const Contact = () => {
               <IconButton>
                 <FaPhoneAlt style={{ color: "#005c71" }} />
               </IconButton>
-              <Typography variant="body1">+90 532 419 8868</Typography>
+              <Typography variant="body1">{phone}</Typography>
             </Box>
             <Box
               sx={{
@@ -290,10 +290,7 @@ const Contact = () => {
               <IconButton>
                 <FaHome style={{ color: "#005c71" }} />
               </IconButton>
-              <Typography variant="body1">
-                Harbiye, Teşvikiye Cad, Bostan Sk. No:2 D:Kat 6, 34367
-                Şişli/İstanbul
-              </Typography>
+              <Typography variant="body1">{address}</Typography>
             </Box>
             <Box
               sx={{
@@ -307,7 +304,7 @@ const Contact = () => {
               <IconButton>
                 <FaEnvelope style={{ color: "#005c71" }} />
               </IconButton>
-              <Typography variant="body1">info@aykutgok.com</Typography>
+              <Typography variant="body1">{email}</Typography>
             </Box>
           </Box>
         </Grid>

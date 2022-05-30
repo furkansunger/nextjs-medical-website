@@ -23,7 +23,7 @@ const Background = styled("div")({
   backgroundSize: "cover",
   backgroundPosition: "center",
 });
-const FaqHeader = () => {
+const FaqHeader = ({subtitle}) => {
   const { t } = useTranslation()
 
   return (
@@ -53,8 +53,7 @@ const FaqHeader = () => {
             marginBottom: "1rem"
           }}
         >
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi,
-          praesentium
+          {subtitle}
         </Typography>
         <NextLink href="/">
           <Typography

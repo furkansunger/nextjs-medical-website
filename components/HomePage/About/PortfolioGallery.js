@@ -1,51 +1,32 @@
-import { Grid, Container, Typography, Stack, Box } from "@mui/material";
+import { Grid, Container, Typography, Stack, Box, Button } from "@mui/material";
 import React from "react";
-import { GoPrimitiveDot } from "react-icons/go";
 import { styled } from "@mui/material/styles";
-
 import useTranslation from "next-translate/useTranslation";
-
-const dummyData = [
-  {
-    id: 1,
-    img: "assets/blue_480x480.png",
-    title: "title1",
-  },
-  {
-    id: 2,
-    img: "assets/gray_360x480.png",
-    title: "title2",
-  },
-  {
-    id: 3,
-    img: "assets/gray_360x480.png",
-    title: "title3",
-  },
-  {
-    id: 4,
-    img: "assets/blue_480x480.png",
-    title: "title4",
-  },
-];
-
-const LINES = [
-  "First Class Flights",
-  "5 Star Accommodations",
-  "Inclusive Packages",
-  "Latest Model Vehicles",
-  "Handpicked Hotels",
-  "Accesibility managment",
-];
+import Link from "next/link";
 
 const RootStyle = styled("div")(({ theme }) => ({
   padding: theme.spacing(8, 0),
+  marginBottom: "4rem",
   [theme.breakpoints.up("md")]: {
     padding: theme.spacing(10, 0),
   },
 }));
 
-const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
+const PortfolioGallery = ({
+  portfolio,
+  portfolioGallery1,
+  portfolioGallery2,
+  portfolioGallery3,
+  portfolioGallery4,
+}) => {
   const { t } = useTranslation();
+
+  const imageData = [
+    portfolioGallery1.url,
+    portfolioGallery2.url,
+    portfolioGallery3.url,
+    portfolioGallery4.url,
+  ];
 
   return (
     <RootStyle>
@@ -55,57 +36,33 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
           spacing={{ xs: 8, md: 3 }}
           alignItems={{ md: "center" }}
           justifyContent={{ md: "space-between" }}
+          flexDirection={{ md: "row-reverse" }}
+          sx={{ marginBottom: { xs: "0px", sm: "-130px" } }}
         >
           <Grid item xs={12} md={4}>
             <Typography
-              sx={{ color: "text.secondary" }}
+              sx={{
+                color: "text.secondary",
+                textAlign: { xs: "center", sm: "start" },
+              }}
               fontWeight={700}
               variant="h3"
             >
-              {t("common:textTreatments")}
+              {t("common:textPortfolio")}
             </Typography>
             <Typography sx={{ my: 3, color: "text.secondary" }}>
-              {treatmentsDesc}
+              {portfolio}
             </Typography>
-
-            <Stack spacing={2}>
-              {treatmentsItems.length > 0
-                ? treatmentsItems.map((item, index) => (
-                    <Box key={index}>
-                      <Typography
-                        sx={{ display: "flex", alignItems: "center" }}
-                        variant="body1"
-                      >
-                        {" "}
-                        <GoPrimitiveDot
-                          style={{ color: "red", marginRight: "20px" }}
-                        />{" "}
-                        {item.title}
-                      </Typography>
-                    </Box>
-                  ))
-                : null}
-              {/* 
-              {LINES.map((line) => (
-                <Box key={line}>
-                  <Typography
-                    sx={{ display: "flex", alignItems: "center" }}
-                    variant="body1"
-                  >
-                    {" "}
-                    <GoPrimitiveDot
-                      style={{ color: "red", marginRight: "20px" }}
-                    />{" "}
-                    {line}
-                  </Typography>
-                </Box>
-              ))} */}
-            </Stack>
+            <Link href="/portfolio">
+              <Button sx={{ color: "#fff" }} variant="contained">
+                Show All
+              </Button>
+            </Link>
           </Grid>
 
           <Grid item xs={12} md={6}>
             <Grid container spacing={{ xs: 4, md: 3 }}>
-              {dummyData.map((item, index) => (
+              {imageData?.map((item, index) => (
                 <Grid
                   key={item.id}
                   item
@@ -120,8 +77,8 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
                 >
                   <Box
                     sx={{
-                      width: 1,
-                      borderRadius: 5,
+                      width: "100%",
+                      borderRadius: "1rem",
                       position: "relative",
                       overflow: "hidden",
                       boxShadow:
@@ -133,14 +90,13 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
                   >
                     <Box
                       component="img"
-                      style={{
+                      sx={{
                         objectFit: "contain",
                         filter: "sepia(50%)",
                       }}
                       width="100%"
-                      alt={item.title}
-                      src={item.img}
-                      bax
+                      alt="portfolio-img"
+                      src={item}
                     />
 
                     <Stack
@@ -155,7 +111,7 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
                       }}
                     >
                       <Typography color="black" variant="h4" line={1}>
-                        {item.title}
+                        Title {index}
                       </Typography>
                     </Stack>
                   </Box>
@@ -169,4 +125,4 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
   );
 };
 
-export default Treatments;
+export default PortfolioGallery;

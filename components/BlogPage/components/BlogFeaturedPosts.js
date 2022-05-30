@@ -96,7 +96,8 @@ const posts = [
   },
 ];
 
-const BlogFeaturedPosts = () => {
+const BlogFeaturedPosts = ({blogs}) => {
+
   return (
     <Box sx={{ padding: "10rem 0" }}>
       <Container>
@@ -110,7 +111,7 @@ const BlogFeaturedPosts = () => {
             },
           }}
         >
-          <PostItem largePost post={posts[0]} />
+          <PostItem largePost post={blogs[0]} />
 
           <Box
             sx={{
@@ -120,9 +121,13 @@ const BlogFeaturedPosts = () => {
                 xs: "repeat(1, 1fr)",
                 sm: "repeat(2, 1fr)",
               },
+              gridTemplateRows: {
+                xs: "repeat(1, 1fr)",
+                sm: "repeat(2, 1fr)",
+              },
             }}
           >
-            {posts.slice(1, 5).map((post, index) => (
+            {blogs.slice(1, 5).map((post, index) => (
               <PostItem key={index} post={post} />
             ))}
           </Box>
@@ -133,7 +138,7 @@ const BlogFeaturedPosts = () => {
 };
 
 function PostItem({ post, largePost }) {
-  const { id, title, description, duration, createdAt, author, coverImg } =
+  const { id, slug, title, content, estimated_time, publishedAt, thumbnail } =
     post;
 
   const { t } = useTranslation();
@@ -147,11 +152,11 @@ function PostItem({ post, largePost }) {
   };
 
   return (
-    <Box sx={{ borderRadius: 4, overflow: "hidden", position: "relative" }}>
+    <Box sx={{ borderRadius: 4, overflow: "hidden", position: "relative"}}>
       <Box>
         <Box
           component="img"
-          src={coverImg}
+          src={thumbnail.url}
           alt="post-img"
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
@@ -179,7 +184,7 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(createdAt)}
+            {fDate(publishedAt)}
           </Typography>
           <DotStyle />
           {/* <Typography variant="caption"></Typography> */}
@@ -187,11 +192,11 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: duration })}
+            {t("common:textDuration", { number: estimated_time })}
           </Typography>
         </Stack>
 
-        <NextLink href="/blog/blogdetail" style={{ textDecoration: "none" }}>
+        <NextLink href={`/blog/${slug}`} style={{ textDecoration: "none" }}>
           <Typography
             asLink
             sx={{
@@ -210,11 +215,11 @@ function PostItem({ post, largePost }) {
 
         {largePost && (
           <Typography sx={{ opacity: 0.6, ...textStyle }}>
-            {description}
+            {content}
           </Typography>
         )}
 
-        <Stack
+        {/* <Stack
           direction="row"
           alignItems="center"
           sx={{ typography: "body2", pt: 1.5 }}
@@ -232,7 +237,7 @@ function PostItem({ post, largePost }) {
             }}
           />
           {author.name}
-        </Stack>
+        </Stack> */}
       </Stack>
 
       <Box

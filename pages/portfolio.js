@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
-
+import MainLayout from "../components/Layout";
 import useTranslation from "next-translate/useTranslation";
 
 // import Categories from './Categories';
@@ -144,15 +144,24 @@ const Portfolio = () => {
   return (
     <>
       <Typography
-        marginTop="100px"
+        marginTop="150px"
         textAlign="center"
         fontWeight={700}
         variant="h3"
+        color="text.secondary"
       >
         {t("common:textPortfolio")}
       </Typography>
 
-      <Box sx={{ borderColor: "divider", marginTop: "30px" }}>
+      <Box
+        sx={{
+          borderColor: "divider",
+          marginTop: "30px",
+          display: "flex",
+          justifyContent: "center",
+          padding: { xs: "0px 10px 0px 10px", sm: "0px" },
+        }}
+      >
         <Tabs
           variant="scrollable"
           scrollButtons="auto"
@@ -236,5 +245,5 @@ const Portfolio = () => {
     </>
   );
 };
-
+Portfolio.Layout = MainLayout;
 export default Portfolio;

@@ -94,7 +94,7 @@ const posts = [
   },
 ];
 
-export default function BlogSidebarRecentPosts() {
+export default function BlogSidebarRecentPosts({blogs}) {
   const { t } = useTranslation()
 
   return (
@@ -102,7 +102,7 @@ export default function BlogSidebarRecentPosts() {
       <Typography variant="h4" gutterBottom>
       {t("common:textRecentPosts")}
       </Typography>
-      {posts?.map((post, index) => (
+      {blogs?.map((post, index) => (
         <BlogPostItemMobile key={index} post={post} />
       ))}
     </Stack>
@@ -110,7 +110,8 @@ export default function BlogSidebarRecentPosts() {
 }
 
 function BlogPostItemMobile({ post }) {
-  const { title, duration, coverImg, createdAt } = post;
+  const { id, slug, title, content, estimated_time, publishedAt, thumbnail } =
+    post;
   
   const { t } = useTranslation()
 
@@ -131,7 +132,7 @@ function BlogPostItemMobile({ post }) {
     >
       <Box
         component="img"
-        src={coverImg}
+        src={thumbnail.url}
         alt="post-img"
         sx={{
           width: 80,
@@ -142,7 +143,7 @@ function BlogPostItemMobile({ post }) {
       />
 
       <Stack spacing={0.5}>
-        <NextLink passHref as="/blog/blogdetail" href="/blog/blogdetail">
+        <NextLink passHref as={`/blog/${slug}`} href={`/blog/${slug}`}>
           <Link
             variant={"subtitle2"}
             asLink
@@ -162,14 +163,14 @@ function BlogPostItemMobile({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(createdAt)}
+            {fDate(publishedAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: duration })}
+            {t("common:textDuration", { number: estimated_time })}
           </Typography>
         </Stack>
       </Stack>

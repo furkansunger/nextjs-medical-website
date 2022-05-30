@@ -57,7 +57,10 @@ const data = [
   },
 ];
 
-const Steps = () => {
+const Steps = ({steps}) => {
+  // const { image, title, step_description } = steps
+
+
   const [expanded, setExpanded] = React.useState("panel1");
   const [image, setImage] = React.useState(
     "https://images.unsplash.com/photo-1638202993928-7267aad84c31?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387"

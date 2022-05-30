@@ -16,7 +16,9 @@ const DotStyle = styled("span")(() => ({
 }));
 
 export default function BlogPostItem({ post }) {
-  const { id, title, duration, coverImg, author, createdAt } = post;
+  const { id, slug, title, content, estimated_time, publishedAt, thumbnail } =
+    post;
+
 
   const { t } = useTranslation();
 
@@ -32,7 +34,7 @@ export default function BlogPostItem({ post }) {
     <Stack spacing={2.5}>
       <Box
         component="img"
-        src={coverImg}
+        src={thumbnail.url}
         alt="post-img"
         sx={{ borderRadius: 2 }}
       />
@@ -47,31 +49,31 @@ export default function BlogPostItem({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(createdAt)}
+            {fDate(publishedAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: duration })}
+            {t("common:textDuration", { number: estimated_time })}
           </Typography>
         </Stack>
 
-        <NextLink passHref as="/blog/blogdetail" href="/blog/blogdetail">
+        <NextLink passHref as={`/blog/${slug}`} href={`/blog/${slug}`}>
           <Typography asLink style={{ ...textStyle, cursor: "pointer" }} variant="h5">
             {title}
           </Typography>
         </NextLink>
       </Stack>
 
-      <Stack direction="row" alignItems="center" sx={{ typography: "body2" }}>
+      {/* <Stack direction="row" alignItems="center" sx={{ typography: "body2" }}>
         <Avatar
           src={author.authorImg}
           sx={{ mr: 1 }}
         />
         {author.name}
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 }

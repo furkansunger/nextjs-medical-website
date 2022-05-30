@@ -33,7 +33,9 @@ const data = [
   },
 ];
 
-export default function Header() {
+export default function Header({hero}) {
+  const {image, title, step_description} = hero;
+
   const [selected, setSelected] = useState(1);
 
   const [carouselContent, setCarouselContent] = useState();

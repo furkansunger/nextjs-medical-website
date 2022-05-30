@@ -34,7 +34,9 @@ const data = [
   },
 ];
 
-export default function FaqBody({ data }) {
+export default function FaqBody({ faqs }) {
+
+  // console.log(faqs)
   return (
     <Grid
       alignItems="flex-start"
@@ -66,7 +68,7 @@ export default function FaqBody({ data }) {
           // paddingX: { md: "2vw", xs: "2vw" },
         }}
       >
-        <ControlledAccordions data={data} />
+        <ControlledAccordions data={faqs} />
       </Grid>
       <Grid
         maxHeight="400px"
@@ -89,7 +91,7 @@ export default function FaqBody({ data }) {
   );
 }
 
-const ControlledAccordions = () => {
+const ControlledAccordions = ({data}) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -102,7 +104,7 @@ const ControlledAccordions = () => {
       }}
     >
       {data ? (
-        data.map(({ question, Answer }, index) => {
+        data.map(({ question, answer }, index) => {
           return (
             <Accordion
               key={index}
@@ -154,7 +156,7 @@ const ControlledAccordions = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography sx={{ width: "95%", padding: "0 2vw 2vh 2vw" }}>
-                  {Answer}
+                  {answer}
                 </Typography>
               </AccordionDetails>
             </Accordion>

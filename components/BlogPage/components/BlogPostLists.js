@@ -80,17 +80,17 @@ const posts = [
   },
 ];
 
-export default function BlogTravelPostList() {
+export default function BlogTravelPostList({blogs}) {
   return (
     <>
       <Grid container spacing={2}>
-        {posts?.map((post, index) => (
+        {blogs?.map((post, index) => (
           <Grid key={index} item sm={6} xs={12}>
             <BlogPostItem post={post} />
           </Grid>
         ))}
       </Grid>
-
+{/* 
       <Pagination
         count={10}
         color="primary"
@@ -101,7 +101,7 @@ export default function BlogTravelPostList() {
             justifyContent: "center",
           },
         }}
-      />
+      /> */}
     </>
   );
 }

@@ -105,7 +105,7 @@ const Treatments = () => {
                   <Box
                     sx={{
                       width: 1,
-                      borderRadius: 2,
+                      borderRadius: 5,
                       position: "relative",
                       overflow: "hidden",
                     }}
@@ -118,7 +118,7 @@ const Treatments = () => {
                         boxShadow:
                           " 0px 4px 8px 0px rgba(0, 0, 0, 0.2), 0px 6px 20px 0px rgba(0, 0, 0, 0.19",
                       }}
-                      width="150%"
+                      width="120%"
                       // height="550px"
                       alt={item.title}
                       src={item.img}

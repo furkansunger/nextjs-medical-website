@@ -51,6 +51,8 @@ const PortfolioGallery = () => {
           spacing={{ xs: 8, md: 3 }}
           alignItems={{ md: "center" }}
           justifyContent={{ md: "space-between" }}
+          flexDirection={{ md: "row-reverse" }}
+          sx={{ marginBottom: { xs: "0px", sm: "-130px" } }}
 
         >
           <Grid item xs={12} md={4}>
@@ -68,7 +70,7 @@ const PortfolioGallery = () => {
                     >
                       {item.title}
                     </Typography>
-                    <Typography sx={{ my: 3, color: "text.secondary" }}>
+                    <Typography sx={{ my: 3, color: "text.secondary", lineHeight: 2.5 }}>
                       {item.description}
                     </Typography>
                   </>
@@ -102,7 +104,7 @@ const PortfolioGallery = () => {
                   <Box
                     sx={{
                       width: 1,
-                      borderRadius: 2,
+                      borderRadius: 5,
                       position: "relative",
                       overflow: "hidden",
                     }}
@@ -115,7 +117,7 @@ const PortfolioGallery = () => {
                         boxShadow:
                           " 0px 4px 8px 0px rgba(0, 0, 0, 0.2), 0px 6px 20px 0px rgba(0, 0, 0, 0.19",
                       }}
-                      width="150%"
+                      width="120%"
                       // height="550px"
                       alt={item.title}
                       src={item.img}

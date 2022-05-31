@@ -146,7 +146,7 @@ function BlogPostItemMobile({ post }) {
         <NextLink passHref as={`/blog/${slug && slug}`} href={`/blog/${slug && slug}`}>
           <Link
             variant={"subtitle2"}
-            asLink
+            aslink
             style={{ ...textStyle, color: "#333", textDecoration: "none" }}
           >
             {title && title}

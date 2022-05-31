@@ -56,7 +56,7 @@ const AboutGallery = ({ gallery }) => {
         spacing={2}
         sx={{ margin: "0" }}
       >
-        {gallery.length > 0
+        {gallery
           ? gallery.map((item, index) => {
               return (
                 <Box key={index}>

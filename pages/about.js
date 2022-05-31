@@ -16,9 +16,6 @@ const AboutUs = ({ about, contact }) => {
   const { t } = useTranslation();
 
   const { career, cover, gallery, general_info, hero_image, link } = about;
-  const { phone, email } = contact;
-
-  console.log(link);
 
   return (
     <>

@@ -21,7 +21,7 @@ const SocialButtons = ({ color, socialMedia }) => {
         alignItems: "center",
       }}
     >
-      {socialMedia?.length > 0
+      {socialMedia
         ? socialMedia.map((item, index) => (
             <Link href={item.link} target="_blank" key={index}>
               <IconButton

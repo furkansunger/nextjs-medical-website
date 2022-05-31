@@ -110,7 +110,7 @@ export default function BlogSidebarRecentPosts({blogs}) {
 }
 
 function BlogPostItemMobile({ post }) {
-  const { id, slug, title, content, estimated_time, publishedAt, thumbnail } =
+  const { slug, title, estimated_time, publishedAt, thumbnail } =
     post;
   
   const { t } = useTranslation()
@@ -132,7 +132,7 @@ function BlogPostItemMobile({ post }) {
     >
       <Box
         component="img"
-        src={thumbnail.url}
+        src={thumbnail?.url}
         alt="post-img"
         sx={{
           width: 80,
@@ -143,13 +143,13 @@ function BlogPostItemMobile({ post }) {
       />
 
       <Stack spacing={0.5}>
-        <NextLink passHref as={`/blog/${slug}`} href={`/blog/${slug}`}>
+        <NextLink passHref as={`/blog/${slug && slug}`} href={`/blog/${slug && slug}`}>
           <Link
             variant={"subtitle2"}
             asLink
             style={{ ...textStyle, color: "#333", textDecoration: "none" }}
           >
-            {title}
+            {title && title}
           </Link>
         </NextLink>
 
@@ -163,14 +163,14 @@ function BlogPostItemMobile({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(publishedAt)}
+            {fDate(publishedAt && publishedAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: estimated_time })}
+            {t("common:textDuration", { number: estimated_time && estimated_time })}
           </Typography>
         </Stack>
       </Stack>

@@ -129,8 +129,6 @@ const AboutImage = ({ hero, career, generalInfo, contact }) => {
                   value={value}
                   onChange={handleChange}
                   aria-label="basic tabs example"
-                  textColor="#00adb5"
-                  indicatorColor="#00adb5"
                   sx={{
                     "& .MuiTabs-indicator": {
                       backgroundColor: "#00adb5",

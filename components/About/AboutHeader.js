@@ -26,7 +26,7 @@ const AboutHeader = ({cover}) => {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Background backgroundImage={cover.url}>
+      <Background backgroundImage={cover?.url}>
         <Typography
           variant={"h1"}
           components={"h1"}

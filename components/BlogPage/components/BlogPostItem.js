@@ -48,7 +48,7 @@ export default function BlogPostItem({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(post?.publishedAt)}
+            {fDate(`${post?.publishedAt}`)}
           </Typography>
           <DotStyle />
           <Typography

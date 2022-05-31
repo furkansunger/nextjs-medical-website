@@ -184,7 +184,7 @@ console.log(typeof Number(post.publishedAt))
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(Number(post?.publishedAt))}
+            {fDate(`${post?.publishedAt}`)}
           </Typography>
           <DotStyle />
           {/* <Typography variant="caption"></Typography> */}

@@ -178,7 +178,8 @@ const ServiceForm = () => {
                             setAnchorEl(null);
                           }}
                         >
-                          <img
+                          <Box
+                            component="img"
                             loading="lazy"
                             style={{ marginRight: "10px" }}
                             width="20"

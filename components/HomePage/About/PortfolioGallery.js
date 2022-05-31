@@ -64,7 +64,7 @@ const PortfolioGallery = ({
             <Grid container spacing={{ xs: 4, md: 3 }}>
               {imageData?.map((item, index) => (
                 <Grid
-                  key={item.id}
+                  key={index}
                   item
                   xs={12}
                   sm={6}

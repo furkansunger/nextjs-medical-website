@@ -18,7 +18,6 @@ import Head from "next/head";
 import { getMultipleData } from "../services/fetchers/publicData";
 
 function Home({ home, info }) {
-  console.log(home);
 
   const {
     about_me_section,

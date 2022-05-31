@@ -110,7 +110,7 @@ export default function BlogSidebarRecentPosts({blogs}) {
 }
 
 function BlogPostItemMobile({ post }) {
-  const { slug, title, estimated_time, publishedAt, thumbnail } =
+  const { title, estimated_time, publishedAt, thumbnail } =
     post;
   
   const { t } = useTranslation()

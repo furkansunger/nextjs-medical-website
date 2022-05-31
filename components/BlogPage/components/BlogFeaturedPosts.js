@@ -138,7 +138,7 @@ const BlogFeaturedPosts = ({blogs}) => {
 };
 
 function PostItem({ post, largePost }) {
-  const { slug, title, content, estimated_time, publishedAt, thumbnail } =
+  const { title, content, estimated_time, publishedAt, thumbnail } =
     post;
 
   const { t } = useTranslation();

@@ -16,7 +16,7 @@ const DotStyle = styled("span")(() => ({
 }));
 
 export default function BlogPostItem({ post }) {
-  const { slug, title, estimated_time, publishedAt, thumbnail } =
+  const { title, estimated_time, publishedAt, thumbnail } =
     post;
 
   const { t } = useTranslation();

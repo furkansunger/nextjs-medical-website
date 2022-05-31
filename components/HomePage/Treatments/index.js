@@ -69,7 +69,7 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
             </Typography>
 
             <Stack spacing={2}>
-              {treatmentsItems.length > 0
+              {treatmentsItems
                 ? treatmentsItems.map((item, index) => (
                     <Box key={index}>
                       <Typography

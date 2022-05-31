@@ -196,7 +196,7 @@ function PostItem({ post, largePost }) {
           </Typography>
         </Stack>
 
-        <NextLink href={`/blog/${slug ? slug: ""}`} style={{ textDecoration: "none" }}>
+        <NextLink href={`/blog/blogdetail`} style={{ textDecoration: "none" }}>
           <Typography
             aslink
             sx={{

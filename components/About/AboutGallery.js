@@ -62,7 +62,7 @@ const AboutGallery = ({ gallery }) => {
                 <Box key={index}>
                   <Box
                     component="img"
-                    src={item.url}
+                    src={item && item.url}
                     alt="gallery-img"
                     sx={{
                       borderRadius: "4px",

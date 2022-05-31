@@ -64,7 +64,7 @@ const AboutImage = ({ hero, career, generalInfo, contact }) => {
             <Box>
               <Box
                 component="img"
-                src={hero.url}
+                src={hero && hero.url}
                 width="100%"
                 height="100%"
                 // style={{ objectFit: "contain" }}

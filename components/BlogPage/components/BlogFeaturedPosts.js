@@ -140,7 +140,7 @@ const BlogFeaturedPosts = ({blogs}) => {
 function PostItem({ post, largePost }) {
   // const { title, content, estimated_time, publishedAt, thumbnail } =
   //   post;
-console.log(typeof Number(post.publishedAt))
+  
   const { t } = useTranslation();
 
   const textStyle = {

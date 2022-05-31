@@ -59,7 +59,7 @@ export default function BlogPostItem({ post }) {
           </Typography>
         </Stack>
 
-        <NextLink passHref as={`/blog/${slug && slug}`} href={`/blog/${slug && slug}`}>
+        <NextLink passHref as={`/blog/${slug ? slug: ""}`} href={`/blog/${slug ? slug: ""}`}>
           <Typography aslink style={{ ...textStyle, cursor: "pointer" }} variant="h5">
             {title && title}
           </Typography>

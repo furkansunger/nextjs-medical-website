@@ -188,17 +188,17 @@ export default function BlogDetail({ post, posts }) {
 
 BlogDetail.Layout = MainLayout;
 
-export const getStaticPaths = async () => {
-  const posts = (await getMultipleData("blogs", "fields=slug")).map(
-    ({ slug }) => {
-      return {
-        params: { slug: slug },
-      };
-    }
-  );
+// export const getStaticPaths = async () => {
+//   const posts = (await getMultipleData("blogs", "fields=slug")).map(
+//     ({ slug }) => {
+//       return {
+//         params: { slug: slug },
+//       };
+//     }
+//   );
 
-  return {
-    paths: posts,
-    fallback: false,
-  };
-};
+//   return {
+//     paths: posts,
+//     fallback: false,
+//   };
+// };

@@ -22,10 +22,10 @@ const PortfolioGallery = ({
   const { t } = useTranslation();
 
   const imageData = [
-    portfolioGallery1.url,
-    portfolioGallery2.url,
-    portfolioGallery3.url,
-    portfolioGallery4.url,
+    portfolioGallery1?.url,
+    portfolioGallery2?.url,
+    portfolioGallery3?.url,
+    portfolioGallery4?.url,
   ];
 
   return (

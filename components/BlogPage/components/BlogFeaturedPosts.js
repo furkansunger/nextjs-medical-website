@@ -138,8 +138,8 @@ const BlogFeaturedPosts = ({blogs}) => {
 };
 
 function PostItem({ post, largePost }) {
-  const { title, content, estimated_time, publishedAt, thumbnail } =
-    post;
+  // const { title, content, estimated_time, publishedAt, thumbnail } =
+  //   post;
 
   const { t } = useTranslation();
 
@@ -156,7 +156,7 @@ function PostItem({ post, largePost }) {
       <Box>
         <Box
           component="img"
-          src={thumbnail?.url}
+          src={post?.thumbnail?.url}
           alt="post-img"
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
@@ -184,7 +184,7 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(publishedAt && publishedAt)}
+            {fDate(post?.publishedAt)}
           </Typography>
           <DotStyle />
           {/* <Typography variant="caption"></Typography> */}
@@ -192,7 +192,7 @@ function PostItem({ post, largePost }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: estimated_time && estimated_time })}
+            {t("common:textDuration", { number: post?.estimated_time })}
           </Typography>
         </Stack>
 
@@ -209,13 +209,13 @@ function PostItem({ post, largePost }) {
               }),
             }}
           >
-            {title && title}
+            {post?.title}
           </Typography>
         </NextLink>
 
         {largePost && (
           <Typography sx={{ opacity: 0.6, ...textStyle }}>
-            {content && content}
+            {post?.content}
           </Typography>
         )}
 

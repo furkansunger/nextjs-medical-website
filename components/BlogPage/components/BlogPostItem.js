@@ -16,8 +16,8 @@ const DotStyle = styled("span")(() => ({
 }));
 
 export default function BlogPostItem({ post }) {
-  const { title, estimated_time, publishedAt, thumbnail } =
-    post;
+  // const { title, estimated_time, publishedAt, thumbnail } =
+  //   post;
 
   const { t } = useTranslation();
 
@@ -33,7 +33,7 @@ export default function BlogPostItem({ post }) {
     <Stack spacing={2.5}>
       <Box
         component="img"
-        src={thumbnail?.url}
+        src={post?.thumbnail?.url}
         alt="post-img"
         sx={{ borderRadius: 2 }}
       />
@@ -48,20 +48,20 @@ export default function BlogPostItem({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(publishedAt && publishedAt)}
+            {fDate(post?.publishedAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: estimated_time && estimated_time })}
+            {t("common:textDuration", { number: post?.estimated_time })}
           </Typography>
         </Stack>
 
         <NextLink passHref as={`/blog/blogdetail`} href={`/blog/blogdetail`}>
           <Typography aslink style={{ ...textStyle, cursor: "pointer" }} variant="h5">
-            {title && title}
+            {post?.title}
           </Typography>
         </NextLink>
       </Stack>

@@ -110,8 +110,8 @@ export default function BlogSidebarRecentPosts({blogs}) {
 }
 
 function BlogPostItemMobile({ post }) {
-  const { title, estimated_time, publishedAt, thumbnail } =
-    post;
+  // const { title, estimated_time, publishedAt, thumbnail } =
+  //   post;
   
   const { t } = useTranslation()
 
@@ -132,7 +132,7 @@ function BlogPostItemMobile({ post }) {
     >
       <Box
         component="img"
-        src={thumbnail?.url}
+        src={post?.thumbnail?.url}
         alt="post-img"
         sx={{
           width: 80,
@@ -149,7 +149,7 @@ function BlogPostItemMobile({ post }) {
             aslink
             style={{ ...textStyle, color: "#333", textDecoration: "none" }}
           >
-            {title && title}
+            {post?.title}
           </Link>
         </NextLink>
 
@@ -163,14 +163,14 @@ function BlogPostItemMobile({ post }) {
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {fDate(publishedAt && publishedAt)}
+            {fDate(post?.publishedAt)}
           </Typography>
           <DotStyle />
           <Typography
             variant="caption"
             sx={{ fontSize: "12px", fontWeight: "300" }}
           >
-            {t("common:textDuration", { number: estimated_time && estimated_time })}
+            {t("common:textDuration", { number: post?.estimated_time })}
           </Typography>
         </Stack>
       </Stack>

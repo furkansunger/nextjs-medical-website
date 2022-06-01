@@ -14,7 +14,6 @@ const Faq = ({faq}) => {
   const { t } = useTranslation()
 
   const { subtitle, faqs } = faq
-  console.log(faqs)
 
   return (
     <>

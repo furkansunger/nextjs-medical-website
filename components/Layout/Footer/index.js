@@ -23,32 +23,6 @@ const Footer = () => {
     <>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          position: "relative",
-          top: "30px",
-        }}
-      >
-        <NextLink href="/contact" style={{}}>
-          <Typography
-            sx={{
-              textAlign: "center",
-              borderRadius: "35px",
-              padding: "10px 25px 10px 25px",
-              backgroundColor: "#00ADB5",
-              color: "#fff",
-              cursor: "pointer",
-            }}
-            variant="h4"
-          >
-            {t("common:textContactMe")}
-          </Typography>
-        </NextLink>
-      </Box>
-
-      <Box
-        sx={{
           width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
 
           borderTop: "8px solid cadetblue",
@@ -64,8 +38,9 @@ const Footer = () => {
             marginTop: { xs: "30px", md: "0px" },
           }}
           container
+          spacing={4}
         >
-          <Grid item xs={7} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               sx={{ textAlign: { xs: "center", sm: "start" } }}
               fontWeight={700}
@@ -74,7 +49,7 @@ const Footer = () => {
               {t("common:textContact")}
             </Typography>
             <Box
-              sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <AiOutlinePhone />
@@ -84,7 +59,7 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <MdOutlineMail />
@@ -94,7 +69,7 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <AiOutlinePhone />
@@ -104,7 +79,7 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <FaCalendarAlt />
@@ -115,7 +90,7 @@ const Footer = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={5} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               sx={{ textAlign: { xs: "center", sm: "start" } }}
               fontWeight={700}
@@ -168,7 +143,7 @@ const Footer = () => {
               </NextLink>
             </Box>
           </Grid>
-          <Grid item xs={7} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               sx={{ textAlign: { xs: "center", sm: "start" } }}
               fontWeight={700}
@@ -221,7 +196,7 @@ const Footer = () => {
               </NextLink>
             </Box>
           </Grid>
-          <Grid item xs={5} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               sx={{ textAlign: { xs: "center", sm: "start" } }}
               fontWeight={700}
@@ -234,8 +209,8 @@ const Footer = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "start",
-                marginLeft: { xs: "30px", sm: "0px" },
+                alignItems: {xs: "center", sm: "start"},
+                // marginLeft: { xs: "30px", sm: "0px" },
               }}
             >
               <Link
@@ -344,10 +319,7 @@ const Footer = () => {
           // sx={{ background: "rgba(0, 0, 0, 0.7)" }}
         >
           <Typography color="white">
-            2022 aykutgok inc. Terms-Privacy &reg;
-          </Typography>
-          <Typography paddingBottom="10px" color="white">
-            Made with ❤️ by admarket team
+            Copyright © 2022 Aykut Gok 
           </Typography>
         </Box>
       </Box>

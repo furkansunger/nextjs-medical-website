@@ -1,4 +1,13 @@
-import { Box, Button, Grid, Stack, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Stack,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
@@ -130,120 +139,85 @@ const Portfolio = () => {
     setValue(newValue);
   };
 
-  const [visible, setVisible] = useState(10);
-
-  const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 10);
-  };
-
-  const showLessItems = () => {
-    if (visible > 10) {
-      setVisible((prevValue) => prevValue - 10);
-    }
-  };
   return (
-    <>
-      <Typography
-        marginTop="150px"
-        textAlign="center"
-        fontWeight={700}
-        variant="h3"
-        color="text.secondary"
-      >
-        {t("common:textPortfolio")}
-      </Typography>
-
-      <Box
-        sx={{
-          borderColor: "divider",
-          marginTop: "30px",
-          display: "flex",
-          justifyContent: "center",
-          padding: { xs: "0px 10px 0px 10px", sm: "0px" },
-        }}
-      >
-        <Tabs
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
-          value={value}
-          onChange={handleChange}
+    <Box sx={{ padding: { sm: "4rem", xs: "1rem" } }}>
+      <Container>
+        <Typography
+          marginTop="150px"
+          textAlign="center"
+          fontWeight={700}
+          variant="h3"
         >
-          <Tab onClick={() => setData(Categories)} label="All" />
-          <Tab
-            onClick={() => filterResult("Breast Augmentation")}
-            label="Breast Augmentation"
-          />
-          <Tab
-            onClick={() => filterResult("Facial Aesthetic")}
-            label="Facial Aesthetic"
-          />
-          <Tab
-            onClick={() => filterResult("Hair Restoration")}
-            label="Hair Restoration"
-          />
-          <Tab
-            onClick={() => filterResult("Body Contouring Surgery")}
-            label="Body Contouring Surgery"
-          />
-          <Tab
-            onClick={() => filterResult("Nonsurgical")}
-            label="Nonsurgical"
-          />
-          <Tab onClick={() => filterResult("Dental")} label="Dental" />
-        </Tabs>
-      </Box>
+          {t("common:textPortfolio")}
+        </Typography>
 
-      <Grid container>
-        {data.slice(0, visible).map((item, index) => (
-          <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
-            <Box
-              component="img"
-              width="100%"
-              height="100%"
-              src={item.img}
-              alt={item.title}
-              ratio="1/1"
-              style={{ borderRadius: "15px", filter: "grayScale(50%)" }}
+        <Box
+          sx={{
+            borderColor: "divider",
+            marginTop: "30px",
+            display: "flex",
+            justifyContent: "center",
+            padding: { xs: "0px 10px 0px 10px", sm: "0px" },
+          }}
+        >
+          <Tabs
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="scrollable auto tabs example"
+            value={value}
+            onChange={handleChange}
+          >
+            <Tab onClick={() => setData(Categories)} label="All" />
+            <Tab
+              onClick={() => filterResult("Breast Augmentation")}
+              label="Breast Augmentation"
             />
+            <Tab
+              onClick={() => filterResult("Facial Aesthetic")}
+              label="Facial Aesthetic"
+            />
+            <Tab
+              onClick={() => filterResult("Hair Restoration")}
+              label="Hair Restoration"
+            />
+            <Tab
+              onClick={() => filterResult("Body Contouring Surgery")}
+              label="Body Contouring Surgery"
+            />
+            <Tab
+              onClick={() => filterResult("Nonsurgical")}
+              label="Nonsurgical"
+            />
+            <Tab onClick={() => filterResult("Dental")} label="Dental" />
+          </Tabs>
+        </Box>
 
-            <Stack spacing={1} sx={{ p: 2.5 }}>
-              <Typography variant="body1" sx={{ color: "#0009" }}>
-                {item.category}
-              </Typography>
-            </Stack>
-          </Grid>
-        ))}
-      </Grid>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "60px",
-        }}
-      >
-        <Button
-          sx={{ color: "#fff" }}
-          onClick={showLessItems}
-          variant="contained"
-        >
-          {" "}
-          <AiOutlineArrowUp />
-          {t("common:buttonLess")}
-        </Button>
-        <Button
-          sx={{ marginLeft: "20px", color: "#fff" }}
-          onClick={showMoreItems}
-          variant="contained"
-        >
-          {" "}
-          <AiOutlineArrowDown />
-          {t("common:buttonMore")}
-        </Button>
-      </Box>
-    </>
+        <Grid container>
+          {data.map((item, index) => (
+            <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
+              <Box
+                component="img"
+                width="100%"
+                height="100%"
+                src={item.img}
+                alt={item.title}
+                ratio="1/1"
+                style={{ borderRadius: "15px", filter: "grayScale(50%)" }}
+              />
+
+              <Stack spacing={1} sx={{ p: 2.5 }}>
+                <Typography variant="body1" sx={{ color: "#0009" }}>
+                  {item.category}
+                </Typography>
+              </Stack>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 };
+
 Portfolio.Layout = MainLayout;
+
 export default Portfolio;

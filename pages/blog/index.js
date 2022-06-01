@@ -4,7 +4,6 @@ import {
   BlogFeaturedPosts,
   BlogPostLists,
   BlogSidebar,
-  // BlogTrendingTopics,
 } from "../../components/BlogPage";
 import MainLayout from "../../components/Layout";
 
@@ -22,11 +21,10 @@ const Blog = ({blogs}) => {
       <Head>
         <title>{t("common:textBlog")} | Dr. Aykut Gok</title>
       </Head>
-      <Box>
+      <Box sx={{paddingBottom: "6rem"}}>
         <BlogFeaturedPosts blogs={blogs} />
-        {/* <BlogTrendingTopics /> */}
 
-        <Container sx={{ padding: "2rem 2rem 0" }}>
+        <Container>
           <Grid container spacing={{ md: 8 }}>
             <Grid item xs={12} md={8}>
               <BlogPostLists blogs={blogs} />

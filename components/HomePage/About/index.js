@@ -44,13 +44,11 @@ const About = ({
     <>
       <Container>
         <Box
-          boxShadow={3}
           sx={{
             width: "100%",
             backgroundColor: "#fff",
             borderRadius: "10px",
             padding: { sm: "4rem", xs: "1rem" },
-            // boxShadow: "0 4px 8px 0 #80eef3, 0 6px 20px 0 #80eef3"
           }}
         >
           <Grid
@@ -80,7 +78,7 @@ const About = ({
                   textTransform: "uppercase",
                 }}
               >
-                {aboutTag}
+                {t("common:textAbout")}
               </Typography>
               <Typography
                 sx={{
@@ -94,11 +92,7 @@ const About = ({
               <Typography
                 sx={{ fontSize: { xl: "2rem", sm: "1rem", xs: "0.75rem" } }}
               >
-                Our major areas of specialization include plastic surgery, hair
-                transplant, dental care, nonsurgical, facial, breast
-                augmentation, rhinoplasty. Our major areas of specialization
-                include plastic surgery, hair transplant, dental care,
-                nonsurgical, facial, breast augmentation, rhinoplasty.
+                {aboutTag}
               </Typography>
 
               <Box
@@ -204,7 +198,7 @@ const About = ({
           <Box
             sx={{
               marginTop: "2rem",
-              backgroundColor: "#00adb5",
+              backgroundColor: "#005c71",
               width: "100%",
               display: "flex",
               justifyContent: "space-between",
@@ -226,8 +220,8 @@ const About = ({
               <IconButton
                 sx={{
                   color: "#fff",
-                  backgroundColor: "#005c71",
-                  "&:hover": { backgroundColor: "#005c71" },
+                  backgroundColor: "#00adb5",
+                  "&:hover": { backgroundColor: "#00adb5" },
                 }}
               >
                 <FaPhoneAlt />
@@ -256,8 +250,8 @@ const About = ({
               <IconButton
                 sx={{
                   color: "#fff",
-                  backgroundColor: "#005c71",
-                  "&:hover": { backgroundColor: "#005c71" },
+                  backgroundColor: "#00adb5",
+                  "&:hover": { backgroundColor: "#00adb5" },
                 }}
               >
                 <FaEnvelope />
@@ -286,8 +280,8 @@ const About = ({
               <IconButton
                 sx={{
                   color: "#fff",
-                  backgroundColor: "#005c71",
-                  "&:hover": { backgroundColor: "#005c71" },
+                  backgroundColor: "#00adb5",
+                  "&:hover": { backgroundColor: "#00adb5" },
                 }}
               >
                 <FaPlus />
@@ -307,68 +301,6 @@ const About = ({
                   }}
                 >
                   <SocialButtons socialMedia={social_media} color="#fff" />
-                  {/* <Link
-                    href="https://www.facebook.com/draykutgok"
-                    target="_blank"
-                  >
-                    <IconButton
-                      sx={{
-                        fontSize: "1.25rem",
-                        color: "#fff",
-                        "&:hover": { color: "#fff" },
-                      }}
-                    >
-                      <FaFacebookF />
-                    </IconButton>
-                  </Link>
-
-                  <Link href="https://twitter.com/mdaykutgok" target="_blank">
-                    <IconButton
-                      sx={{
-                        fontSize: "1.25rem",
-                        color: "#fff",
-                        "&:hover": { color: "#fff" },
-                      }}
-                    >
-                      <FaTwitter />
-                    </IconButton>
-                  </Link>
-                  <Link href="https://instagram.com/draykutgok" target="_blank">
-                    <IconButton
-                      sx={{
-                        fontSize: "1.25rem",
-                        color: "#fff",
-                        "&:hover": { color: "#fff" },
-                      }}
-                    >
-                      <FaInstagram />
-                    </IconButton>
-                  </Link>
-                  <Link
-                    href="https://www.linkedin.com/in/aykutgok/"
-                    target="_blank"
-                  >
-                    <IconButton
-                      sx={{
-                        fontSize: "1.25rem",
-                        color: "#fff",
-                        "&:hover": { color: "#fff" },
-                      }}
-                    >
-                      <FaLinkedinIn />
-                    </IconButton>
-                  </Link>
-                  <Link href="https://youtube.com/c/wellesclinic" target="_blank">
-                    <IconButton
-                      sx={{
-                        fontSize: "1.25rem",
-                        color: "#fff",
-                        "&:hover": { color: "#fff" },
-                      }}
-                    >
-                      <FaYoutube />
-                    </IconButton>
-                  </Link> */}
                 </Box>
               </Box>
             </Box>

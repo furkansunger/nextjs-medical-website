@@ -19,6 +19,7 @@
     "framer-motion": "^6.3.3",
     "next": "12.1.6",
     "next-translate": "^1.4.0",
+    "qs": "^6.10.3",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.31.2",
@@ -26,6 +27,7 @@
     "react-image-lightbox": "^5.1.4",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "snarkdown": "^2.0.0",
     "swiper": "^8.1.5",
     "yup": "^0.32.11"
   },

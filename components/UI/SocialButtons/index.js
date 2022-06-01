@@ -17,8 +17,9 @@ const SocialButtons = ({ color, socialMedia }) => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
+        flexWrap: "wrap"
       }}
     >
       {socialMedia

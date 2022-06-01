@@ -95,226 +95,200 @@ const Contact = ({ contactInfo }) => {
     <Box
       sx={{
         width: "100%",
-        padding: { sm: "4rem", xs: "1rem" },
+        padding: { sm: "0rem 4rem 4rem 4rem", xs: "1rem" },
       }}
     >
-      <Grid container>
-        <Grid item sm={6} xs={12}>
-          <Typography variant="h4">{t("common:textContact")}</Typography>
-          <Divider />
-          <Box
-            component="form"
-            sx={{
-              width: "90%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "start",
-              justifyContent: "center",
-              padding: "2rem 0",
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              color="primary"
-              variant="standard"
-              required
-              label={t("common:inputName")}
-              name="fullname"
-              type="text"
-              autoComplete="name"
-              error={info.fullname.error}
-              helperText={info.fullname.error ? info.fullname.helperText : ""}
+      <Container>
+        <Grid container>
+          <Grid item sm={6} xs={12}>
+            <Typography variant="h4">{t("common:textContact")}</Typography>
+            <Divider />
+            <Box
+              component="form"
               sx={{
-                width: "100%",
-                marginBottom: "1rem",
+                width: {xs: "100%", sm: "90%"},
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+                justifyContent: "center",
+                padding: "2rem 0",
               }}
-            />
+              noValidate
+              autoComplete="off"
+            >
+              <TextField
+                color="primary"
+                variant="standard"
+                required
+                label={t("common:inputName")}
+                name="fullname"
+                type="text"
+                autoComplete="name"
+                error={info.fullname.error}
+                helperText={info.fullname.error ? info.fullname.helperText : ""}
+                sx={{
+                  width: "100%",
+                  marginBottom: "1rem",
+                }}
+              />
 
-            <TextField
-              color="primary"
-              variant="standard"
-              required
-              label={t("common:inputEmail")}
-              name="email"
-              type="email"
-              autoComplete="email"
-              onChange={handleChange}
-              error={info.email.error}
-              helperText={info.email.error ? info.email.helperText : ""}
-              sx={{
-                width: "100%",
-                marginBottom: "1rem",
-              }}
-            />
+              <TextField
+                color="primary"
+                variant="standard"
+                required
+                label={t("common:inputEmail")}
+                name="email"
+                type="email"
+                autoComplete="email"
+                onChange={handleChange}
+                error={info.email.error}
+                helperText={info.email.error ? info.email.helperText : ""}
+                sx={{
+                  width: "100%",
+                  marginBottom: "1rem",
+                }}
+              />
 
-            <TextField
-              required
-              variant="standard"
-              type="phone"
-              label={t("common:inputPhone")}
-              name="phonenumber"
-              onChange={handleChange}
-              error={info.phonenumber.error}
-              helperText={
-                info.phonenumber.error ? info.phonenumber.helperText : ""
-              }
-              sx={{
-                width: "100%",
-                marginBottom: "1rem",
-              }}
-              InputProps={{
-                startAdornment: (
-                  <>
-                    <Button onClick={(e) => setAnchorEl(e.currentTarget)}>
-                      {countryCode}
-                    </Button>
-                    <Menu
-                      PaperProps={{
-                        style: { maxHeight: 35 * 4.5, width: "300px" },
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      keepMounted
-                      onClose={() => setAnchorEl(null)}
-                    >
-                      {countries.map((country) => {
-                        return (
-                          <MenuItem
-                            key={country.code}
-                            onClick={() => {
-                              setCountryCode(
-                                `+(${country.phone.substring(0)}) `
-                              );
-                              setAnchorEl(null);
-                            }}
-                          >
-                            <Box
-                              component="img"
-                              loading="lazy"
-                              style={{ marginRight: "10px" }}
-                              width="20"
-                              src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
-                              srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
-                              alt=""
-                            />
-                            {country.label} ({country.code}) +{country.phone}
-                          </MenuItem>
-                        );
-                      })}
-                    </Menu>
-                  </>
-                ),
-              }}
-            />
-            <TextField
-              required
-              label={t("common:inputSubject")}
-              name="subject"
-              multiline
-              variant="standard"
-              onChange={handleChange}
-              error={info.subject.error}
-              helperText={info.subject.error ? info.subject.helperText : ""}
-              sx={{
-                width: "100%",
-                marginBottom: "1rem",
-              }}
-              // error
-              // defaultValue="John Doe"
-              // helperText="Incorrect entry."
-            />
-            <TextField
-              required
-              label={t("common:inputMessage")}
-              name="message"
-              multiline
-              rows={4}
-              variant="standard"
-              onChange={handleChange}
-              error={info.massage.error}
-              helperText={info.massage.error ? info.massage.helperText : ""}
-              sx={{
-                width: "100%",
-                marginBottom: "1rem",
-              }}
-              // error
-              // defaultValue="John Doe"
-              // helperText="Incorrect entry."
-            />
+              <TextField
+                required
+                variant="standard"
+                type="phone"
+                label={t("common:inputPhone")}
+                name="phonenumber"
+                onChange={handleChange}
+                error={info.phonenumber.error}
+                helperText={
+                  info.phonenumber.error ? info.phonenumber.helperText : ""
+                }
+                sx={{
+                  width: "100%",
+                  marginBottom: "1rem",
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <>
+                      <Button onClick={(e) => setAnchorEl(e.currentTarget)}>
+                        {countryCode}
+                      </Button>
+                      <Menu
+                        PaperProps={{
+                          style: { maxHeight: 35 * 4.5, width: "300px" },
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        keepMounted
+                        onClose={() => setAnchorEl(null)}
+                      >
+                        {countries.map((country) => {
+                          return (
+                            <MenuItem
+                              key={country.code}
+                              onClick={() => {
+                                setCountryCode(
+                                  `+(${country.phone.substring(0)}) `
+                                );
+                                setAnchorEl(null);
+                              }}
+                            >
+                              <Box
+                                component="img"
+                                loading="lazy"
+                                style={{ marginRight: "10px" }}
+                                width="20"
+                                src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
+                                srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
+                                alt=""
+                              />
+                              {country.label} ({country.code}) +{country.phone}
+                            </MenuItem>
+                          );
+                        })}
+                      </Menu>
+                    </>
+                  ),
+                }}
+              />
+              <TextField
+                required
+                label={t("common:inputSubject")}
+                name="subject"
+                multiline
+                variant="standard"
+                onChange={handleChange}
+                error={info.subject.error}
+                helperText={info.subject.error ? info.subject.helperText : ""}
+                sx={{
+                  width: "100%",
+                  marginBottom: "1rem",
+                }}
+                // error
+                // defaultValue="John Doe"
+                // helperText="Incorrect entry."
+              />
+              <TextField
+                required
+                label={t("common:inputMessage")}
+                name="message"
+                multiline
+                rows={4}
+                variant="standard"
+                onChange={handleChange}
+                error={info.massage.error}
+                helperText={info.massage.error ? info.massage.helperText : ""}
+                sx={{
+                  width: "100%",
+                  marginBottom: "1rem",
+                }}
+                // error
+                // defaultValue="John Doe"
+                // helperText="Incorrect entry."
+              />
 
-            <Button
-              type="submit"
-              variant="contained"
-              disabled={disabledBtn || isEmpty}
-              sx={{
-                background: "#005c71",
-                color: "#fff",
-                marginTop: "0.5rem",
-                "&:hover": {
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={disabledBtn || isEmpty}
+                sx={{
                   background: "#005c71",
-                },
-              }}
-            >
-              {t("common:buttonSubmit")}
-            </Button>
-          </Box>
+                  color: "#fff",
+                  marginTop: "0.5rem",
+                  "&:hover": {
+                    background: "#005c71",
+                  },
+                }}
+              >
+                {t("common:buttonSubmit")}
+              </Button>
+            </Box>
+          </Grid>
+          <Grid
+            item
+            sm={6}
+            xs={12}
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              component="img"
+              src="/assets/contact-img.svg"
+              alt="contact-img"
+              sx={{ width: {xs: "100%", sm: "80%"} }}
+            />
+          </Grid>
         </Grid>
-        <Grid item sm={6} xs={12}>
-          <Typography variant="h4">{t("common:textLocation")}</Typography>
-          <Divider />
-          <Box sx={{ width: "90%", padding: "2rem 0" }}>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                marginBottom: "1rem",
-              }}
-            >
-              <IconButton>
-                <FaPhoneAlt style={{ color: "#005c71" }} />
-              </IconButton>
-              <Typography variant="body1">{phone}</Typography>
-            </Box>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                marginBottom: "1rem",
-              }}
-            >
-              <IconButton>
-                <FaHome style={{ color: "#005c71" }} />
-              </IconButton>
-              <Typography variant="body1">{address}</Typography>
-            </Box>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "start",
-                marginBottom: "1rem",
-              }}
-            >
-              <IconButton>
-                <FaEnvelope style={{ color: "#005c71" }} />
-              </IconButton>
-              <Typography variant="body1">{email}</Typography>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
+      </Container>
 
-      <Container
-        sx={{ width: "100%", padding: "0!important", marginTop: "2rem" }}
-      >
+      <Container>
         <iframe
-          style={{ width: "100%", height: "60vh" }}
+          style={{
+            width: "100%",
+            height: "60vh",
+            boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+            borderRadius: "1rem",
+          }}
           frameBorder="0"
           scrolling="no"
           marginHeight="0"

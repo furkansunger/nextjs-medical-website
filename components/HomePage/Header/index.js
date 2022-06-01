@@ -34,7 +34,6 @@ const data = [
 ];
 
 export default function Header({hero}) {
-  // const {image, title, step_description} = hero;
 
   const [selected, setSelected] = useState(1);
 
@@ -87,13 +86,13 @@ export default function Header({hero}) {
 
   return (
     <Box sx={{ minHeight: "100vh", position: "relative" }}>
-      {data.length && (
+      {hero && (
         <Slider
           {...carouselContentSettings}
           asNavFor={carouselThumbnail}
           ref={carouselRef1}
         >
-          {data.map((item, index) => (
+          {hero.map((item, index) => (
             <ContentItem
               key={item.id}
               content={item}
@@ -115,13 +114,13 @@ export default function Header({hero}) {
           right: { xs: 20, lg: "6%", xl: "10%" },
         }}
       >
-        {data.length && (
+        {hero && (
           <Slider
             {...carouselThumbnailSettings}
             asNavFor={carouselContent}
             ref={carouselRef2}
           >
-            {data.map((item, index) => (
+            {hero.map((item, index) => (
               <ThumbnailItem
                 key={item.id}
                 thumb={item}
@@ -136,8 +135,6 @@ export default function Header({hero}) {
 }
 
 function ContentItem({ content }) {
-  //   const theme = useTheme();
-  const { id, title, img, thumbTitle } = content;
 
   return (
     <Box
@@ -161,7 +158,7 @@ function ContentItem({ content }) {
         }}
       >
         <Typography variant="h2" sx={{ maxWidth: 480, fontSize: {sm: "3.75rem", xs: "2.5rem"} }}>
-          {title}
+          {content?.title}
         </Typography>
       </Stack>
 
@@ -192,8 +189,8 @@ function ContentItem({ content }) {
         ></Box>
         <Box
           component="img"
-          alt={thumbTitle}
-          src={img}
+          alt={content?.title}
+          src={content?.image?.url}
           sx={{
             height: "100vh",
             width: "100vw",
@@ -205,8 +202,6 @@ function ContentItem({ content }) {
 }
 
 function ThumbnailItem({ thumb, isSelected }) {
-  //   const theme = useTheme();
-  const { thumbTitle, img } = thumb;
 
   const bgBlur = {
     backdropFilter: `blur(8px)`,
@@ -238,10 +233,10 @@ function ThumbnailItem({ thumb, isSelected }) {
         }),
       }}
     >
-      <Avatar src={img} sx={{ width: 48, height: 48 }} />
+      <Avatar src={thumb?.image?.url} sx={{ width: 48, height: 48 }} />
       <Stack spacing={0.5}>
         <Typography variant="h6" line={1} sx={{ ...textStyle }}>
-          {thumbTitle}
+          {thumb?.step_description}
         </Typography>
       </Stack>
     </Stack>

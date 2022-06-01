@@ -34,15 +34,14 @@ const PortfolioGallery = ({
         <Grid
           container
           spacing={{ xs: 8, md: 3 }}
-          alignItems={{ md: "center" }}
+          // alignItems={{ md: "center" }}
           justifyContent={{ md: "space-between" }}
           flexDirection={{ md: "row-reverse" }}
           sx={{ marginBottom: { xs: "0px", sm: "-130px" } }}
         >
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} sx={{height: "100%", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "flex-start"}}>
             <Typography
               sx={{
-                color: "text.secondary",
                 textAlign: { xs: "center", sm: "start" },
               }}
               fontWeight={700}
@@ -54,7 +53,7 @@ const PortfolioGallery = ({
               {portfolio}
             </Typography>
             <Link href="/portfolio">
-              <Button sx={{ color: "#fff" }} variant="contained">
+              <Button sx={{ color: "#fff", backgroundColor: "#005C71" }} variant="contained">
                 Show All
               </Button>
             </Link>

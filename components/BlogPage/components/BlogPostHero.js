@@ -1,14 +1,9 @@
 import { Grid, Stack, Container, Typography, Box, alpha } from "@mui/material";
 import { fDate } from "../../../utils/formatTime";
-import SocialButtons from "../../UI/SocialButtons";
 
 import useTranslation from "next-translate/useTranslation";
 
 export default function BlogPostHero({ post }) {
-  //   const { frontmatter } = post;
-  //   const { title, duration, createdAt, heroImg, shareLinks } = frontmatter;
-  const duration = 15
-
   const { t } = useTranslation();
 
   return (
@@ -31,18 +26,16 @@ export default function BlogPostHero({ post }) {
               }}
             >
               <Typography variant="body2" sx={{ opacity: 0.72 }}>
-                {t("common:textDuration", { number: duration })}
+                {t("common:textDuration", { number: post?.estimated_time })}
               </Typography>
 
               <Typography variant="h2" component="h1">
-                Apply These 7 Secret Techniques To Improve Event
+                {post?.title}
               </Typography>
 
               <Typography variant="caption" sx={{ opacity: 0.72 }}>
-                {fDate("2020-03-16T05:35:07.322Z", "dd/MM/yyyy p")}
+                {fDate(post?.publishedAt, "dd/MM/yyyy p")}
               </Typography>
-
-              {/* <SocialButtons color="#005c71" /> */}
             </Stack>
           </Grid>
         </Grid>
@@ -66,7 +59,7 @@ export default function BlogPostHero({ post }) {
       <Box
         component="img"
         alt="hero"
-        src="https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg"
+        src={post?.thumbnail?.url}
         sx={{ position: "absolute", top: 0, left: 0, width: 1, height: 1 }}
       />
     </Box>

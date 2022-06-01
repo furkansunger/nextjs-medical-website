@@ -7,20 +7,14 @@ import {
   Typography,
   Box,
   Breadcrumbs,
-  Link,
 } from "@mui/material";
 
 import { GrFormNext } from "react-icons/gr";
 
-import {
-  BlogAuthorInfo,
-  BlogSidebar,
-  BlogPostHero,
-} from "../../components/BlogPage";
+import { BlogSidebar, BlogPostHero } from "../../components/BlogPage";
 
 import { useRouter } from "next/router";
 
-import SocialButtons from "../../components/UI/SocialButtons";
 import MainLayout from "../../components/Layout";
 
 import NextLink from "next/link";
@@ -29,18 +23,9 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { getMultipleData } from "../../services/fetchers/publicData";
 
-const TAGS = [
-  { label: "Marketing", path: "#" },
-  { label: "Development", path: "#" },
-  { label: "Banking", path: "#" },
-  { label: "Community", path: "#" },
-  { label: "Tutorials", path: "#" },
-];
+import snarkdown from "snarkdown";
 
-export default function BlogDetail({ post, posts }) {
-  //   const { frontmatter, content } = post;
-  //   const { title, description, author, shareLinks, tags } = frontmatter;
-
+export default function BlogDetail({ post, blogs }) {
   const { t } = useTranslation();
 
   const router = useRouter();
@@ -52,11 +37,11 @@ export default function BlogDetail({ post, posts }) {
   return (
     <>
       <Head>
-        <title>Blog Detail | Dr. Aykut Gok</title>
+        <title>{post?.title} | Dr. Aykut Gok</title>
       </Head>
       <Box>
         <Box sx={{ padding: "6rem 0" }}>
-          <BlogPostHero /> {/* post={post} */}
+          <BlogPostHero post={post} />
           <Container>
             <Breadcrumbs
               aria-label="breadcrumb"
@@ -69,7 +54,7 @@ export default function BlogDetail({ post, posts }) {
               <NextLink underline="hover" color="inherit" href="/blog/">
                 {t("common:textBlog")}
               </NextLink>
-              <Typography color="text.primary">Blog Title</Typography>
+              <Typography color="text.primary">{post?.title}</Typography>
             </Breadcrumbs>
           </Container>
           <Divider
@@ -80,70 +65,12 @@ export default function BlogDetail({ post, posts }) {
           <Container>
             <Grid container spacing={{ md: 8 }}>
               <Grid item xs={12} md={8}>
-                <Box sx={{ mb: 5 }}>
-                  <Typography variant="h6">
-                    Pellentesque posuere. Phasellus a est. Suspendisse pulvinar,
-                    augue ac venenatis condimentum, sem libero volutpat nibh,
-                    nec pellentesque velit pede quis nunc.
-                  </Typography>{" "}
-                  <br />
-                  <Typography variant="body1">
-                    Pellentesque posuere. Phasellus a est. Suspendisse pulvinar,
-                    augue ac venenatis condimentum, sem libero volutpat nibh,
-                    nec pellentesque velit pede quis nunc. Phasellus viverra
-                    nulla ut metus varius laoreet. Praesent egestas tristique
-                    nibh. Donec posuere vulputate arcu. Quisque rutrum.
-                  </Typography>{" "}
-                  <br />
-                  <Typography variant="body2">
-                    Donec posuere vulputate arcu. Quisque rutrum. Curabitur
-                    vestibulum aliquam leo. Nam commodo suscipit quam.
-                    Vestibulum ullamcorper mauris at ligula.
-                  </Typography>{" "}
-                  <br />
-                  <Typography variant="body1">
-                    Pellentesque posuere. Phasellus a est. Suspendisse pulvinar,
-                    augue ac venenatis condimentum, sem libero volutpat nibh,
-                    nec pellentesque velit pede quis nunc. Phasellus viverra
-                    nulla ut metus varius laoreet. Praesent egestas tristique
-                    nibh.
-                  </Typography>{" "}
-                  <br />
-                  <Box
-                    component="img"
-                    style={{ width: "100%", borderRadius: "0.75rem" }}
-                    src="https://zone-assets-api.vercel.app/assets/images/travel/travel_8.jpg"
-                    alt="blog-img"
-                  />{" "}
-                  <br /> <br />
-                  <Typography variant="h3">H3 Title</Typography>
-                  <Typography variant="body1">
-                    Donec posuere vulputate arcu. Quisque rutrum. Curabitur
-                    vestibulum aliquam leo. Nam commodo suscipit quam.
-                    Vestibulum ullamcorper mauris at ligula.
-                  </Typography>{" "}
-                  <br />
-                  <Typography variant="h4">H4 Title</Typography>
-                  <Typography variant="body1">
-                    Donec posuere vulputate arcu. Quisque rutrum. Curabitur
-                    vestibulum aliquam leo. Nam commodo suscipit quam.
-                    Vestibulum ullamcorper mauris at ligula.
-                  </Typography>{" "}
-                  <br />
-                  <Box
-                    component="img"
-                    style={{ width: "100%", borderRadius: "0.75rem" }}
-                    src="https://zone-assets-api.vercel.app/assets/images/travel/travel_8.jpg"
-                    alt="blog-img"
-                  />{" "}
-                  <br /> <br />
-                  <Typography variant="h5">H5 Title</Typography>
-                  <Typography variant="">
-                    Donec posuere vulputate arcu. Quisque rutrum. Curabitur
-                    vestibulum aliquam leo. Nam commodo suscipit quam.
-                    Vestibulum ullamcorper mauris at ligula.
-                  </Typography>
-                </Box>
+                <Box
+                  sx={{ mb: 5 }}
+                  dangerouslySetInnerHTML={{
+                    __html: snarkdown(post?.content),
+                  }}
+                ></Box>
                 <Stack
                   direction="row"
                   alignItems="center"
@@ -153,30 +80,21 @@ export default function BlogDetail({ post, posts }) {
                   <Typography variant="subtitle2" sx={{ mr: 1 }}>
                     {t("common:textTags")}:
                   </Typography>
-                  {TAGS.map((tag) => (
-                    <Chip
-                      key={tag.label}
-                      size="small"
-                      label={tag.label}
-                      sx={{ m: 0.5 }}
-                      onClick={() => {
-                        onClick(tag.path);
-                      }}
-                    />
-                  ))}
+                  {post
+                    ? post.tags?.map((item, index) => (
+                        <Chip
+                          key={index}
+                          size="small"
+                          label={item.tag}
+                          sx={{ m: 0.5 }}
+                        />
+                      ))
+                    : null}
                 </Stack>
-                <Stack direction="row" alignItems="center" flexWrap="wrap">
-                  <Typography variant="subtitle2" sx={{ mr: 1 }}>
-                    {t("common:textShare")}:
-                  </Typography>
-                  <SocialButtons />
-                </Stack>
-                {/* <Divider sx={{ mt: 8 }} /> */}
-                {/* <BlogAuthorInfo /> author={author} */}
               </Grid>
 
               <Grid item xs={12} md={4}>
-                <BlogSidebar />
+                <BlogSidebar blogs={blogs} />
               </Grid>
             </Grid>
           </Container>
@@ -188,17 +106,34 @@ export default function BlogDetail({ post, posts }) {
 
 BlogDetail.Layout = MainLayout;
 
-// export const getStaticPaths = async () => {
-//   const posts = (await getMultipleData("blogs", "fields=slug")).map(
-//     ({ slug }) => {
-//       return {
-//         params: { slug: slug },
-//       };
-//     }
-//   );
+export const getStaticPaths = async () => {
+  const posts = (await getMultipleData("blogs", "fields=slug")).map(
+    ({ slug }) => {
+      return {
+        params: { slug },
+      };
+    }
+  );
 
-//   return {
-//     paths: posts,
-//     fallback: false,
-//   };
-// };
+  return {
+    paths: posts,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async (ctx) => {
+  const post = (
+    await getMultipleData(
+      "blogs",
+      "",
+      "populate=tags,thumbnail",
+      `&filters[slug][$eq]=${ctx.params.slug}`
+    )
+  )[0];
+
+  const blogs = await getMultipleData("blogs", "", "populate=thumbnail,tags");
+
+  return {
+    props: { post, blogs },
+  };
+};

@@ -12,13 +12,12 @@ import {
 import HeaderForm from "../components/HomePage/Header/components/HeaderForm";
 import { Box, Container } from "@mui/material";
 import ScrollTopButton from "../components/HomePage/ScrollTopButton";
-
+import qs from "qs";
 import Head from "next/head";
 
 import { getMultipleData } from "../services/fetchers/publicData";
 
 function Home({ home, info }) {
-
   const {
     about_me_section,
     get_started,
@@ -41,14 +40,14 @@ function Home({ home, info }) {
       <Container
         sx={{
           position: "relative",
-          margin: { sm: "6rem auto", xs: "20rem auto" },
+          margin: { sm: "10rem auto", xs: "20rem auto" },
           zIndex: "88",
         }}
       >
         <Box
           sx={{
             position: "absolute",
-            top: { sm: "-12rem", xs: "-27rem" },
+            top: { sm: "-16rem", xs: "-27rem" },
             right: { sm: "0", xs: "0" },
             left: { sm: "0", xs: "0" },
             margin: "0 auto",
@@ -85,11 +84,27 @@ Home.Layout = MainLayout;
 export default Home;
 
 export const getStaticProps = async (ctx) => {
-  const home = await getMultipleData(
-    "main-page",
-    "",
-    "populate=main_page_hero,portfolio_gallery_1,portfolio_gallery_2,portfolio_gallery_3,portfolio_gallery_4,populer_aesthetic_item,get_started"
+  const populate = qs.stringify(
+    {
+      populate: {
+        main_page_hero: {
+          populate: "*",
+        },
+        get_started: {
+          populate: "*",
+        },
+        portfolio_gallery_1: "*",
+        portfolio_gallery_2: "*",
+        portfolio_gallery_3: "*",
+        portfolio_gallery_4: "*",
+        populer_aesthetic_item: {
+          populate: "*",
+        },
+      },
+    },
+    { encodeValuesOnly: true }
   );
+  const home = await getMultipleData("main-page", "", populate);
 
   const info = await getMultipleData("contact-us", "", "populate=social_media");
 

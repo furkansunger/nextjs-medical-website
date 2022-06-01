@@ -53,12 +53,10 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
         <Grid
           container
           spacing={{ xs: 8, md: 3 }}
-          alignItems={{ md: "center" }}
           justifyContent={{ md: "space-between" }}
         >
           <Grid item xs={12} md={4}>
             <Typography
-              sx={{ color: "text.secondary" }}
               fontWeight={700}
               variant="h3"
             >
@@ -85,21 +83,6 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
                     </Box>
                   ))
                 : null}
-              {/* 
-              {LINES.map((line) => (
-                <Box key={line}>
-                  <Typography
-                    sx={{ display: "flex", alignItems: "center" }}
-                    variant="body1"
-                  >
-                    {" "}
-                    <GoPrimitiveDot
-                      style={{ color: "red", marginRight: "20px" }}
-                    />{" "}
-                    {line}
-                  </Typography>
-                </Box>
-              ))} */}
             </Stack>
           </Grid>
 

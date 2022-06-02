@@ -7,25 +7,98 @@ import {
   InputBase,
   IconButton,
   Snackbar,
+  Menu,
+  MenuItem,
+  TextField,
+  Button,
+  Card,
+  Stack,
 } from "@mui/material";
 // import theme from "../theme";
 import { styled } from "@mui/material/styles";
 // import SendIcon from "@mui/icons-material/Send";
 import LoadingButton from "@mui/lab/LoadingButton";
 
-import useTranslation from 'next-translate/useTranslation'
+import useTranslation from "next-translate/useTranslation";
+
+import { countries } from "../countries";
 
 export default function QuestionForm() {
-  
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [inputData, setInputData] = useState({
-    fullname: "",
-    email: "",
-    message: "",
+  // const [inputData, setInputData] = useState({
+  //   fullname: "",
+  //   email: "",
+  //   message: "",
+  // });
+
+  const [info, setInfo] = useState({
+    phonenumber: {
+      value: "",
+      error: false,
+      helperText: "Wrong Phone number format",
+    },
+    fullname: {
+      value: "",
+      error: false,
+      helperText: "Full name should include letters only",
+    },
+    question: {
+      value: "",
+      error: false,
+      helperText: "Can't be empty",
+    },
+    email: {
+      value: "",
+      error: false,
+      helperText: "Invalid Email Address",
+    },
   });
+  const [countryCode, setCountryCode] = useState(
+    `+(${countries[
+      countries.findIndex((item) => item.phone === "44")
+    ].phone.substring(0)}) `
+  );
+
+  const [disabledBtn, setDisabledBtn] = useState(false);
+  const [isEmpty, setisEmpty] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleChange = (e) => {
+    let regex;
+    switch (e.target.name) {
+      case "phonenumber":
+        regex = /^[0-9]{6,13}$/g;
+        break;
+      case "fullname":
+        regex = /^[A-z]{2,15}$/g;
+        break;
+      case "email":
+        regex =
+          /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+        break;
+    }
+    const error = Boolean(!e.target.value.match(regex));
+    const isEmpty = Object.values(info).forEach((el) => {
+      if (!el.value) return true;
+      return false;
+    });
+    setisEmpty(isEmpty);
+    setDisabledBtn(error);
+    setInfo((prev) => {
+      const target = prev[e.target.name];
+      return {
+        ...prev,
+        [e.target.name]: {
+          ...target,
+          value: e.target.value,
+          error: error,
+        },
+      };
+    });
+  };
 
   // ====== just For Test  =======
   useEffect(() => {
@@ -46,9 +119,9 @@ export default function QuestionForm() {
   const handleCloseSnackbar = (event, reason) => {
     setOpenSnackbar(false);
   };
-  const handleChange = (e) => {
-    setInputData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  // const handleChange = (e) => {
+  //   setInputData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  // };
 
   const action = (
     <>
@@ -64,154 +137,162 @@ export default function QuestionForm() {
   );
 
   return (
-    <Box
-      className="centerXY"
+    <Card
       sx={{
-        minWidth: { md: "270px", xs: "85%" },
-        background: "#005c71",
-        // background:
-        //     "#a08275",
-        borderRadius: "40px",
-        padding: "40px  30px 10px 30px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: "20px",
-        position: {
-          md: "relative",
-        },
-        mt: {
-          md: "none",
-          xs: 5,
-        },
-        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+        borderRadius: "1rem",
+        boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px"
       }}
     >
-      <Typography
-        variant="h5"
-        component="h5"
-        fontWeight="bold"
-        color="#fff"
-        textAlign="center"
-      >
-        {t("common:textSendQuestion")}
-      </Typography>
-      <InputBox
-        name="fullname"
-        onChange={handleChange}
-        value={inputData.fullname}
-        lable={t("common:inputName")}
-        required
-      />
-      <InputBox
-        name="email"
-        onChange={handleChange}
-        value={inputData.email}
-        lable={t("common:inputEmail")}
-        required
-      />
-      <InputBox
-        name="message"
-        onChange={handleChange}
-        value={inputData.message}
-        lable={t("common:inputMessage")}
-        required
-        multiline
-        rows={7}
-      />
-      <LoadingButton
-        onClick={handleSubmit}
-        // endIcon={<SendIcon />}
-        loading={loading}
-        loadingPosition="end"
-        variant="contained"
-        sx={{
-          display: "flex",
-          margin: "auto",
-          position: "relative",
-          bottom: "-30px",
-          fontSize: "1.3em",
-          color: "#fff",
-          width: "80%",
-          // maxWidth: "200px",
-          borderRadius: "30px",
-          boxShadow: "none",
-          "&.Mui-disabled": {
-            color: "#fff",
-            backgroundColor: "rgba(196, 196, 196, 0.98) !important",
-            paddingX: "30px",
-          },
-        }}
-      >
-        {t("common:buttonSubmit")}
-      </LoadingButton>
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-        message="message sent successfully"
-        action={action}
-      />
-      {/* <TextField
-        color="success"
-        required
-        label="Full Name"
-        variant="standard"
-        fullWidth
-        // sx={{
-        //   input: { color: "#fff" } ,
-        // }}
-      /> */}
+      <Stack spacing={3} sx={{ p: 3 }}>
+        <Typography
+          variant="h4"
+          fontWeight="medium"
+          sx={{ color: "#005c71" }}
+        >
+          {t("common:textGetInTouch")}
+        </Typography>
 
-      {/* <TextField required label="Email" variant="standard" fullWidth />
-      <TextField required label="Your Message" multiline rows={4} /> */}
-    </Box>
+        <Box
+          component="form"
+          sx={{
+            width: "100%",
+            marginTop: "1rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+
+        >
+          <TextField
+            color="primary"
+            variant="standard"
+            required
+            label={t("common:inputName")}
+            name="fullname"
+            type="text"
+            autoComplete="name"
+            error={info.fullname.error}
+            helperText={info.fullname.error ? info.fullname.helperText : ""}
+            sx={{
+              width: "100%",
+              marginBottom: "0.75rem",
+            }}
+
+          />
+
+
+          <TextField
+            color="primary"
+            variant="standard"
+            required
+            label={t("common:inputEmail")}
+            name="email"
+            type="email"
+            autoComplete="email"
+            onChange={handleChange}
+            error={info.email.error}
+            helperText={info.email.error ? info.email.helperText : ""}
+            sx={{
+              width: "100%",
+              marginBottom: "0.75rem",
+            }}
+          />
+
+
+          <TextField
+            required
+            variant="standard"
+            type="phone"
+            label={t("common:inputPhone")}
+            name="phonenumber"
+            onChange={handleChange}
+            error={info.phonenumber.error}
+            helperText={info.phonenumber.error ? info.phonenumber.helperText : ""}
+            sx={{
+              width: "100%",
+              marginBottom: "0.75rem",
+            }}
+
+            InputProps={{
+              startAdornment: (
+                <>
+                  <Button onClick={(e) => setAnchorEl(e.currentTarget)}>
+                    {countryCode}
+                  </Button>
+                  <Menu
+                    PaperProps={{
+                      style: { maxHeight: 35 * 4.5, width: "300px" },
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    keepMounted
+                    onClose={() => setAnchorEl(null)}
+                  >
+                    {countries.map((country) => {
+                      return (
+                        <MenuItem
+                          key={country.code}
+                          onClick={() => {
+                            setCountryCode(`+(${country.phone.substring(0)}) `);
+                            setAnchorEl(null);
+                          }}
+                        >
+                          <Box
+                            component="img"
+                            loading="lazy"
+                            style={{ marginRight: "10px" }}
+                            width="20"
+                            src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
+                            srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
+                            alt=""
+                          />
+                          {country.label} ({country.code}) +{country.phone}
+                        </MenuItem>
+                      );
+                    })}
+                  </Menu>
+                </>
+              ),
+            }}
+          />
+          <TextField
+            required
+            label={t("common:inputQuestion")}
+            name="message"
+            multiline
+            rows={4}
+            variant="standard"
+            onChange={handleChange}
+            error={info.question.error}
+            helperText={info.question.error ? info.question.helperText : ""}
+            sx={{
+              width: "100%",
+              marginBottom: "1rem",
+            }}
+          // error
+          // defaultValue="John Doe"
+          // helperText="Incorrect entry."
+          />
+
+          <Button
+            fullWidth
+            type="submit"
+            variant="contained"
+            disabled={disabledBtn || isEmpty}
+            sx={{
+              background: "#00adb5",
+              color: "#fff",
+              marginTop: "0.5rem",
+              "&:hover": {
+                background: "#00adb5",
+              }
+            }}
+          >
+            {t("common:buttonSubmit")}
+          </Button>
+        </Box>
+      </Stack>
+    </Card>
   );
 }
-
-const TextInput = styled(InputBase)(({ theme }) => ({
-  "label + &": {
-    marginTop: theme.spacing(4),
-  },
-  "& .MuiInputBase-input": {
-    borderRadius: "20px",
-    position: "relative",
-    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
-    border: "1px solid #ced4da",
-    fontSize: 16,
-    width: "100%",
-    padding: "10px 12px",
-    transition: theme.transitions.create([
-      "border-color",
-      "background-color",
-      "box-shadow",
-    ]),
-    // "&:focus": {
-    //   borderColor: theme.palette.third.dark,
-    // },
-  },
-}));
-const InputBox = ({ lable, multiline, required, rows, onChange, name }) => {
-  return (
-    <FormControl variant="standard" sx={{ width: "95%" }}>
-      <InputLabel
-        sx={{
-          color: "rgb(255 255 255 / 80%)",
-          fontSize: "1.3em",
-          "&.Mui-focused": { color: "#fff" },
-        }}
-        shrink
-        htmlFor="bootstrap-input"
-      >
-        {lable && lable}
-      </InputLabel>
-      <TextInput
-        name={name}
-        onChange={onChange}
-        required
-        multiline={multiline === true}
-        rows={rows && rows}
-      />
-    </FormControl>
-  );
-};

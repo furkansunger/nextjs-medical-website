@@ -38,9 +38,9 @@ const LINES = [
 ];
 
 const RootStyle = styled("div")(({ theme }) => ({
-  padding: theme.spacing(8, 0),
+  padding: theme.spacing(8, 8),
   [theme.breakpoints.up("md")]: {
-    padding: theme.spacing(10, 0),
+    padding: theme.spacing(10, 10),
   },
 }));
 
@@ -48,7 +48,7 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
   const { t } = useTranslation();
 
   return (
-    <RootStyle>
+    <Box sx={{padding: {sm: "4rem", xs: "1rem"}}}>
       <Container>
         <Grid
           container
@@ -148,7 +148,7 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
           </Grid>
         </Grid>
       </Container>
-    </RootStyle>
+    </Box>
   );
 };
 

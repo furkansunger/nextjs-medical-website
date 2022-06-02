@@ -99,7 +99,7 @@ const posts = [
 const BlogFeaturedPosts = ({blogs}) => {
 
   return (
-    <Box sx={{ padding: "10rem 0" }}>
+    <Box sx={{ padding: "10rem 0 5rem 0" }}>
       <Container>
         <Box
           sx={{

@@ -41,7 +41,7 @@ export default function FaqBody({ faqs }) {
     <Grid
       alignItems="flex-start"
       container
-      px={{ md: 10, xs: 5 }}
+      px={{ md: 5, xs: 2 }}
       rowSpacing={4}
       mb="35vh"
     >

@@ -15,6 +15,7 @@ import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import MainLayout from "../components/Layout";
 import useTranslation from "next-translate/useTranslation";
+import PortfolioHeader from "../components/HomePage/About/PortfolioHeader";
 
 // import Categories from './Categories';
 
@@ -140,81 +141,85 @@ const Portfolio = () => {
   };
 
   return (
-    <Box sx={{ padding: { sm: "4rem", xs: "1rem" } }}>
-      <Container>
-        <Typography
-          marginTop="150px"
-          textAlign="center"
-          fontWeight={700}
-          variant="h3"
-        >
-          {t("common:textPortfolio")}
-        </Typography>
-
-        <Box
+    <>
+      <PortfolioHeader cover="https://aykutplastic.s3.eu-central-1.amazonaws.com/About_Header_3f13de1023.jpg" />
+      <Box
+        sx={{
+          padding: { sm: "4rem 0", xs: "1rem 0" },
+        }}
+      >
+        <Container
           sx={{
-            borderColor: "divider",
-            marginTop: "30px",
-            display: "flex",
-            justifyContent: "center",
-            padding: { xs: "0px 10px 0px 10px", sm: "0px" },
+            marginTop: { sm: "-9rem", xs: "-5rem" },
+            borderRadius: "1rem",
+            backgroundColor: "#fff",
+            padding: "2rem 0",
           }}
         >
-          <Tabs
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="scrollable auto tabs example"
-            value={value}
-            onChange={handleChange}
+          <Box
+            sx={{
+              borderColor: "divider",
+              display: "flex",
+              justifyContent: "center",
+              padding: { xs: "0px 10px 0px 10px", sm: "0px" },
+            }}
           >
-            <Tab onClick={() => setData(Categories)} label="All" />
-            <Tab
-              onClick={() => filterResult("Breast Augmentation")}
-              label="Breast Augmentation"
-            />
-            <Tab
-              onClick={() => filterResult("Facial Aesthetic")}
-              label="Facial Aesthetic"
-            />
-            <Tab
-              onClick={() => filterResult("Hair Restoration")}
-              label="Hair Restoration"
-            />
-            <Tab
-              onClick={() => filterResult("Body Contouring Surgery")}
-              label="Body Contouring Surgery"
-            />
-            <Tab
-              onClick={() => filterResult("Nonsurgical")}
-              label="Nonsurgical"
-            />
-            <Tab onClick={() => filterResult("Dental")} label="Dental" />
-          </Tabs>
-        </Box>
-
-        <Grid container>
-          {data.map((item, index) => (
-            <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
-              <Box
-                component="img"
-                width="100%"
-                height="100%"
-                src={item.img}
-                alt={item.title}
-                ratio="1/1"
-                style={{ borderRadius: "15px", filter: "grayScale(50%)" }}
+            <Tabs
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
+              value={value}
+              onChange={handleChange}
+            >
+              <Tab onClick={() => setData(Categories)} label="All" />
+              <Tab
+                onClick={() => filterResult("Breast Augmentation")}
+                label="Breast Augmentation"
               />
+              <Tab
+                onClick={() => filterResult("Facial Aesthetic")}
+                label="Facial Aesthetic"
+              />
+              <Tab
+                onClick={() => filterResult("Hair Restoration")}
+                label="Hair Restoration"
+              />
+              <Tab
+                onClick={() => filterResult("Body Contouring Surgery")}
+                label="Body Contouring Surgery"
+              />
+              <Tab
+                onClick={() => filterResult("Nonsurgical")}
+                label="Nonsurgical"
+              />
+              <Tab onClick={() => filterResult("Dental")} label="Dental" />
+            </Tabs>
+          </Box>
 
-              <Stack spacing={1} sx={{ p: 2.5 }}>
-                <Typography variant="body1" sx={{ color: "#0009" }}>
-                  {item.category}
-                </Typography>
-              </Stack>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
+          <Grid container>
+            {data.map((item, index) => (
+              <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
+                <Box
+                  component="img"
+                  width="100%"
+                  height="100%"
+                  src={item.img}
+                  alt={item.title}
+                  ratio="1/1"
+                  style={{ borderRadius: "15px", filter: "grayScale(50%)" }}
+                />
+
+                <Stack spacing={1} sx={{ p: 2.5 }}>
+                  <Typography variant="body1" sx={{ color: "#0009" }}>
+                    {item.category}
+                  </Typography>
+                </Stack>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </>
   );
 };
 

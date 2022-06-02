@@ -41,7 +41,7 @@ const AboutUs = ({ about, contact }) => {
                 width: "100%",
                 height: "520px",
               }}
-              src={link}
+              src={`https://www.youtube.com/embed/${link.split("=")[1]}`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

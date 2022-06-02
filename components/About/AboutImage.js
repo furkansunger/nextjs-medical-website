@@ -1,9 +1,5 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-// import profil from "../../assets/images/header-bg.jpg";
-import { HiOutlineMail } from "react-icons/hi";
-import { AiOutlinePhone } from "react-icons/ai";
-// import { motion } from "framer-motion";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
@@ -44,8 +40,6 @@ const AboutImage = ({ hero, career, generalInfo, contact }) => {
   };
 
   const { t } = useTranslation();
-
-  const { phone, email } = contact;
 
   return (
     <Box>
@@ -97,26 +91,6 @@ const AboutImage = ({ hero, career, generalInfo, contact }) => {
                 >
                   {t("common:doctorTitle")}
                 </Typography>
-              </Box>
-              <Box>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <HiOutlineMail style={{ color: "#00adb5" }} />
-                  <Typography
-                    sx={{ fontSize: { xs: "14px", sm: "17px", md: "21px" } }}
-                    ml={1}
-                  >
-                    {email}
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <AiOutlinePhone style={{ color: "#00adb5" }} />
-                  <Typography
-                    sx={{ fontSize: { xs: "14px", sm: "17px", md: "21px" } }}
-                    ml={1}
-                  >
-                    {phone}
-                  </Typography>
-                </Box>
               </Box>
             </Box>
             {/* <Grid xs={12}> */}

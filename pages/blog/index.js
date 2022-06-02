@@ -21,7 +21,7 @@ const Blog = ({blogs}) => {
       <Head>
         <title>{t("common:textBlog")} | Dr. Aykut Gok</title>
       </Head>
-      <Box sx={{paddingBottom: "6rem"}}>
+      <Box sx={{paddingBottom: {sm: "6rem", xs: "0"}}}>
         <BlogFeaturedPosts blogs={blogs} />
 
         <Container>
@@ -29,7 +29,7 @@ const Blog = ({blogs}) => {
             <Grid item xs={12} md={8}>
               <BlogPostLists blogs={blogs} />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{marginTop: {sm: "0", xs: "3rem"}}}>
               <BlogSidebar blogs={blogs} />
             </Grid>
           </Grid>

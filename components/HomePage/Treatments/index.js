@@ -5,25 +5,27 @@ import { styled } from "@mui/material/styles";
 
 import useTranslation from "next-translate/useTranslation";
 
+import Image from 'next/image'
+
 const dummyData = [
   {
     id: 1,
-    img: "assets/blue_480x480.png",
+    img: "/assets/blue_480x480.png",
     title: "title1",
   },
   {
     id: 2,
-    img: "assets/gray_360x480.png",
+    img: "/assets/gray_360x480.png",
     title: "title2",
   },
   {
     id: 3,
-    img: "assets/gray_360x480.png",
+    img: "/assets/gray_360x480.png",
     title: "title3",
   },
   {
     id: 4,
-    img: "assets/blue_480x480.png",
+    img: "/assets/blue_480x480.png",
     title: "title4",
   },
 ];
@@ -114,6 +116,9 @@ const Treatments = ({ treatmentsDesc, treatmentsItems }) => {
                       justifyContent: "center",
                     }}
                   >
+                    {/* <Box className="imageCover" sx={{position: "relative", width: "100%", height: "100%"}}>
+                      <Image src={item.img} alt={item.title} layout="fill" />
+                    </Box> */}
                     <Box
                       component="img"
                       style={{

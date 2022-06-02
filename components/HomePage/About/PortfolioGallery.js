@@ -2,7 +2,9 @@ import { Grid, Container, Typography, Stack, Box, Button } from "@mui/material";
 import React from "react";
 import { styled } from "@mui/material/styles";
 import useTranslation from "next-translate/useTranslation";
+
 import Link from "next/link";
+import Image from 'next/image'
 
 const RootStyle = styled("div")(({ theme }) => ({
   padding: theme.spacing(8, 0),
@@ -87,6 +89,9 @@ const PortfolioGallery = ({
                       justifyContent: "center",
                     }}
                   >
+                    {/* <Box className="imageCover" sx={{position: "relative", width: "100%", height: "100%"}}>
+                      <Image src={item} alt="contact-img" layout="fill" />
+                    </Box> */}
                     <Box
                       component="img"
                       sx={{

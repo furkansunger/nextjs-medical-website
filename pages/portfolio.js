@@ -11,126 +11,24 @@ import {
 import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import { AiOutlineArrowUp } from "react-icons/ai";
-import { AiOutlineArrowDown } from "react-icons/ai";
 import MainLayout from "../components/Layout";
 import useTranslation from "next-translate/useTranslation";
 import PortfolioHeader from "../components/HomePage/About/PortfolioHeader";
 
-// import Categories from './Categories';
+import { getMultipleData } from "../services/fetchers/publicData";
 
-const Categories = [
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Body Contouring Surgery",
-    category: "Body Contouring Surgery",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Facial Aesthetic",
-    category: "Facial Aesthetic",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Facial Aesthetic",
-    category: "Facial Aesthetic",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Body Contouring Surgery",
-    category: "Body Contouring Surgery",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Facial Aesthetic",
-    category: "Facial Aesthetic",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Breast Augmentation",
-    category: "Breast Augmentation",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Hair Restoration",
-    category: "Hair Restoration",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Breast Augmentation",
-    category: "Breast Augmentation",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Breast Augmentation",
-    category: "Breast Augmentation",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Body Contouring Surgery",
-    category: "Body Contouring Surgery",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Dental",
-    category: "Dental",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Hair Restoration",
-    category: "Hair Restoration",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Nonsurgical",
-    category: "Nonsurgical",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Dental",
-    category: "Dental",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Nonsurgical",
-    category: "Nonsurgical",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Hair Restoration",
-    category: "Hair Restoration",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Dental",
-    category: "Dental",
-  },
-  {
-    img: "/assets/blue_480x480.png",
-    title: "Nonsurgical",
-    category: "Nonsurgical",
-  },
-];
+import Head from "next/head";
+import NextImage from "../components/UI/NextImage";
 
-// export default Categories;
+const Portfolio = ({ portfolio }) => {
+  const { t, lang } = useTranslation();
 
-const Label = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(0.5),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  borderBottomLeftRadius: 0,
-  borderBottomRightRadius: 0,
-}));
-
-const Portfolio = () => {
-  const { t } = useTranslation();
-
-  const [data, setData] = useState(Categories);
+  const [data, setData] = useState(portfolio);
 
   const filterResult = (catItem) => {
-    const result = Categories.filter((item) => item.category === catItem);
+    const result = portfolio.filter(
+      (item) => item.category === catItem.toLowerCase().replaceAll(" ", "_")
+    );
     setData(result);
   };
 
@@ -142,6 +40,9 @@ const Portfolio = () => {
 
   return (
     <>
+      <Head>
+        <title>{t("common:textPortfolio")} | Dr. Aykut Gok</title>
+      </Head>
       <PortfolioHeader cover="https://aykutplastic.s3.eu-central-1.amazonaws.com/About_Header_3f13de1023.jpg" />
       <Box
         sx={{
@@ -171,7 +72,7 @@ const Portfolio = () => {
               value={value}
               onChange={handleChange}
             >
-              <Tab onClick={() => setData(Categories)} label="All" />
+              <Tab onClick={() => setData(portfolio)} label="All" />
               <Tab
                 onClick={() => filterResult("Breast Augmentation")}
                 label="Breast Augmentation"
@@ -197,25 +98,27 @@ const Portfolio = () => {
           </Box>
 
           <Grid container>
-            {data.map((item, index) => (
-              <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
-                <Box
-                  component="img"
-                  width="100%"
-                  height="100%"
-                  src={item.img}
-                  alt={item.title}
-                  ratio="1/1"
-                  style={{ borderRadius: "15px", filter: "grayScale(50%)" }}
-                />
+            {data &&
+              data.map((item, index) => (
+                <Grid key={index} padding={5} item xs={12} sm={6} md={4}>
+                  <NextImage
+                    src={item.image?.url}
+                    alt={item.title}
+                    objectFit="cover"
+                    height="16rem"
+                    imageStyle={{
+                      borderRadius: "1rem",
+                      filter: "grayScale(50%)",
+                    }}
+                  />
 
-                <Stack spacing={1} sx={{ p: 2.5 }}>
-                  <Typography variant="body1" sx={{ color: "#0009" }}>
-                    {item.category}
-                  </Typography>
-                </Stack>
-              </Grid>
-            ))}
+                  <Stack spacing={1} sx={{ p: 2.5 }}>
+                    <Typography variant="body1" sx={{ color: "#0009" }}>
+                      {item.title}
+                    </Typography>
+                  </Stack>
+                </Grid>
+              ))}
           </Grid>
         </Container>
       </Box>
@@ -226,3 +129,22 @@ const Portfolio = () => {
 Portfolio.Layout = MainLayout;
 
 export default Portfolio;
+
+export const getStaticProps = async (ctx) => {
+  const portfolio = await getMultipleData("portfolios", "", "populate=*");
+
+  const localePortfolio = await getMultipleData(
+    "portfolios",
+    "",
+    "populate=*",
+    "&locale=tr"
+  );
+
+  return {
+    props: {
+      portfolio,
+      localePortfolio,
+    },
+    revalidate: 1,
+  };
+};

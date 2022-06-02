@@ -16,8 +16,6 @@ const DotStyle = styled("span")(() => ({
 }));
 
 export default function BlogPostItem({ post }) {
-  // const { title, estimated_time, publishedAt, thumbnail } =
-  //   post;
 
   const { t } = useTranslation();
 
@@ -59,20 +57,12 @@ export default function BlogPostItem({ post }) {
           </Typography>
         </Stack>
 
-        <NextLink passHref as={`/blog/blogdetail`} href={`/blog/blogdetail`}>
+        <NextLink passHref as={`/blog/${post?.slug}`} href={`/blog/${post?.slug}`}>
           <Typography aslink style={{ ...textStyle, cursor: "pointer" }} variant="h5">
             {post?.title}
           </Typography>
         </NextLink>
       </Stack>
-
-      {/* <Stack direction="row" alignItems="center" sx={{ typography: "body2" }}>
-        <Avatar
-          src={author.authorImg}
-          sx={{ mr: 1 }}
-        />
-        {author.name}
-      </Stack> */}
     </Stack>
   );
 }

@@ -143,7 +143,7 @@ function BlogPostItemMobile({ post }) {
       />
 
       <Stack spacing={0.5}>
-        <NextLink passHref as={`/blog/blogdetail`} href={`/blog/blogdetail`}>
+        <NextLink passHref as={`/blog/${post?.slug}`} href={`/blog/${post?.slug}`}>
           <Link
             variant={"subtitle2"}
             aslink

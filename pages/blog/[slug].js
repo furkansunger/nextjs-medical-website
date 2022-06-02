@@ -66,7 +66,7 @@ export default function BlogDetail({ post, blogs }) {
             <Grid container spacing={{ md: 8 }}>
               <Grid item xs={12} md={8}>
                 <Box
-                  sx={{ mb: 5 }}
+                  sx={{ mb: 5,"& img":{maxWidth: "100%"} }}
                   dangerouslySetInnerHTML={{
                     __html: snarkdown(post?.content),
                   }}

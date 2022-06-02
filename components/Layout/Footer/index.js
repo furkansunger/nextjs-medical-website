@@ -13,18 +13,17 @@ import { FaCalendarAlt } from "react-icons/fa";
 import NextLink from "next/link";
 
 import useTranslation from "next-translate/useTranslation";
+import { getMultipleData } from "../../../services/fetchers/publicData";
 
-// import Link from 'next/link'
-
-const Footer = () => {
+const Footer = ({ services }) => {
+  console.log(services)
   const { t } = useTranslation();
 
   return (
     <>
       <Box
         sx={{
-          width: { sm: "calc(100% - 0rem)", xs: "calc(100% - 0rem)" },
-
+          width: "100%",
           borderTop: "8px solid cadetblue",
           background: "rgba(0, 0, 0, 0.7)",
           margin: "0!important",
@@ -42,14 +41,19 @@ const Footer = () => {
         >
           <Grid item xs={12} sm={6} md={3}>
             <Typography
-              sx={{ textAlign: { xs: "center", sm: "start" } }}
+              sx={{ textAlign: { xs: "start", sm: "start" } }}
               fontWeight={700}
               variant="h5"
             >
               {t("common:textContact")}
             </Typography>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: { sm: "flex-start", xs: "flex-start" },
+                marginTop: "15px",
+              }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <AiOutlinePhone />
@@ -59,7 +63,12 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: { sm: "flex-start", xs: "flex-start" },
+                marginTop: "15px",
+              }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <MdOutlineMail />
@@ -69,7 +78,12 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: { sm: "flex-start", xs: "flex-start" },
+                marginTop: "15px",
+              }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <AiOutlinePhone />
@@ -79,7 +93,12 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: { sm: "flex-start", xs: "flex-start" },
+                marginTop: "15px",
+              }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <FaCalendarAlt />
@@ -92,20 +111,13 @@ const Footer = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography
-              sx={{ textAlign: { xs: "center", sm: "start" } }}
+              sx={{ textAlign: { xs: "start", sm: "start" } }}
               fontWeight={700}
               variant="h5"
             >
               {t("common:textFooterInfo")}
             </Typography>
-            <Box sx={{ textAlign: { xs: "center", sm: "start" } }}>
-              <NextLink style={{ textDecoration: "none" }} href="/about">
-                <Typography
-                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
-                >
-                  {t("common:textAbout")}
-                </Typography>
-              </NextLink>
+            <Box sx={{ textAlign: { xs: "start", sm: "start" } }}>
               <NextLink style={{ textDecoration: "none" }} href="/">
                 <Typography
                   sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
@@ -113,25 +125,11 @@ const Footer = () => {
                   {t("common:textHome")}
                 </Typography>
               </NextLink>
-              <NextLink style={{ textDecoration: "none" }} href="/faq">
+              <NextLink style={{ textDecoration: "none" }} href="/about">
                 <Typography
                   sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
                 >
-                  {t("common:textFAQ")}
-                </Typography>
-              </NextLink>
-              <NextLink style={{ textDecoration: "none" }} href="/contact">
-                <Typography
-                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
-                >
-                  {t("common:textContact")}
-                </Typography>
-              </NextLink>
-              <NextLink style={{ textDecoration: "none" }} href="/blog">
-                <Typography
-                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
-                >
-                  {t("common:textBlog")}
+                  {t("common:textAbout")}
                 </Typography>
               </NextLink>
               <NextLink style={{ textDecoration: "none" }} href="/services">
@@ -141,18 +139,73 @@ const Footer = () => {
                   {t("common:textServices")}
                 </Typography>
               </NextLink>
+              <NextLink style={{ textDecoration: "none" }} href="/portfolio">
+                <Typography
+                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
+                >
+                  {t("common:textPortfolio")}
+                </Typography>
+              </NextLink>
+              <NextLink style={{ textDecoration: "none" }} href="/form">
+                <Typography
+                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
+                >
+                  {t("common:textMultiForm")}
+                </Typography>
+              </NextLink>
+              <NextLink style={{ textDecoration: "none" }} href="/faq">
+                <Typography
+                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
+                >
+                  {t("common:textFAQ")}
+                </Typography>
+              </NextLink>
+              <NextLink style={{ textDecoration: "none" }} href="/blog">
+                <Typography
+                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
+                >
+                  {t("common:textBlog")}
+                </Typography>
+              </NextLink>
+              <NextLink style={{ textDecoration: "none" }} href="/contact">
+                <Typography
+                  sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
+                >
+                  {t("common:textContact")}
+                </Typography>
+              </NextLink>
             </Box>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography
-              sx={{ textAlign: { xs: "center", sm: "start" } }}
+              sx={{ textAlign: { xs: "start", sm: "start" } }}
               fontWeight={700}
               variant="h5"
             >
               {t("common:textFooterProcedures")}
             </Typography>
-            <Box sx={{ textAlign: { xs: "center", sm: "start" } }}>
-              <NextLink style={{ textDecoration: "none" }} href="/services">
+            <Box sx={{ textAlign: { xs: "start", sm: "start" } }}>
+              {services &&
+                services.map((item, index) => (
+                  <NextLink
+                    key={index}
+                    style={{ textDecoration: "none" }}
+                    href={`/services/${item.title
+                      .toLowerCase()
+                      .replace(/\s/g, "-")}`}
+                  >
+                    <Typography
+                      sx={{
+                        marginTop: "15px",
+                        color: "#fff",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </NextLink>
+                ))}
+              {/* <NextLink style={{ textDecoration: "none" }} href="/services">
                 <Typography
                   sx={{ marginTop: "15px", color: "#fff", cursor: "pointer" }}
                 >
@@ -193,12 +246,12 @@ const Footer = () => {
                 >
                   Breast Augmentation
                 </Typography>
-              </NextLink>
+              </NextLink> */}
             </Box>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography
-              sx={{ textAlign: { xs: "center", sm: "start" } }}
+              sx={{ textAlign: { xs: "start", sm: "start" } }}
               fontWeight={700}
               variant="h5"
             >
@@ -209,7 +262,7 @@ const Footer = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: {xs: "center", sm: "start"},
+                alignItems: { xs: "flex-start ", sm: "start" },
                 // marginLeft: { xs: "30px", sm: "0px" },
               }}
             >
@@ -310,17 +363,12 @@ const Footer = () => {
           sx={{ backgroundColor: "white", width: "100% ", marginTop: "25px" }}
         />
         <Box
-          // my={3}
-          // marginTop="10px"
-          // rowGap={2}
           display="flex"
           flexDirection="column"
           alignItems="center"
           sx={{ padding: "2rem 0" }}
         >
-          <Typography color="white">
-            Copyright © 2022 Aykut Gok 
-          </Typography>
+          <Typography color="white">Copyright © 2022 Aykut Gok</Typography>
         </Box>
       </Box>
     </>
@@ -328,3 +376,14 @@ const Footer = () => {
 };
 
 export default Footer;
+
+export const getStaticProps = async (ctx) => {
+  const services = await getMultipleData("services", "", "populate=*");
+
+  return {
+    props: {
+      services,
+    },
+    revalidate: 1,
+  };
+};

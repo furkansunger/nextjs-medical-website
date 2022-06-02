@@ -21,7 +21,7 @@ import NextLink from "next/link";
 
 import { getMultipleData } from "../../services/fetchers/publicData";
 
-export default function ServiceDetail({service}) {
+export default function ServiceDetail({ service }) {
   const { t } = useTranslation();
 
   return (
@@ -63,13 +63,13 @@ export default function ServiceDetail({service}) {
 ServiceDetail.Layout = MainLayout;
 
 export const getStaticPaths = async () => {
-  const services = (await getMultipleData("services", "fields=title")).map(
-    ({ title }) => {
-      return {
-        params: title.toLowerCase().split(" ").join("-"),
-      };
-    }
-  );
+  const services = await getMultipleData("services", "fields=title");
+  const subservices = await getMultipleData("subservices", "fields=title");
+  services.concat(subservices).map(({ title }) => {
+    return {
+      params: { slug: title.toLowerCase().replace(/\s/g, "-") },
+    };
+  });
 
   return {
     paths: services,
@@ -78,16 +78,18 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (ctx) => {
-  const service = (
-    await getMultipleData(
-      "services",
-      "",
-      "populate=*",
-      `&filters[id][$eq]=${ctx.params.title.toLowerCase().split(" ").join("-")}`
-    )
-  )[0];
+  const services = await getMultipleData("services", "", "populate=*");
+
+  const subservices = await getMultipleData("subservices", "", "populate=*");
+
+  const service = services
+    .concat(subservices)
+    .find(
+      (el) => el.title.toLowerCase().replace(/\s/g, "-") === ctx.params.slug
+    );
 
   return {
     props: { service },
+    revalidate: 1,
   };
 };

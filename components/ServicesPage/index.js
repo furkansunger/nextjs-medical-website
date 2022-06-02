@@ -11,11 +11,14 @@ import {
 import React from "react";
 
 import NextLink from "next/link";
+import Image from "next/image";
 
 import { BsDot } from "react-icons/bs";
 
 import useTranslation from "next-translate/useTranslation";
 import ServicesHero from "./components/ServicesHero";
+
+import NextImage from "../UI/NextImage";
 
 const ServicesPage = ({ services }) => {
   const { t } = useTranslation();
@@ -57,23 +60,19 @@ const ServicesPage = ({ services }) => {
                         textDecoration: "none",
                       }}
                     >
-                      <Typography variant="h5" sx={{ cursor: "pointer" }}>
+                      <Typography
+                        variant="h5"
+                        sx={{ cursor: "pointer", marginBottom: "1rem" }}
+                      >
                         {item.title}
                       </Typography>
                     </NextLink>
-                    <Box
-                      component="img"
-                      sx={{
-                        width: "100%",
-                        maxHeight: "20rem",
-                        height: "20rem",
-                        objectFit: "cover",
-                        borderRadius: "1rem",
-                        border: "1px solid #0003",
-                        margin: "1rem 0",
-                      }}
+                    <NextImage
                       src={item.thumbnail?.url}
                       alt="service-img"
+                      objectFit="cover"
+                      height="20rem"
+                      imageStyle={{ borderRadius: "1rem" }}
                     />
                     <List sx={{ width: "100%" }}>
                       {item.subservices &&

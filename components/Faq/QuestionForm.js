@@ -145,11 +145,11 @@ export default function QuestionForm() {
     >
       <Stack spacing={3} sx={{ p: 3 }}>
         <Typography
-          variant="h4"
+          variant="h5"
           fontWeight="medium"
           sx={{ color: "#005c71" }}
         >
-          {t("common:textGetInTouch")}
+          {t("common:textSendQuestion")}
         </Typography>
 
         <Box

@@ -20,6 +20,8 @@ import { countries } from "../countries";
 
 import useTranslation from "next-translate/useTranslation";
 
+import Image from 'next/image'
+
 // const FormSchema = Yup.object().shape({
 //   fullName: Yup.string().required("Full name is required"),
 //   email: Yup.string()
@@ -117,12 +119,9 @@ const ContactForm = () => {
               display: { xs: "none", md: "block" },
             }}
           >
-            <Box
-              component="img"
-              alt="contact"
-              src="https://zone-assets-api.vercel.app/assets/illustrations/illustration_courses_contact.svg"
-              style={{ maxWidth: 260 }}
-            />
+            <Box className="imageCover" sx={{position: "relative", width: "100%", height: "100%"}}>
+              <Image src="/assets/contact.svg" alt="contact-img" layout="fill" />
+            </Box>
           </Grid>
 
           <Grid item xs={12} md={6} lg={6}>

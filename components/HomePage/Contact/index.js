@@ -275,7 +275,7 @@ const Contact = ({ contactInfo }) => {
               component="img"
               src="/assets/contact-img.svg"
               alt="contact-img"
-              sx={{ width: {xs: "100%", sm: "80%"} }}
+              sx={{ width: {xs: "100%", sm: "80%"}, display: {sm: "block", xs: "none"} }}
             />
           </Grid>
         </Grid>

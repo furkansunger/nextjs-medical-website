@@ -93,11 +93,11 @@ const Navbar = () => {
           onClick={() => handleMenu()}
           sx={{
             position: "absolute",
-            top: "35px",
-            right: "65px",
+            top: "30px",
+            right: "55px",
           }}
         >
-          <MdCancel />
+          <MdCancel style={{ fontSize: "2rem" }} />
         </IconButton>
         <Box
           component="img"
@@ -106,7 +106,7 @@ const Navbar = () => {
           sx={{
             position: "absolute",
             top: "37px",
-            left: "65px",
+            left: "55px",
             width: "150px",
             height: "34px",
           }}
@@ -175,6 +175,27 @@ const Navbar = () => {
             >
               <Typography sx={{ fontSize: "1.5rem!important" }}>
                 {t("common:textServices")}
+              </Typography>
+            </Link>
+          </NextLink>
+          <NextLink href="/portfolio">
+            <Link
+              onClick={() => setIsOpen(!isOpen)}
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: "#000",
+                borderRadius: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textDecoration: "none",
+                fontSize: "1.5rem!important",
+                cursor: "pointer",
+              }}
+            >
+              <Typography sx={{ fontSize: "1.5rem!important" }}>
+                {t("common:textPortfolio")}
               </Typography>
             </Link>
           </NextLink>

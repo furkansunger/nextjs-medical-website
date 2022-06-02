@@ -118,3 +118,17 @@ a {
 
 
 /* SWIPER */
+
+
+
+/* IMAGE COVER */
+
+/* .imageCover::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: url("http://placehold.jp/480x480.png");
+  width: "100%!important";
+  height: "100%";
+  z-index: 999;
+} */

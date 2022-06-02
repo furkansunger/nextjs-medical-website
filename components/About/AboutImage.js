@@ -4,6 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 import useTranslation from "next-translate/useTranslation";
+import NextImage from "../UI/NextImage";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,16 +57,17 @@ const AboutImage = ({ hero, career, generalInfo, contact }) => {
         <Grid sx={{ padding: "25px" }} container>
           <Grid item xs={12} md={6}>
             <Box>
-              <Box
-                component="img"
+              <NextImage
                 src={hero && hero.url}
-                width="100%"
-                height="100%"
-                // style={{ objectFit: "contain" }}
+                objectFit="cover"
+                height="25rem"
+                imageStyle={{
+                  borderRadius: "0.5rem",
+                }}
               />
             </Box>
           </Grid>
-          <Grid sx={{ padding: { xs: "5px", md: "20px" } }} item xs={12} md={6}>
+          <Grid sx={{ padding: { xs: "5px", md: "20px" }, marginTop: {sm: "0", xs: "1rem"} }} item xs={12} md={6}>
             {/* <Box > */}
             <Box
               sx={{

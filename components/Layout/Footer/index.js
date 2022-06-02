@@ -49,7 +49,7 @@ const Footer = () => {
               {t("common:textContact")}
             </Typography>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <AiOutlinePhone />
@@ -59,7 +59,7 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <MdOutlineMail />
@@ -69,7 +69,7 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <AiOutlinePhone />
@@ -79,7 +79,7 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "15px" }}
+              sx={{ display: "flex", alignItems: "center", justifyContent: {sm: "flex-start", xs: "center"}, marginTop: "15px" }}
             >
               <Avatar sx={{ color: "#00ADB5" }}>
                 <FaCalendarAlt />
@@ -311,12 +311,12 @@ const Footer = () => {
         />
         <Box
           // my={3}
-          marginTop="10px"
-          rowGap={2}
+          // marginTop="10px"
+          // rowGap={2}
           display="flex"
           flexDirection="column"
           alignItems="center"
-          // sx={{ background: "rgba(0, 0, 0, 0.7)" }}
+          sx={{ padding: "2rem 0" }}
         >
           <Typography color="white">
             Copyright © 2022 Aykut Gok 

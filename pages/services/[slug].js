@@ -14,13 +14,15 @@ import ServiceForm from "../../components/ServicesPage/components/ServiceForm";
 import ServiceHeader from "../../components/ServicesPage/components/ServiceHeader";
 import ServiceGallery from "../../components/ServicesPage/components/ServiceGallery";
 
-import useTranslation from 'next-translate/useTranslation'
+import useTranslation from "next-translate/useTranslation";
 
 import Head from "next/head";
-import NextLink from "next/link"
+import NextLink from "next/link";
 
-export default function ServiceDetail() {
-  const { t } = useTranslation()
+import { getMultipleData } from "../../services/fetchers/publicData";
+
+export default function ServiceDetail({service}) {
+  const { t } = useTranslation();
 
   return (
     <>
@@ -34,22 +36,22 @@ export default function ServiceDetail() {
             separator={<GrFormNext fontSize="small" />}
           >
             <NextLink underline="hover" color="inherit" href="/">
-            {t("common:textHome")}
+              {t("common:textHome")}
             </NextLink>
             <NextLink underline="hover" color="inherit" href="/services/">
-            {t("common:textServices")}
+              {t("common:textServices")}
             </NextLink>
             <Typography color="text.primary">Service Title</Typography>
           </Breadcrumbs>
-          <ServiceGallery /> {/* gallery={tour.gallery} */}
+          <ServiceGallery />
           <Grid container spacing={4}>
             <Grid item lg={8} md={7} xs={12}>
-              <ServiceHeader /> {/* tour={tour} */}
+              <ServiceHeader />
               <Divider sx={{ borderStyle: "dashed", my: 5 }} />
-              <ServiceDetails /> {/* tour={tour} */}
+              <ServiceDetails />
             </Grid>
             <Grid item xs={12} md={5} lg={4} sx={{ position: "relative" }}>
-              <ServiceForm /> {/* tour={tour} */}
+              <ServiceForm />
             </Grid>
           </Grid>
         </Container>
@@ -59,3 +61,33 @@ export default function ServiceDetail() {
 }
 
 ServiceDetail.Layout = MainLayout;
+
+export const getStaticPaths = async () => {
+  const services = (await getMultipleData("services", "fields=title")).map(
+    ({ title }) => {
+      return {
+        params: title.toLowerCase().split(" ").join("-"),
+      };
+    }
+  );
+
+  return {
+    paths: services,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async (ctx) => {
+  const service = (
+    await getMultipleData(
+      "services",
+      "",
+      "populate=*",
+      `&filters[id][$eq]=${ctx.params.title.toLowerCase().split(" ").join("-")}`
+    )
+  )[0];
+
+  return {
+    props: { service },
+  };
+};
